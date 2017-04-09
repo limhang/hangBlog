@@ -11,7 +11,12 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
+
+  {% if theme.canvas_nest %}
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  {% endif %}
 
   {% include '_third-party/analytics/index.swig' %}
 
@@ -77,10 +82,6 @@
   {% include '_third-party/seo/baidu-push.swig' %}
   {% include '_third-party/mathjax.swig' %}
   {% include '_third-party/exturl.swig' %}
-
-{% if theme.canvas_nest %}
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-{% endif %}
 
 </body>
 </html>

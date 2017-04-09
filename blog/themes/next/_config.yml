@@ -291,7 +291,7 @@ baidu_analytics: 5d03bb1ad9d17d10ede55db86f335a2f
 # Disqus
 disqus:
   enable: true
-  shortname:
+  shortname: lmhang
   count: true
 
 # Hypercomments
@@ -471,7 +471,7 @@ use_motion: true
 fancybox: true
 
 # Canvas-nest
-canvas_nest: false
+canvas_nest: true
 
 # Script Vendors.
 # Set a CDN address for the vendor you want to customize.
@@ -522,7 +522,7 @@ vendors:
 
   # Internal version: 1.0.0
   # https://github.com/hustcc/canvas-nest.js
-  canvas_nest: true
+  canvas_nest: 
 
 
 
