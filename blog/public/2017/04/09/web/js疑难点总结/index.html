@@ -1,0 +1,982 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js疑难点总结">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/web/js疑难点总结/index.html">
+<meta property="og:site_name" content="航的小站">
+<meta property="og:description" content="缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结">
+<meta property="og:updated_time" content="2017-04-10T01:25:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js疑难点总结">
+<meta name="twitter:description" content="缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/09/web/js疑难点总结/"/>
+
+
+
+
+
+  <title> js疑难点总结 | 航的小站 </title>
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5d03bb1ad9d17d10ede55db86f335a2f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">航的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/09/web/js疑难点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李明航">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="航的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js疑难点总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-09T09:08:05+08:00">
+                2017-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/09/web/js疑难点总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/04/09/web/js疑难点总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结"><a href="#缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结" class="headerlink" title="缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结"></a>缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结</h1><a id="more"></a>
+<h1 id="一、js作用域"><a href="#一、js作用域" class="headerlink" title="一、js作用域"></a>一、js作用域</h1><h2 id="1-1、概览"><a href="#1-1、概览" class="headerlink" title="1-1、概览"></a>1-1、概览</h2><ul>
+<li>块级作用域 （es6才支持的）=&gt;{}，在大括号内的就是块级作用域</li>
+<li>函数作用域  =&gt;就是在函数的实现中的，变量</li>
+<li>全局作用域  =&gt;在外部声明的变量，如果声明变量的时候，不添加var关键字，则都是全局作用域</li>
+</ul>
+<p>本地作用域（函数作用域）的优先级高于全局作用域</p>
+<h2 id="1-2、常见认知误区"><a href="#1-2、常见认知误区" class="headerlink" title="1-2、常见认知误区"></a>1-2、常见认知误区</h2><h3 id="1-2-1、在es6之前，块级作用域的一个常见认知错误"><a href="#1-2-1、在es6之前，块级作用域的一个常见认知错误" class="headerlink" title="1-2-1、在es6之前，块级作用域的一个常见认知错误"></a>1-2-1、在es6之前，块级作用域的一个常见认知错误</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</div><div class="line">	<span class="built_in">console</span>.log (i); <span class="comment">// outputs 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;​</span></div><div class="line">&#125;;</div><div class="line">​</div><div class="line">​<span class="comment">// The variable i is a global variable and it is accessible in the following function with the last value it was assigned above ​</span></div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">aNumber</span> (<span class="params"></span>) </span>&#123;</div><div class="line"><span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div><div class="line">​</div><div class="line">​<span class="comment">// The variable i in the aNumber function below is the global variable i that was changed in the for loop above. Its last value was 11, set just before the for loop exited:​</span></div><div class="line">aNumber ();  <span class="comment">// 11​</span></div></pre></td></tr></table></figure>
+<p>​<br><strong>解释：</strong>在es6之前没有块级作用域这个概念，所以在块级作用域中声明的变量和赋值的变量，其实就是全局变量。</p>
+<h3 id="1-2-2、setTimeout中的函数在全局scope中执行"><a href="#1-2-2、setTimeout中的函数在全局scope中执行" class="headerlink" title="1-2-2、setTimeout中的函数在全局scope中执行"></a>1-2-2、setTimeout中的函数在全局scope中执行</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// The use of the "this" object inside the setTimeout function refers to the Window object, not to myObj​</span></div><div class="line">​</div><div class="line">​<span class="keyword">var</span> highValue = <span class="number">200</span>;</div><div class="line">​<span class="keyword">var</span> constantVal = <span class="number">2</span>;</div><div class="line">​<span class="keyword">var</span> myObj = &#123;</div><div class="line">	<span class="attr">highValue</span>: <span class="number">20</span>,</div><div class="line">	<span class="attr">constantVal</span>: <span class="number">5</span>,</div><div class="line">	<span class="attr">calculateIt</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> setTimeout (<span class="function"><span class="keyword">function</span>  (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.constantVal * <span class="keyword">this</span>.highValue);</div><div class="line">&#125;, <span class="number">2000</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">​</div><div class="line">​<span class="comment">// The "this" object in the setTimeout function used the global highValue and constantVal variables, because the reference to "this" in the setTimeout function refers to the global window object, not to the myObj object as we might expect.​</span></div><div class="line">​</div><div class="line">myObj.calculateIt(); <span class="comment">// 400​</span></div><div class="line">​<span class="comment">// This is an important point to remember.</span></div></pre></td></tr></table></figure>
+<h2 id="1-3、注意事项"><a href="#1-3、注意事项" class="headerlink" title="1-3、注意事项"></a>1-3、注意事项</h2><h3 id="1-3-1、不要过多的声明全局变量"><a href="#1-3-1、不要过多的声明全局变量" class="headerlink" title="1-3-1、不要过多的声明全局变量"></a>1-3-1、不要过多的声明全局变量</h3><p><strong>wrong way</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// These two variables are in the global scope and they shouldn't be here​</span></div><div class="line">​<span class="keyword">var</span> firstName, lastName;</div><div class="line">​</div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">fullName</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log (<span class="string">"Full Name: "</span> + firstName + <span class="string">" "</span> + lastName );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>right way</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Declare the variables inside the function where they are local variables​</span></div><div class="line">​</div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">fullName</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> firstName = <span class="string">"Michael"</span>, lastName = <span class="string">"Jackson"</span>;</div><div class="line">​</div><div class="line">	<span class="built_in">console</span>.log (<span class="string">"Full Name: "</span> + firstName + <span class="string">" "</span> + lastName );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-3-2、使用变量的时候，需要提前声明，虽然有声明提前的功能，但是建议不要这么做"><a href="#1-3-2、使用变量的时候，需要提前声明，虽然有声明提前的功能，但是建议不要这么做" class="headerlink" title="1-3-2、使用变量的时候，需要提前声明，虽然有声明提前的功能，但是建议不要这么做"></a>1-3-2、使用变量的时候，需要提前声明，虽然有声明提前的功能，但是建议不要这么做</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showName</span> (<span class="params"></span>) </span>&#123;</div><div class="line"><span class="built_in">console</span>.log (<span class="string">"First Name: "</span> + name);</div><div class="line">​<span class="keyword">var</span> name = <span class="string">"Ford"</span>;</div><div class="line"><span class="built_in">console</span>.log (<span class="string">"Last Name: "</span> + name);</div><div class="line">&#125;</div><div class="line">​</div><div class="line">showName (); </div><div class="line">​<span class="comment">// First Name: undefined​</span></div><div class="line">​<span class="comment">// Last Name: Ford​</span></div><div class="line">​</div><div class="line">​<span class="comment">// The reason undefined prints first is because the local variable name was hoisted to the top of the function​</span></div><div class="line">​<span class="comment">// Which means it is this local variable that get calls the first time.​</span></div><div class="line">​<span class="comment">// This is how the code is actually processed by the JavaScript engine:​</span></div><div class="line">​</div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">showName</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> name; <span class="comment">// name is hoisted (note that is undefined at this point, since the assignment happens below)​</span></div><div class="line"><span class="built_in">console</span>.log (<span class="string">"First Name: "</span> + name); <span class="comment">// First Name: undefined​</span></div><div class="line">​</div><div class="line">name = <span class="string">"Ford"</span>; <span class="comment">// name is assigned a value​</span></div><div class="line">​</div><div class="line">​<span class="comment">// now name is Ford​</span></div><div class="line"><span class="built_in">console</span>.log (<span class="string">"Last Name: "</span> + name); <span class="comment">// Last Name: Ford​</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/" target="_blank" rel="external">外文原稿</a></p>
+<h1 id="二、闭包"><a href="#二、闭包" class="headerlink" title="二、闭包"></a>二、闭包</h1><h2 id="2-1、闭包的基本概念"><a href="#2-1、闭包的基本概念" class="headerlink" title="2-1、闭包的基本概念"></a>2-1、闭包的基本概念</h2><p>闭包就是内部函数获取外部函数的变量（来自scope chain），闭包有3中scope chain，一种是自身的作用域，还有一种是外部函数的作用域，最后是全局的作用域。</p>
+<p>闭包（inner function）不仅可以获取外部函数（outer function）的变量还可以获取外部函数的参数。</p>
+<p>最简单的闭包如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showName</span> (<span class="params">firstName, lastName</span>) </span>&#123;</div><div class="line">​<span class="keyword">var</span> nameIntro = <span class="string">"Your name is "</span>;</div><div class="line">    <span class="comment">// this inner function has access to the outer function's variables, including the parameter​</span></div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">makeFullName</span> (<span class="params"></span>) </span>&#123;</div><div class="line">​    <span class="keyword">return</span> nameIntro + firstName + <span class="string">" "</span> + lastName;</div><div class="line">&#125;</div><div class="line">​<span class="keyword">return</span> makeFullName ();</div><div class="line">&#125;</div><div class="line">showName (<span class="string">"Michael"</span>, <span class="string">"Jackson"</span>); <span class="comment">// Your name is Michael Jackson</span></div></pre></td></tr></table></figure>
+<h2 id="2-2、闭包的规则和副作用"><a href="#2-2、闭包的规则和副作用" class="headerlink" title="2-2、闭包的规则和副作用"></a>2-2、闭包的规则和副作用</h2><h3 id="2-2-1、闭包可以获取外部函数的变量，即使外部函数调用完成（就是执行完成）后。"><a href="#2-2-1、闭包可以获取外部函数的变量，即使外部函数调用完成（就是执行完成）后。" class="headerlink" title="2-2-1、闭包可以获取外部函数的变量，即使外部函数调用完成（就是执行完成）后。"></a>2-2-1、闭包可以获取外部函数的变量，即使外部函数调用完成（就是执行完成）后。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">celebrityName</span> (<span class="params">firstName</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> nameIntro = <span class="string">"This celebrity is "</span>;</div><div class="line">    <span class="comment">// this inner function has access to the outer function's variables, including the parameter​</span></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">lastName</span> (<span class="params">theLastName</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> nameIntro + firstName + <span class="string">" "</span> + theLastName;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> lastName;</div><div class="line">&#125;</div><div class="line">​</div><div class="line">​<span class="keyword">var</span> mjName = celebrityName (<span class="string">"Michael"</span>); <span class="comment">// At this juncture, the celebrityName outer function has returned.​</span></div><div class="line">​</div><div class="line">​<span class="comment">// The closure (lastName) is called here after the outer function has returned above​</span></div><div class="line">​<span class="comment">// Yet, the closure still has access to the outer function's variables and parameter​</span></div><div class="line">mjName (<span class="string">"Jackson"</span>); <span class="comment">// This celebrity is Michael Jackson</span></div></pre></td></tr></table></figure>
+<h3 id="2-2-2、闭包获取的外部函数的变量值，会实时改变"><a href="#2-2-2、闭包获取的外部函数的变量值，会实时改变" class="headerlink" title="2-2-2、闭包获取的外部函数的变量值，会实时改变"></a>2-2-2、闭包获取的外部函数的变量值，会实时改变</h3><p>Closures store references to the outer function’s variables; they do not store the actual value.<br>Closures get more interesting when the value of the outer function’s variable changes before the closure is called. And this powerful feature can be harnessed in creative ways, such as this private variables example first demonstrated by Douglas Crockford:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">celebrityID</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> celebrityID = <span class="number">999</span>;</div><div class="line">    <span class="comment">// We are returning an object with some inner functions​</span></div><div class="line">    <span class="comment">// All the inner functions have access to the outer function's variables​</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">getID</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)  </span>&#123;</div><div class="line">            <span class="comment">// This inner function will return the UPDATED celebrityID variable​</span></div><div class="line">            <span class="comment">// It will return the current value of celebrityID, even after the changeTheID function changes it​</span></div><div class="line">          <span class="keyword">return</span> celebrityID;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">setID</span>: <span class="function"><span class="keyword">function</span> (<span class="params">theNewID</span>)  </span>&#123;</div><div class="line">            <span class="comment">// This inner function will change the outer function's variable anytime​</span></div><div class="line">            celebrityID = theNewID;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">​</div><div class="line">&#125;</div><div class="line">​</div><div class="line">​<span class="keyword">var</span> mjID = celebrityID (); <span class="comment">// At this juncture, the celebrityID outer function has returned.​</span></div><div class="line">mjID.getID(); <span class="comment">// 999​</span></div><div class="line">mjID.setID(<span class="number">567</span>); <span class="comment">// Changes the outer function's variable​</span></div><div class="line">mjID.getID(); <span class="comment">// 567: It returns the updated celebrityId variable</span></div></pre></td></tr></table></figure>
+<h3 id="2-2-3、最常见的循环导致闭包出的bug"><a href="#2-2-3、最常见的循环导致闭包出的bug" class="headerlink" title="2-2-3、最常见的循环导致闭包出的bug"></a>2-2-3、最常见的循环导致闭包出的bug</h3><p>需要结合2来看，因为闭包获取的外部函数的变量会实时改变</p>
+<p>这个例子需要仔细看，其实就是结合了例子1和例子2，最后形成的一个套路<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">celebrityIDCreator</span> (<span class="params">theCelebrities</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i;</div><div class="line">    <span class="keyword">var</span> uniqueID = <span class="number">100</span>;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; theCelebrities.length; i++) &#123;</div><div class="line">      theCelebrities[i][<span class="string">"id"</span>] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)  </span>&#123;</div><div class="line">        <span class="keyword">return</span> uniqueID + i;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> theCelebrities;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> actionCelebs = [&#123;<span class="attr">name</span>:<span class="string">"Stallone"</span>, <span class="attr">id</span>:<span class="number">0</span>&#125;, &#123;<span class="attr">name</span>:<span class="string">"Cruise"</span>, <span class="attr">id</span>:<span class="number">0</span>&#125;, &#123;<span class="attr">name</span>:<span class="string">"Willis"</span>, <span class="attr">id</span>:<span class="number">0</span>&#125;];</div><div class="line">​<span class="keyword">var</span> createIdForActionCelebs = celebrityIDCreator (actionCelebs);</div><div class="line">​<span class="keyword">var</span> stalloneID = createIdForActionCelebs[<span class="number">0</span>];</div><div class="line">​<span class="built_in">console</span>.log(stalloneID.id()); <span class="comment">// 103</span></div></pre></td></tr></table></figure></p>
+<p><strong>解决办法：</strong>核心就是使用立即执行函数，这样返回的就不是一个函数了，而是执行完成的结果<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">celebrityIDCreator</span> (<span class="params">theCelebrities</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i;</div><div class="line">    <span class="keyword">var</span> uniqueID = <span class="number">100</span>;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; theCelebrities.length; i++) &#123;</div><div class="line">        theCelebrities[i][<span class="string">"id"</span>] = <span class="function"><span class="keyword">function</span> (<span class="params">j</span>)  </span>&#123; <span class="comment">// the j parametric variable is the i passed in on invocation of this IIFE​</span></div><div class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> uniqueID + j; <span class="comment">// each iteration of the for loop passes the current value of i into this IIFE and it saves the correct value to the array​</span></div><div class="line">            &#125; () <span class="comment">// BY adding () at the end of this function, we are executing it immediately and returning just the value of uniqueID + j, instead of returning a function.​</span></div><div class="line">        &#125; (i); <span class="comment">// immediately invoke the function passing the i variable as a parameter​</span></div><div class="line">    &#125;</div><div class="line">​</div><div class="line">    <span class="keyword">return</span> theCelebrities;</div><div class="line">&#125;</div><div class="line">​</div><div class="line">​<span class="keyword">var</span> actionCelebs = [&#123;<span class="attr">name</span>:<span class="string">"Stallone"</span>, <span class="attr">id</span>:<span class="number">0</span>&#125;, &#123;<span class="attr">name</span>:<span class="string">"Cruise"</span>, <span class="attr">id</span>:<span class="number">0</span>&#125;, &#123;<span class="attr">name</span>:<span class="string">"Willis"</span>, <span class="attr">id</span>:<span class="number">0</span>&#125;];</div><div class="line">​</div><div class="line">​<span class="keyword">var</span> createIdForActionCelebs = celebrityIDCreator (actionCelebs);</div><div class="line">​</div><div class="line">​<span class="keyword">var</span> stalloneID = createIdForActionCelebs [<span class="number">0</span>];</div><div class="line"><span class="built_in">console</span>.log(stalloneID.id); <span class="comment">// 100​</span></div><div class="line">​<span class="keyword">var</span> cruiseID = createIdForActionCelebs [<span class="number">1</span>];</div><div class="line">​<span class="built_in">console</span>.log(cruiseID.id); <span class="comment">// 101</span></div></pre></td></tr></table></figure></p>
+<h1 id="三、回调函数"><a href="#三、回调函数" class="headerlink" title="三、回调函数"></a>三、回调函数</h1><h2 id="3-1、基本概念"><a href="#3-1、基本概念" class="headerlink" title="3-1、基本概念"></a>3-1、基本概念</h2><p>在javascript语法中，函数即使对象，就像String,Array,Number等其他对象一样。所以:</p>
+<p>function可以被赋值给变量，可以作为函数的参数进行传递，可以在函数内创建新的function，可以被函数作为返回值，这些情况其实就是回调函数。</p>
+<p>因为函数是first-class对象，我们可以将其作为参数传递给其他函数，然后在该函数内部执行传递进去的函数，也可以将其作为返回值，然后在执行该返回值函数。</p>
+<h2 id="3-2、常见的回调函数"><a href="#3-2、常见的回调函数" class="headerlink" title="3-2、常见的回调函数"></a>3-2、常见的回调函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> friends = [<span class="string">"Mike"</span>, <span class="string">"Stacy"</span>, <span class="string">"Andy"</span>, <span class="string">"Rick"</span>];</div><div class="line">​</div><div class="line">friends.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">eachName, index</span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(index + <span class="number">1</span> + <span class="string">". "</span> + eachName); <span class="comment">// 1. Mike, 2. Stacy, 3. Andy, 4. Rick​</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="3-3、实现回调函数的基本准则"><a href="#3-3、实现回调函数的基本准则" class="headerlink" title="3-3、实现回调函数的基本准则"></a>3-3、实现回调函数的基本准则</h2><h3 id="3-3-1、Use-Named-OR-Anonymous-Functions-as-Callbacks"><a href="#3-3-1、Use-Named-OR-Anonymous-Functions-as-Callbacks" class="headerlink" title="3-3-1、Use Named OR Anonymous Functions as Callbacks"></a>3-3-1、Use Named OR Anonymous Functions as Callbacks</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// global variable​</span></div><div class="line">​<span class="keyword">var</span> allUserData = [];</div><div class="line">​</div><div class="line">​<span class="comment">// generic logStuff function that prints to console​</span></div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">logStuff</span> (<span class="params">userData</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">typeof</span> userData === <span class="string">"string"</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">console</span>.log(userData);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="keyword">typeof</span> userData === <span class="string">"object"</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> userData) &#123;</div><div class="line">            <span class="built_in">console</span>.log(item + <span class="string">": "</span> + userData[item]);</div><div class="line">        &#125;</div><div class="line">​</div><div class="line">    &#125;</div><div class="line">​</div><div class="line">&#125;</div><div class="line">​</div><div class="line">​<span class="comment">// A function that takes two parameters, the last one a callback function​</span></div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">getInput</span> (<span class="params">options, callback</span>) </span>&#123;</div><div class="line">    allUserData.push (options);</div><div class="line">    callback (options);</div><div class="line">​</div><div class="line">&#125;</div><div class="line">​</div><div class="line">​<span class="comment">// When we call the getInput function, we pass logStuff as a parameter.​</span></div><div class="line">​<span class="comment">// So logStuff will be the function that will called back (or executed) inside the getInput function​</span></div><div class="line">getInput (&#123;<span class="attr">name</span>:<span class="string">"Rich"</span>, <span class="attr">speciality</span>:<span class="string">"JavaScript"</span>&#125;, logStuff);</div><div class="line">​<span class="comment">//  name: Rich​</span></div><div class="line">​<span class="comment">// speciality: JavaScript</span></div></pre></td></tr></table></figure>
+<h3 id="3-3-2、Make-Sure-Callback-is-a-Function-Before-Executing-It"><a href="#3-3-2、Make-Sure-Callback-is-a-Function-Before-Executing-It" class="headerlink" title="3-3-2、Make Sure Callback is a Function Before Executing It"></a>3-3-2、Make Sure Callback is a Function Before Executing It</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getInput</span>(<span class="params">options, callback</span>) </span>&#123;</div><div class="line">    allUserData.push(options);</div><div class="line">​</div><div class="line">    <span class="comment">// Make sure the callback is a function​</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> callback === <span class="string">"function"</span>) &#123;</div><div class="line">    <span class="comment">// Call it, since we have confirmed it is callable​</span></div><div class="line">        callback(options);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-3-3、Problem-When-Using-Methods-With-The-this-Object-as-Callbacks"><a href="#3-3-3、Problem-When-Using-Methods-With-The-this-Object-as-Callbacks" class="headerlink" title="3-3-3、Problem When Using Methods With The this Object as Callbacks"></a>3-3-3、Problem When Using Methods With The this Object as Callbacks</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Define an object with some properties and a method​</span></div><div class="line">​<span class="comment">// We will later pass the method as a callback function to another function​</span></div><div class="line">​<span class="keyword">var</span> clientData = &#123;</div><div class="line">    <span class="attr">id</span>: <span class="number">094545</span>,</div><div class="line">    <span class="attr">fullName</span>: <span class="string">"Not Set"</span>,</div><div class="line">    <span class="comment">// setUserName is a method on the clientData object​</span></div><div class="line">    setUserName: <span class="function"><span class="keyword">function</span> (<span class="params">firstName, lastName</span>)  </span>&#123;</div><div class="line">        <span class="comment">// this refers to the fullName property in this object​</span></div><div class="line">      <span class="keyword">this</span>.fullName = firstName + <span class="string">" "</span> + lastName;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">​</div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">getUserInput</span>(<span class="params">firstName, lastName, callback</span>)  </span>&#123;</div><div class="line">    <span class="comment">// Do other stuff to validate firstName/lastName here​</span></div><div class="line">​</div><div class="line">    <span class="comment">// Now save the names​</span></div><div class="line">    callback (firstName, lastName);</div><div class="line">&#125;</div><div class="line"></div><div class="line">getUserInput (<span class="string">"Barack"</span>, <span class="string">"Obama"</span>, clientData.setUserName);</div><div class="line">​</div><div class="line"><span class="built_in">console</span>.log (clientData.fullName);<span class="comment">// Not Set​</span></div><div class="line">​</div><div class="line">​<span class="comment">// The fullName property was initialized on the window object​</span></div><div class="line"><span class="built_in">console</span>.log (<span class="built_in">window</span>.fullName); <span class="comment">// Barack Obama</span></div></pre></td></tr></table></figure>
+<p><strong>Use the Call or Apply Function To Preserve this</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Note that we have added an extra parameter for the callback object, called "callbackObj"​</span></div><div class="line">​<span class="function"><span class="keyword">function</span> <span class="title">getUserInput</span>(<span class="params">firstName, lastName, callback, callbackObj</span>)  </span>&#123;</div><div class="line">    <span class="comment">// Do other stuff to validate name here​</span></div><div class="line">​</div><div class="line">    <span class="comment">// The use of the Apply function below will set the this object to be callbackObj​</span></div><div class="line">    callback.apply (callbackObj, [firstName, lastName]);</div><div class="line">&#125;</div><div class="line">	</div><div class="line"><span class="comment">// We pass the clientData.setUserName method and the clientData object as parameters. The clientData object will be used by the Apply function to set the this object​</span></div><div class="line">getUserInput (<span class="string">"Barack"</span>, <span class="string">"Obama"</span>, clientData.setUserName, clientData);</div><div class="line"><span class="comment">// the fullName property on the clientData was correctly set​</span></div><div class="line"><span class="built_in">console</span>.log (clientData.fullName); <span class="comment">// Barack Obama</span></div></pre></td></tr></table></figure>
+<p><a href="http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/" target="_blank" rel="external">译文参考</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/09/normalSkill/我所了解的git/" rel="next" title="我所了解的git">
+                <i class="fa fa-chevron-left"></i> 我所了解的git
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/09/web/es6语法特性总结/" rel="prev" title="es6语法特性总结">
+                es6语法特性总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="李明航" />
+          <p class="site-author-name" itemprop="name">李明航</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结"><span class="nav-number">1.</span> <span class="nav-text">缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、js作用域"><span class="nav-number">2.</span> <span class="nav-text">一、js作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1、概览"><span class="nav-number">2.1.</span> <span class="nav-text">1-1、概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2、常见认知误区"><span class="nav-number">2.2.</span> <span class="nav-text">1-2、常见认知误区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1、在es6之前，块级作用域的一个常见认知错误"><span class="nav-number">2.2.1.</span> <span class="nav-text">1-2-1、在es6之前，块级作用域的一个常见认知错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2、setTimeout中的函数在全局scope中执行"><span class="nav-number">2.2.2.</span> <span class="nav-text">1-2-2、setTimeout中的函数在全局scope中执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3、注意事项"><span class="nav-number">2.3.</span> <span class="nav-text">1-3、注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1、不要过多的声明全局变量"><span class="nav-number">2.3.1.</span> <span class="nav-text">1-3-1、不要过多的声明全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2、使用变量的时候，需要提前声明，虽然有声明提前的功能，但是建议不要这么做"><span class="nav-number">2.3.2.</span> <span class="nav-text">1-3-2、使用变量的时候，需要提前声明，虽然有声明提前的功能，但是建议不要这么做</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、闭包"><span class="nav-number">3.</span> <span class="nav-text">二、闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1、闭包的基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、闭包的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2、闭包的规则和副作用"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、闭包的规则和副作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1、闭包可以获取外部函数的变量，即使外部函数调用完成（就是执行完成）后。"><span class="nav-number">3.2.1.</span> <span class="nav-text">2-2-1、闭包可以获取外部函数的变量，即使外部函数调用完成（就是执行完成）后。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2、闭包获取的外部函数的变量值，会实时改变"><span class="nav-number">3.2.2.</span> <span class="nav-text">2-2-2、闭包获取的外部函数的变量值，会实时改变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3、最常见的循环导致闭包出的bug"><span class="nav-number">3.2.3.</span> <span class="nav-text">2-2-3、最常见的循环导致闭包出的bug</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、回调函数"><span class="nav-number">4.</span> <span class="nav-text">三、回调函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1、基本概念"><span class="nav-number">4.1.</span> <span class="nav-text">3-1、基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2、常见的回调函数"><span class="nav-number">4.2.</span> <span class="nav-text">3-2、常见的回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3、实现回调函数的基本准则"><span class="nav-number">4.3.</span> <span class="nav-text">3-3、实现回调函数的基本准则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1、Use-Named-OR-Anonymous-Functions-as-Callbacks"><span class="nav-number">4.3.1.</span> <span class="nav-text">3-3-1、Use Named OR Anonymous Functions as Callbacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2、Make-Sure-Callback-is-a-Function-Before-Executing-It"><span class="nav-number">4.3.2.</span> <span class="nav-text">3-3-2、Make Sure Callback is a Function Before Executing It</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3、Problem-When-Using-Methods-With-The-this-Object-as-Callbacks"><span class="nav-number">4.3.3.</span> <span class="nav-text">3-3-3、Problem When Using Methods With The this Object as Callbacks</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李明航</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://lmhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/04/09/web/js疑难点总结/';
+          this.page.identifier = '2017/04/09/web/js疑难点总结/';
+          this.page.title = 'js疑难点总结';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lmhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
