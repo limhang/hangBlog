@@ -39,8 +39,8 @@ seo: false
 menu:
   home: /
   categories: /categories
-  archives: /archives
   tags: /tags
+  archives: /archives
   about: /about
 
 # Enable/Disable menu icons.
