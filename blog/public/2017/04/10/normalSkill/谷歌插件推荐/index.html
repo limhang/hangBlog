@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="通用技术," />
 
 
 
@@ -87,20 +87,17 @@
 
 
 
-<meta name="description" content="缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念">
-<meta name="keywords" content="iOS">
+<meta name="description" content="缘由：我自己经常使用的谷歌插件，推荐推荐">
+<meta name="keywords" content="通用技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS类的本质">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/iOS/iOS类的本质/index.html">
+<meta property="og:title" content="谷歌插件推荐">
+<meta property="og:url" content="http://yoursite.com/2017/04/10/normalSkill/谷歌插件推荐/index.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念">
-<meta property="og:image" content="http://ok2nitkry.bkt.clouddn.com/class_object_ramManager0.png">
-<meta property="og:image" content="http://ok2nitkry.bkt.clouddn.com/class_object_ramManager1.png">
-<meta property="og:updated_time" content="2017-04-10T08:24:21.000Z">
+<meta property="og:description" content="缘由：我自己经常使用的谷歌插件，推荐推荐">
+<meta property="og:updated_time" content="2017-04-10T09:47:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS类的本质">
-<meta name="twitter:description" content="缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念">
-<meta name="twitter:image" content="http://ok2nitkry.bkt.clouddn.com/class_object_ramManager0.png">
+<meta name="twitter:title" content="谷歌插件推荐">
+<meta name="twitter:description" content="缘由：我自己经常使用的谷歌插件，推荐推荐">
 
 
 
@@ -128,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/iOS/iOS类的本质/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/10/normalSkill/谷歌插件推荐/"/>
 
 
 
 
 
-  <title> iOS类的本质 | 航的小站 </title>
+  <title> 谷歌插件推荐 | 航的小站 </title>
 </head>
 
 
@@ -320,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/iOS/iOS类的本质/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/normalSkill/谷歌插件推荐/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -341,7 +338,7 @@
             
             
               
-                iOS类的本质
+                谷歌插件推荐
               
             
           </h1>
@@ -356,7 +353,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T16:16:59+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T17:39:39+08:00">
                 2017-04-10
               </time>
             
@@ -379,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/高效工作/" itemprop="url" rel="index">
+                    <span itemprop="name">高效工作</span>
                   </a>
                 </span>
 
@@ -397,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/10/iOS/iOS类的本质/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/10/normalSkill/谷歌插件推荐/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/10/iOS/iOS类的本质/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/10/normalSkill/谷歌插件推荐/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,65 +422,33 @@
       
 
       
-        <h1 id="缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念"><a href="#缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念" class="headerlink" title="缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念"></a>缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念</h1><a id="more"></a>
-<h1 id="一、类的本质"><a href="#一、类的本质" class="headerlink" title="一、类的本质"></a>一、类的本质</h1><hr>
-<pre><code>类的本质其实也是一个对象(类对象)
-
-程序中第一次使用该类的时候被创建，在整个程序中只有一份。
-
-此后每次使用都是这个类对象，它在程序运行时一直存在。
-
-类对象是一种数据结构,存储类的基本信息:类大小,类名称,类的版本，继承层次，以及消息与函数的映射表等
-
-类对象代表类,Class类型,对象方法属于类对象
-
-如果消息的接收者是类名,则类名代表类对象
-
-所有类的实例都由类对象生成,类对象会把实例的isa的值修改成自己的地址,每个实例的isa都指向该实例的类对象
-</code></pre><hr>
-<h1 id="二、OC实例对象-类对象-元对象之间关系"><a href="#二、OC实例对象-类对象-元对象之间关系" class="headerlink" title="二、OC实例对象 类对象 元对象之间关系"></a>二、OC实例对象 类对象 元对象之间关系</h1><hr>
-<p>元类保存了类方法的列表。当一个类方法被调用时,元类会首先查找它本身是否有该类方法的实现,如果没有则该元类会向它的父类查找该方法,直到一直找到继承链的头。<br>元类(metaclass)也是一个对象,那么元类的isa指针又指向哪里呢?为了设计上的完整,所有的元类的isa指针都会指向一个根元类(root metaclass)。<br>根元类(root metaclass)本身的isa指针指向自己,这样就行成了一个闭环。上面说􏰀到,一个对象能够接收的消息列表是保存在它所对应的类中的。在实际编程中,我们几乎不会遇到向元类发消息的情况,那它的isa 指针在实际上很少用到。不过这么设计保证了面向对象的干净,即所有事物都是对象,都有isa指针。<br>由于类方法的定义是保存在元类(metaclass)中,而方法调用的规则是,如果该类没有一个方法的实现,则向它的父类继续查找。所以为了保证父类的类方法可以在子类中可以被调用,所以子类的元类会继承父类的元类,换而言之,类对象和元类对象有着同样的继承关系。</p>
-<hr>
-<h1 id="三、详细讲解：（GSPerson类）"><a href="#三、详细讲解：（GSPerson类）" class="headerlink" title="三、详细讲解：（GSPerson类）"></a>三、详细讲解：（GSPerson类）</h1><hr>
-<pre><code>1.程序启动后，系统会将所有类加载进内存-即代码区。
-
-2.当需要用到GSPerson类时，系统会先在堆中创建一个对象，俗称类对象。
-
-2.1.内部创建一个isa指针指向源类对象
-
-2.2系统会在类对象中包含该类的所有成员属性、对象方法
-
-2.3源类对象：
-
-    2.3.1内部创建一个isa指针指向根源类对象－NSObject
-
-    2.3.2系统会在类对象中包含该类对象方法
-
-     2.3.3根源类对象－NSObject
-
-         2.3.3.1内部创建一个isa指针指向自己本身
-
-3.[[GSPerson alloc] init]系统做了三件事：
-
-3.1.alloc:
-
-    3.1.1.内部创建一个isa指针指向类对象
-
-    3.1.2.在堆中分配一块存储空间
-
-    3.1.3.初步初始化，将成员变量初始化为零
-
-    3.1.4.返回对象
-
-3.2.init：对成员变量进行初始化
-
-3.3.返回对象
-</code></pre><hr>
-<h1 id="四、核心图解"><a href="#四、核心图解" class="headerlink" title="四、核心图解"></a>四、核心图解</h1><p>元类，对象，实例，根元类举例：</p>
-<p><img src="http://ok2nitkry.bkt.clouddn.com/class_object_ramManager0.png" alt="元类，对象，实例"></p>
-<p>实际应用情况举例：</p>
-<p><img src="http://ok2nitkry.bkt.clouddn.com/class_object_ramManager1.png" alt="实际情况举例"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.jianshu.com/p/0a1c4879a2e3" target="_blank" rel="external">简书上很好的讲解</a></p>
+        <h1 id="缘由：我自己经常使用的谷歌插件，推荐推荐"><a href="#缘由：我自己经常使用的谷歌插件，推荐推荐" class="headerlink" title="缘由：我自己经常使用的谷歌插件，推荐推荐"></a>缘由：我自己经常使用的谷歌插件，推荐推荐</h1><a id="more"></a>
+<h1 id="Vimium"><a href="#Vimium" class="headerlink" title="Vimium"></a>Vimium</h1><h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h2><p>Vimium 这个名字是 Vim 和 Chromium 的合体。Vim 是 Linux 等平台上的一款文本编辑器，它可以让你彻底脱离鼠标，通过一系列快捷键，来操作任何一件事情，也有很多人称之为编辑器之神。 Vimium 继承了 Vim 中的常用键位，让你在使用 Chrome 的过程中，无论是浏览网页、切换标签或是其它任何操作，全都可以只通过键盘完成。想像一下，你再也不需要移动鼠标去打开一个链接，手指不用离开键盘，一切都是这么流畅。</p>
+<h2 id="功效："><a href="#功效：" class="headerlink" title="功效："></a>功效：</h2><p>熟练使用后，可极大提升浏览器查阅的效率</p>
+<h2 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h2><h3 id="页面移动"><a href="#页面移动" class="headerlink" title="页面移动"></a>页面移动</h3><ul>
+<li>j：向下滚动一点</li>
+<li>k：向上滚动一点</li>
+<li>g：到页面最底部</li>
+<li>G：到页面最底部</li>
+<li>d：向下翻一屏</li>
+<li>u：向上翻一屏</li>
+</ul>
+<h3 id="打开新页面，关闭页面"><a href="#打开新页面，关闭页面" class="headerlink" title="打开新页面，关闭页面"></a>打开新页面，关闭页面</h3><p>cmd+t打开页面，cmd+w关闭页面</p>
+<h3 id="打开页面中的任意链接"><a href="#打开页面中的任意链接" class="headerlink" title="打开页面中的任意链接"></a>打开页面中的任意链接</h3><p>按f键，出现各个链接的字母标记，输入指定链接的字母标记，完成跳转</p>
+<h3 id="在不同便签页中切换"><a href="#在不同便签页中切换" class="headerlink" title="在不同便签页中切换"></a>在不同便签页中切换</h3><p>shift+j切换到左侧标签， shift+k切换到右侧标签</p>
+<h3 id="查找页面中文本"><a href="#查找页面中文本" class="headerlink" title="查找页面中文本"></a>查找页面中文本</h3><p>cmd+f输入查找内容</p>
+<h1 id="dreamAfar"><a href="#dreamAfar" class="headerlink" title="dreamAfar"></a>dreamAfar</h1><h2 id="介绍：-1"><a href="#介绍：-1" class="headerlink" title="介绍："></a>介绍：</h2><p>个人最喜欢一款谷歌插件，又名远方，每次打开一个新标签，该插件可从自定义的图库（网络）中随机抽取一张，呈现在你眼前，每张图片都很精美，让你从繁杂的工作中，看到世界的美好，让你对生活，多一份期待</p>
+<h2 id="功效：-1"><a href="#功效：-1" class="headerlink" title="功效："></a>功效：</h2><p>美化浏览器，提升生活–A new way to explore the world.</p>
+<h2 id="使用：-1"><a href="#使用：-1" class="headerlink" title="使用："></a>使用：</h2><p>谷歌应用商店下载，可自定义图片源，也支持下载图片</p>
+<h1 id="划词翻译"><a href="#划词翻译" class="headerlink" title="划词翻译"></a>划词翻译</h1><h2 id="介绍：-2"><a href="#介绍：-2" class="headerlink" title="介绍："></a>介绍：</h2><p>浏览外文网页的时候，遇到不懂的单词，怎么办？查找谷歌翻译，使用字典软件。。。太慢，太烦，可使用划词翻译插件，支持选择不同服务器解析外文单词，可选谷歌，百度，金山等</p>
+<h2 id="功效：-2"><a href="#功效：-2" class="headerlink" title="功效："></a>功效：</h2><p>在也不怕查看外文页面了。。</p>
+<h2 id="使用：-2"><a href="#使用：-2" class="headerlink" title="使用："></a>使用：</h2><p>设置解析源后，鼠标滑动，选中不懂得单词，或者句子，自动翻译</p>
+<h1 id="TextMode"><a href="#TextMode" class="headerlink" title="TextMode"></a>TextMode</h1><h2 id="介绍：-3"><a href="#介绍：-3" class="headerlink" title="介绍："></a>介绍：</h2><p>在工作中，查看网页，出现太多图片，被同事看到，不太好，有没有什么办法，可以只有文字，没有图片呢，，试试Text Mode</p>
+<h2 id="功效：-3"><a href="#功效：-3" class="headerlink" title="功效："></a>功效：</h2><p>上班看页面，只有文字，没图片，页面素雅</p>
+<h2 id="使用：-3"><a href="#使用：-3" class="headerlink" title="使用："></a>使用：</h2><p>谷歌应用商店下载，点击Text Mode图标，切换开关模式</p>
+<h1 id="Adguard广告拦截器"><a href="#Adguard广告拦截器" class="headerlink" title="Adguard广告拦截器"></a>Adguard广告拦截器</h1><h2 id="介绍：-4"><a href="#介绍：-4" class="headerlink" title="介绍："></a>介绍：</h2><p>屏蔽广告</p>
+<h2 id="功效：-4"><a href="#功效：-4" class="headerlink" title="功效："></a>功效：</h2><p>净化页面，屏蔽广告</p>
+<h2 id="使用：-4"><a href="#使用：-4" class="headerlink" title="使用："></a>使用：</h2><p>谷歌应用商店下载，打开使用</p>
 
       
     </div>
@@ -513,7 +478,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/通用技术/" rel="tag"># 通用技术</a>
           
         </div>
       
@@ -526,18 +491,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/iOS/xcode相关/" rel="next" title="xcode相关">
-                <i class="fa fa-chevron-left"></i> xcode相关
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/10/python开发环境配置/" rel="prev" title="python开发环境配置(window&mac)">
-                python开发环境配置(window&mac) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/10/iOS/compilerandruntimeanalysis/" rel="prev" title="compilerandruntimeanalysis">
+                compilerandruntimeanalysis <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -697,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念"><span class="nav-number">1.</span> <span class="nav-text">缘由：理解iOS中类和对象的关系，理顺oc这门语言的一些设计理念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、类的本质"><span class="nav-number">2.</span> <span class="nav-text">一、类的本质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、OC实例对象-类对象-元对象之间关系"><span class="nav-number">3.</span> <span class="nav-text">二、OC实例对象 类对象 元对象之间关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、详细讲解：（GSPerson类）"><span class="nav-number">4.</span> <span class="nav-text">三、详细讲解：（GSPerson类）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、核心图解"><span class="nav-number">5.</span> <span class="nav-text">四、核心图解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：我自己经常使用的谷歌插件，推荐推荐"><span class="nav-number">1.</span> <span class="nav-text">缘由：我自己经常使用的谷歌插件，推荐推荐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vimium"><span class="nav-number">2.</span> <span class="nav-text">Vimium</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍："><span class="nav-number">2.1.</span> <span class="nav-text">介绍：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功效："><span class="nav-number">2.2.</span> <span class="nav-text">功效：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用："><span class="nav-number">2.3.</span> <span class="nav-text">使用：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面移动"><span class="nav-number">2.3.1.</span> <span class="nav-text">页面移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开新页面，关闭页面"><span class="nav-number">2.3.2.</span> <span class="nav-text">打开新页面，关闭页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开页面中的任意链接"><span class="nav-number">2.3.3.</span> <span class="nav-text">打开页面中的任意链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在不同便签页中切换"><span class="nav-number">2.3.4.</span> <span class="nav-text">在不同便签页中切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找页面中文本"><span class="nav-number">2.3.5.</span> <span class="nav-text">查找页面中文本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dreamAfar"><span class="nav-number">3.</span> <span class="nav-text">dreamAfar</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍：-1"><span class="nav-number">3.1.</span> <span class="nav-text">介绍：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功效：-1"><span class="nav-number">3.2.</span> <span class="nav-text">功效：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用：-1"><span class="nav-number">3.3.</span> <span class="nav-text">使用：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#划词翻译"><span class="nav-number">4.</span> <span class="nav-text">划词翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍：-2"><span class="nav-number">4.1.</span> <span class="nav-text">介绍：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功效：-2"><span class="nav-number">4.2.</span> <span class="nav-text">功效：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用：-2"><span class="nav-number">4.3.</span> <span class="nav-text">使用：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TextMode"><span class="nav-number">5.</span> <span class="nav-text">TextMode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍：-3"><span class="nav-number">5.1.</span> <span class="nav-text">介绍：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功效：-3"><span class="nav-number">5.2.</span> <span class="nav-text">功效：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用：-3"><span class="nav-number">5.3.</span> <span class="nav-text">使用：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Adguard广告拦截器"><span class="nav-number">6.</span> <span class="nav-text">Adguard广告拦截器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍：-4"><span class="nav-number">6.1.</span> <span class="nav-text">介绍：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功效：-4"><span class="nav-number">6.2.</span> <span class="nav-text">功效：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用：-4"><span class="nav-number">6.3.</span> <span class="nav-text">使用：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -822,9 +783,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/10/iOS/iOS类的本质/';
-          this.page.identifier = '2017/04/10/iOS/iOS类的本质/';
-          this.page.title = 'iOS类的本质';
+          this.page.url = 'http://yoursite.com/2017/04/10/normalSkill/谷歌插件推荐/';
+          this.page.identifier = '2017/04/10/normalSkill/谷歌插件推荐/';
+          this.page.title = '谷歌插件推荐';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';
