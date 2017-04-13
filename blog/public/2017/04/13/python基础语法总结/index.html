@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识">
-<meta name="keywords" content="iOS">
+<meta name="description" content="缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用clang分析oc源码">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/iOS/使用clang分析oc源码/index.html">
+<meta property="og:title" content="python基础语法总结">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/python基础语法总结/index.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识">
-<meta property="og:updated_time" content="2017-04-10T08:55:28.000Z">
+<meta property="og:description" content="缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧">
+<meta property="og:updated_time" content="2017-04-13T07:06:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用clang分析oc源码">
-<meta name="twitter:description" content="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识">
+<meta name="twitter:title" content="python基础语法总结">
+<meta name="twitter:description" content="缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/iOS/使用clang分析oc源码/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/13/python基础语法总结/"/>
 
 
 
 
 
-  <title> 使用clang分析oc源码 | 航的小站 </title>
+  <title> python基础语法总结 | 航的小站 </title>
 </head>
 
 
@@ -317,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/iOS/使用clang分析oc源码/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/python基础语法总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -338,7 +338,7 @@
             
             
               
-                使用clang分析oc源码
+                python基础语法总结
               
             
           </h1>
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T16:48:11+08:00">
-                2017-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T14:40:35+08:00">
+                2017-04-13
               </time>
             
 
@@ -376,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/10/iOS/使用clang分析oc源码/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/13/python基础语法总结/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/10/iOS/使用clang分析oc源码/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/13/python基础语法总结/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,19 +422,19 @@
       
 
       
-        <h1 id="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识"><a href="#缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识" class="headerlink" title="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识"></a>缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识</h1><a id="more"></a>
-<h1 id="一、分析方法"><a href="#一、分析方法" class="headerlink" title="一、分析方法"></a>一、分析方法</h1><p>使用clang编译器，查看oc代码<br>指令：clang -rewrite-objc xxx.m</p>
-<h1 id="二、基础知识"><a href="#二、基础知识" class="headerlink" title="二、基础知识"></a>二、基础知识</h1><h2 id="2-1、理解结构体和结构体指针"><a href="#2-1、理解结构体和结构体指针" class="headerlink" title="2-1、理解结构体和结构体指针"></a>2-1、理解结构体和结构体指针</h2><p>结构体：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">struct 结构体名&#123;</div><div class="line">    结构体所包含的变量或数组</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>既然结构体是一种数据类型，那么就可以用它来定义变量。例如：<br>struct stu stu1, stu2;</p>
-<p>你也可以在定义结构体的同时定义结构体变量：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> stu&#123;</div><div class="line">    <span class="keyword">char</span> *name;  <span class="comment">//姓名</span></div><div class="line">    <span class="keyword">int</span> num;  <span class="comment">//学号</span></div><div class="line">    <span class="keyword">int</span> age;  <span class="comment">//年龄</span></div><div class="line">    <span class="keyword">char</span> group;  <span class="comment">//所在学习小组</span></div><div class="line">    <span class="keyword">float</span> score;  <span class="comment">//成绩</span></div><div class="line">&#125; stu1, stu2;</div></pre></td></tr></table></figure></p>
-<p>如果只需要 stu1、stu2 两个变量，后面不需要再使用结构体名定义其他变量，那么在定义时也可以不给出结构体名，如下所示：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span>&#123;  <span class="comment">//没有写 stu</span></div><div class="line">    <span class="keyword">char</span> *name;  <span class="comment">//姓名</span></div><div class="line">    <span class="keyword">int</span> num;  <span class="comment">//学号</span></div><div class="line">    <span class="keyword">int</span> age;  <span class="comment">//年龄</span></div><div class="line">    <span class="keyword">char</span> group;  <span class="comment">//所在学习小组</span></div><div class="line">    <span class="keyword">float</span> score;  <span class="comment">//成绩</span></div><div class="line">&#125; stu1, stu2;</div></pre></td></tr></table></figure></p>
-<p>结构体指针：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> stu&#123;</div><div class="line">    <span class="keyword">char</span> *name;  <span class="comment">//姓名</span></div><div class="line">    <span class="keyword">int</span> num;  <span class="comment">//学号</span></div><div class="line">    <span class="keyword">int</span> age;  <span class="comment">//年龄</span></div><div class="line">    <span class="keyword">char</span> group;  <span class="comment">//所在小组</span></div><div class="line">    <span class="keyword">float</span> score;  <span class="comment">//成绩</span></div><div class="line">&#125; stu1 = &#123; <span class="string">"Tom"</span>, <span class="number">12</span>, <span class="number">18</span>, <span class="string">'A'</span>, <span class="number">136.5</span> &#125;;</div><div class="line"><span class="comment">//结构体指针</span></div><div class="line"><span class="keyword">struct</span> stu *pstu = &amp;stu1;</div></pre></td></tr></table></figure></p>
-<p>也可以在定义结构体的同时定义结构体指针：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> stu&#123;</div><div class="line">    <span class="keyword">char</span> *name;  <span class="comment">//姓名</span></div><div class="line">    <span class="keyword">int</span> num;  <span class="comment">//学号</span></div><div class="line">    <span class="keyword">int</span> age;  <span class="comment">//年龄</span></div><div class="line">    <span class="keyword">char</span> group;  <span class="comment">//所在小组</span></div><div class="line">    <span class="keyword">float</span> score;  <span class="comment">//成绩</span></div><div class="line">&#125; stu1 = &#123; <span class="string">"Tom"</span>, <span class="number">12</span>, <span class="number">18</span>, <span class="string">'A'</span>, <span class="number">136.5</span> &#125;, *pstu = &amp;stu1;</div></pre></td></tr></table></figure></p>
-<p>注意，结构体变量名和数组名不同，数组名在表达式中会被转换为数组指针，而结构体变量名不会，无论在任何表达式中它表示的都是整个集合本身，要想取得结构体变量的地址，必须在前面加&amp;，所以给 pstu 赋值只能写作：<br>struct stu *pstu = &stu1;<br><a href="http://c.biancheng.net/cpp/html/88.html" target="_blank" rel="external">参考</a></p>
-<h2 id="2-2、C-构造函数"><a href="#2-2、C-构造函数" class="headerlink" title="2-2、C++构造函数"></a>2-2、C++构造函数</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Counter</div><div class="line">&#123;</div><div class="line"> </div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">// 类Counter的构造函数</span></div><div class="line">    <span class="comment">// 特点：以类名作为函数名，无返回类型</span></div><div class="line">    Counter()</div><div class="line">    &#123;</div><div class="line">        m_value = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">          </div><div class="line"><span class="keyword">private</span>:     </div><div class="line">    <span class="comment">// 数据成员</span></div><div class="line">  <span class="keyword">int</span> m_value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://ticktick.blog.51cto.com/823160/194307" target="_blank" rel="external">参考</a></p>
-<h2 id="2-3、函数指针"><a href="#2-3、函数指针" class="headerlink" title="2-3、函数指针"></a>2-3、函数指针</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">say_hello</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span>;  </div><div class="line"><span class="keyword">void</span> (*fptr)(<span class="keyword">const</span> <span class="keyword">char</span> *);  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">void</span> (*fptr)(<span class="keyword">const</span> <span class="keyword">char</span> *) = say_hello;  </div><div class="line">    fptr(<span class="string">"KingPlesk"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">say_hello</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello %s\n"</span>, str);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/feigegegegegegegeg/article/details/52469731" target="_blank" rel="external">参考</a></p>
+        <h1 id="缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧"><a href="#缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧" class="headerlink" title="缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧"></a>缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧</h1><a id="more"></a>
+<h1 id="一、文件操作相关"><a href="#一、文件操作相关" class="headerlink" title="一、文件操作相关"></a>一、文件操作相关</h1><h2 id="1-1、os模块相关"><a href="#1-1、os模块相关" class="headerlink" title="1-1、os模块相关"></a>1-1、os模块相关</h2><ul>
+<li><p>获取当前的文件目录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line">print(os.getcwd())</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果不存在此目录，创建一个该文件夹</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(directory):</div><div class="line">    os.makedirs(directory)</div></pre></td></tr></table></figure>
+</li>
+<li><p>open()函数写入文件到指定目录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在mac上，亲测可以如下：</div><div class="line">open(<span class="string">'/Users/het/Desktop/jacob/xxx.html'</span>,<span class="string">'a'</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>demo:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</div><div class="line"><span class="keyword">from</span> goose <span class="keyword">import</span> Goose</div><div class="line"><span class="keyword">from</span> goose.text <span class="keyword">import</span> StopWordsChinese</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> os</div><div class="line">source_file = open(<span class="string">'source.md'</span>,<span class="string">'r'</span>)</div><div class="line">source_data = source_file.read()</div><div class="line">source_array = re.split(<span class="string">'--'</span>, source_data)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getUrl</span><span class="params">(item)</span>:</span></div><div class="line">	url_name = re.split(<span class="string">'&amp;&amp;'</span>, item)</div><div class="line">	url = url_name[<span class="number">1</span>]</div><div class="line">	name = url_name[<span class="number">0</span>]</div><div class="line">	<span class="keyword">print</span> url</div><div class="line">	<span class="keyword">print</span> name</div><div class="line">	html_name = name + <span class="string">'.html'</span></div><div class="line">	<span class="keyword">print</span> html_name</div><div class="line">	g = Goose(&#123;<span class="string">'stopwords_class'</span>: StopWordsChinese&#125;)</div><div class="line">	article = g.extract(url=url)</div><div class="line">	<span class="comment"># print article.raw_html</span></div><div class="line">	currentDir = os.getcwd() + <span class="string">'/'</span> + <span class="string">'pages'</span> + <span class="string">'/'</span> + name</div><div class="line">	<span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(currentDir):</div><div class="line">		os.makedirs(currentDir)</div><div class="line">	f = open(currentDir + <span class="string">'/'</span> +html_name,<span class="string">'a'</span>)</div><div class="line">	f.write(article.raw_html)</div><div class="line">	f.close()</div><div class="line"></div><div class="line">	f_md = open(currentDir + <span class="string">'/'</span> + name + <span class="string">'.md'</span> ,<span class="string">'a'</span>)</div><div class="line">	f_md.write(article.cleaned_text.encode(<span class="string">'utf-8'</span>))</div><div class="line">	f_md.close()</div><div class="line"><span class="comment"># pprint (vars(article))</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> source_array:</div><div class="line">	getUrl(item)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -485,7 +485,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -498,18 +498,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/iOS/iOS代码规范/" rel="next" title="iOS代码规范">
-                <i class="fa fa-chevron-left"></i> iOS代码规范
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/10/iOS/xcode相关/" rel="prev" title="xcode相关">
-                xcode相关 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/10/normalSkill/谷歌插件推荐/" rel="prev" title="谷歌插件推荐">
+                谷歌插件推荐 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -680,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识"><span class="nav-number">1.</span> <span class="nav-text">缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、分析方法"><span class="nav-number">2.</span> <span class="nav-text">一、分析方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、基础知识"><span class="nav-number">3.</span> <span class="nav-text">二、基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1、理解结构体和结构体指针"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、理解结构体和结构体指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2、C-构造函数"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、C++构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3、函数指针"><span class="nav-number">3.3.</span> <span class="nav-text">2-3、函数指针</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧"><span class="nav-number">1.</span> <span class="nav-text">缘由：很多常用的语法，老是忘记，在此做个总结，相当于自己的三级缓存吧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、文件操作相关"><span class="nav-number">2.</span> <span class="nav-text">一、文件操作相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1、os模块相关"><span class="nav-number">2.1.</span> <span class="nav-text">1-1、os模块相关</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -805,9 +801,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/10/iOS/使用clang分析oc源码/';
-          this.page.identifier = '2017/04/10/iOS/使用clang分析oc源码/';
-          this.page.title = '使用clang分析oc源码';
+          this.page.url = 'http://yoursite.com/2017/04/13/python基础语法总结/';
+          this.page.identifier = '2017/04/13/python基础语法总结/';
+          this.page.title = 'python基础语法总结';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';
