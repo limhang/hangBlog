@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端流程化," />
+  <meta name="keywords" content="vps使用指南," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="缘由：写项目的时候需要用到这个第三方，故在这里总结一下">
-<meta name="keywords" content="前端流程化">
+<meta name="description" content="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录">
+<meta name="keywords" content="vps使用指南">
 <meta property="og:type" content="article">
-<meta property="og:title" content="reflux基本使用">
-<meta property="og:url" content="http://yoursite.com/2017/04/08/web/reflux基本使用/index.html">
+<meta property="og:title" content="vps日常使用">
+<meta property="og:url" content="http://yoursite.com/2017/04/14/vps日常使用/index.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：写项目的时候需要用到这个第三方，故在这里总结一下">
-<meta property="og:updated_time" content="2017-04-10T01:25:24.000Z">
+<meta property="og:description" content="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录">
+<meta property="og:updated_time" content="2017-04-14T01:49:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="reflux基本使用">
-<meta name="twitter:description" content="缘由：写项目的时候需要用到这个第三方，故在这里总结一下">
+<meta name="twitter:title" content="vps日常使用">
+<meta name="twitter:description" content="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/08/web/reflux基本使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/14/vps日常使用/"/>
 
 
 
 
 
-  <title> reflux基本使用 | 航的小站 </title>
+  <title> vps日常使用 | 航的小站 </title>
 </head>
 
 
@@ -317,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/web/reflux基本使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/vps日常使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -338,7 +338,7 @@
             
             
               
-                reflux基本使用
+                vps日常使用
               
             
           </h1>
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T18:39:32+08:00">
-                2017-04-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T09:34:43+08:00">
+                2017-04-14
               </time>
             
 
@@ -376,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/通用技能/" itemprop="url" rel="index">
+                    <span itemprop="name">通用技能</span>
                   </a>
                 </span>
 
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/08/web/reflux基本使用/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/14/vps日常使用/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/08/web/reflux基本使用/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/14/vps日常使用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,21 +422,49 @@
       
 
       
-        <h1 id="缘由：写项目的时候需要用到这个第三方，故在这里总结一下"><a href="#缘由：写项目的时候需要用到这个第三方，故在这里总结一下" class="headerlink" title="缘由：写项目的时候需要用到这个第三方，故在这里总结一下"></a>缘由：写项目的时候需要用到这个第三方，故在这里总结一下</h1><a id="more"></a>
-<h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+---------+       +--------+       +-----------------+</div><div class="line">¦ Actions ¦------&gt;¦ Stores ¦------&gt;¦ View Components ¦</div><div class="line">+---------+       +--------+       +-----------------+</div><div class="line">     ^                                      ¦</div><div class="line">     +--------------------------------------+</div></pre></td></tr></table></figure>
-<ul>
-<li>组件（视图），接收到用户手势操作后（点击，滑动），触发Actions，eg：Actions.someAction</li>
-<li>Actions被触发后，然后激发Stores中写好的方法，eg：OnSomeAction(Actions组件只是声明，具体的实现在Stores)</li>
-<li>Stores中有存储view中的state数据，写好的方法更新state数据，新版本的reflux.Compoment组件有直接继承react.Compoment，所以新版的reflux可以同步存储view的state，具体的看例子</li>
-<li>更新的state触发view中的render方法，然后重新渲染view</li>
+        <h1 id="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录"><a href="#缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录" class="headerlink" title="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录"></a>缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录</h1><a id="more"></a>
+<h1 id="一、centos6下python2-6升级到python2-7"><a href="#一、centos6下python2-6升级到python2-7" class="headerlink" title="一、centos6下python2.6升级到python2.7"></a>一、centos6下python2.6升级到python2.7</h1><h2 id="我在centos6环境下使用的步骤"><a href="#我在centos6环境下使用的步骤" class="headerlink" title="我在centos6环境下使用的步骤"></a>我在centos6环境下使用的步骤</h2><ul>
+<li><p>更新指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y update</div><div class="line">yum groupinstall -y &apos;development tools&apos;</div></pre></td></tr></table></figure>
+<p>  另外还需要安装 python 工具需要的额外软件包 SSL, bz2, zlib</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y zlib-devel bzip2-devel openssl-devel xz-libs wget</div></pre></td></tr></table></figure>
+</li>
+<li><p>源码安装Python 2.7.x</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http://www.python.org/ftp/python/2.7.8/Python-2.7.8.tar.xz</div><div class="line">xz -d Python-2.7.8.tar.xz</div><div class="line">tar -xvf Python-2.7.8.tar</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装详情：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 进入目录:</div><div class="line">cd Python-2.7.8</div><div class="line"># 运行配置 configure:</div><div class="line">./configure --prefix=/usr/local</div><div class="line"># 编译安装:</div><div class="line">make</div><div class="line">make altinstall</div><div class="line"># 检查 Python 版本:</div><div class="line">[root@dbmasterxxx ~]# python2.7 -V</div><div class="line">Python 2.7.8</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置 PATH</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export PATH=&quot;/usr/local/bin:$PATH&quot;</div><div class="line">or </div><div class="line">ln -s /usr/local/bin/python2.7  /usr/bin/python</div><div class="line"># 检查</div><div class="line">[root@dbmasterxxx ~]# python -V</div><div class="line">Python 2.7.8</div><div class="line">[root@dbmasterxxx ~]# which python </div><div class="line">/usr/bin/python</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h1 id="二、基本组件介绍"><a href="#二、基本组件介绍" class="headerlink" title="二、基本组件介绍"></a>二、基本组件介绍</h1><h2 id="2-1、组件Actions使用"><a href="#2-1、组件Actions使用" class="headerlink" title="2-1、组件Actions使用"></a>2-1、组件Actions使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var Actions = Reflux.createActions([</div><div class="line">    &quot;statusUpdate&quot;,</div><div class="line">    &quot;statusEdited&quot;,</div><div class="line">    &quot;statusAdded&quot;</div><div class="line">]);</div></pre></td></tr></table></figure>
-<h2 id="2-2、组件Stores使用"><a href="#2-2、组件Stores使用" class="headerlink" title="2-2、组件Stores使用"></a>2-2、组件Stores使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class StatusStore extends Reflux.Store</div><div class="line">&#123;</div><div class="line">    constructor()</div><div class="line">    &#123;</div><div class="line">        super();</div><div class="line">        this.state = &#123;flag:&apos;OFFLINE&apos;&#125;; // &lt;- set store&apos;s default state much like in React</div><div class="line">        this.listenTo(statusUpdate, this.onStatusUpdate); // listen to the statusUpdate action</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    onStatusUpdate(status)</div><div class="line">    &#123;</div><div class="line">        var newFlag = status ? &apos;ONLINE&apos; : &apos;OFFLINE&apos;;</div><div class="line">        this.setState(&#123;flag:newFlag&#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="三、使用demo"><a href="#三、使用demo" class="headerlink" title="三、使用demo"></a>三、使用demo</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">var Actions = Reflux.createActions([</div><div class="line">	&apos;increment&apos;,</div><div class="line">	&apos;decrement&apos;,</div><div class="line">	&apos;changeBy&apos;</div><div class="line">]);</div><div class="line"></div><div class="line">class CounterStore extends Reflux.Store</div><div class="line">&#123;</div><div class="line">	constructor()</div><div class="line">	&#123;</div><div class="line">		super();</div><div class="line">		this.state = &#123;count: 0&#125;;</div><div class="line">		this.listenables = Actions;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	onIncrement()</div><div class="line">	&#123;</div><div class="line">		this.setState(&#123;count: this.state.count+1&#125;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	onDecrement()</div><div class="line">	&#123;</div><div class="line">		this.setState(&#123;count: this.state.count-1&#125;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	onChangeBy(amount)</div><div class="line">	&#123;</div><div class="line">		this.setState(&#123;count: this.state.count+amount&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Counter extends Reflux.Component</div><div class="line">&#123;</div><div class="line">	constructor(props)</div><div class="line">	&#123;</div><div class="line">		super(props);</div><div class="line">		this.store = CounterStore;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	render()</div><div class="line">	&#123;</div><div class="line">		return &lt;div&gt;&#123;this.state.count&#125;&lt;/div&gt;;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render</div><div class="line">(</div><div class="line">	&lt;Counter/&gt;,</div><div class="line">	document.querySelector(&apos;#react-root&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">setInterval(Actions.increment, 1000);</div></pre></td></tr></table></figure>
-<p><a href="https://github.com/reflux/refluxjs/blob/master/docs/other/examples.md" target="_blank" rel="external">官方demo地址–亲测有效</a></p>
-<h1 id="四、遇到的问题"><a href="#四、遇到的问题" class="headerlink" title="四、遇到的问题"></a>四、遇到的问题</h1><h2 id="4-1、Actions无法被触发"><a href="#4-1、Actions无法被触发" class="headerlink" title="4-1、Actions无法被触发"></a>4-1、Actions无法被触发</h2><p>详细描述：按照官方给的demo进行修改后，发现点击写好的div后，无法触发方法</p>
-<p>问题定位：使用react官方给的工具，在google浏览器中安装插件，然后右键找到源码，在源码处打断点，发现不走这个断点，逐步排除，发现是onsomeAction写错，应该大写，onSomeAction</p>
-<p>问题解决：定位出来后，直接解决</p>
+<h2 id="接下来这3步我没有用，我直接使用的虚拟环境"><a href="#接下来这3步我没有用，我直接使用的虚拟环境" class="headerlink" title="接下来这3步我没有用，我直接使用的虚拟环境"></a>接下来这3步我没有用，我直接使用的虚拟环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">virtualenv caogao -p python2.7</div></pre></td></tr></table></figure>
+<ul>
+<li><p>安装 setuptools</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#获取软件包</div><div class="line">wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.4.2.tar.gz</div><div class="line"># 解压:</div><div class="line">tar -xvf setuptools-1.4.2.tar.gz</div><div class="line">cd setuptools-1.4.2</div><div class="line"># 使用 Python 2.7.8 安装 setuptools</div><div class="line">python2.7 setup.py install</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装 PIP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl  https://bootstrap.pypa.io/get-pip.py | python2.7 -</div></pre></td></tr></table></figure>
+</li>
+<li><p>修复 yum 工具<br>此时yum应该是失效的，因为此时默认python版本已经是2.7了。而yum需要的是2.6 所以：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@dbmasterxxx ~]# which yum </div><div class="line">/usr/bin/yum</div><div class="line">#修改 yum中的python </div><div class="line">将第一行  #!/usr/bin/python  改为 #!/usr/bin/python2.6</div><div class="line">此时yum就ok啦</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="二、centos6环境下开启定时任务，后台执行"><a href="#二、centos6环境下开启定时任务，后台执行" class="headerlink" title="二、centos6环境下开启定时任务，后台执行"></a>二、centos6环境下开启定时任务，后台执行</h1><h2 id="python自动化脚本运行方案"><a href="#python自动化脚本运行方案" class="headerlink" title="python自动化脚本运行方案"></a>python自动化脚本运行方案</h2><p>引子：一直想用vps自动运行我的python脚本，但是有几个问题我一直都懒得去查和解决。。但是做coderhelper数据抓取的时候，我总不能每天都定点去抓数据吧，所以其实还是出于我很懒的原因，才有这个小文章的。</p>
+<h3 id="Q-0"><a href="#Q-0" class="headerlink" title="Q-0"></a>Q-0</h3><p>我写的脚本是运行在python3.5上的，所以系统自带的2.7的版本我是运行不了的，而且我习惯使用python的虚拟环境，不想污染自己的开发环境，那么我必须启动一个脚本然后打开运行环境，然后运行我的python脚本，在运行完成后，在退出</p>
+<p>解决：我尝试使用python去写脚本，运行之后，发现没什么作用，搜索之后，发现网上关于这个的解决也比较少，大多是说source应该替换为‘.’，后来我又使用了shell脚本，但是效果是一样的，后来我意识到，其实是起作用了的，只是打开了activate环境，然后马上就关闭了而已，不会出现自己终端运行出现的(caogao)，这种现象。</p>
+<h3 id="Q-1"><a href="#Q-1" class="headerlink" title="Q-1"></a>Q-1</h3><p>怎样让脚本自动运行在vps上，关键词是crontab</p>
+<p>第一步，使用crontab -e命令，可能出现的错是“Error detected while processing /root/.vimrc:”—-解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@~]# vim ~/.bashrc</div><div class="line"> </div><div class="line">export EDITOR=/usr/bin/vim</div><div class="line">  </div><div class="line">[root@~]# source ~/.bashrc</div></pre></td></tr></table></figure>
+<p>第二步，编辑要定时执行的脚本，eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">每天凌晨3:00执行备份程序：0 3 * * * /root/backup.sh</div><div class="line"></div><div class="line">每周日8点30分执行日志清理程序：30 8 * * 7 /root/clear.sh</div></pre></td></tr></table></figure>
+<p>第三步，让root用户生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">crontab -u root /var/spool/cron/root</div></pre></td></tr></table></figure>
+<p>第四步，重启crontab服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service crond restart</div></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/a1264716408/article/details/52523645" target="_blank" rel="external">第三步和第四步</a></p>
+<p><a href="https://www.vpser.net/manage/crontab.html" target="_blank" rel="external">第一步和第二步</a></p>
 
       
     </div>
@@ -487,7 +515,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端流程化/" rel="tag"># 前端流程化</a>
+            <a href="/tags/vps使用指南/" rel="tag"># vps使用指南</a>
           
         </div>
       
@@ -500,18 +528,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/08/web/webpack基本使用/" rel="next" title="webpack基本使用">
-                <i class="fa fa-chevron-left"></i> webpack基本使用
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/08/web/css基础/" rel="prev" title="css基础">
-                css基础 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/13/网站添加谷歌翻译/" rel="prev" title="网站添加谷歌翻译">
+                网站添加谷歌翻译 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -682,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：写项目的时候需要用到这个第三方，故在这里总结一下"><span class="nav-number">1.</span> <span class="nav-text">缘由：写项目的时候需要用到这个第三方，故在这里总结一下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、简介"><span class="nav-number">2.</span> <span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、基本组件介绍"><span class="nav-number">3.</span> <span class="nav-text">二、基本组件介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1、组件Actions使用"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、组件Actions使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2、组件Stores使用"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、组件Stores使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、使用demo"><span class="nav-number">4.</span> <span class="nav-text">三、使用demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、遇到的问题"><span class="nav-number">5.</span> <span class="nav-text">四、遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1、Actions无法被触发"><span class="nav-number">5.1.</span> <span class="nav-text">4-1、Actions无法被触发</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录"><span class="nav-number">1.</span> <span class="nav-text">缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、centos6下python2-6升级到python2-7"><span class="nav-number">2.</span> <span class="nav-text">一、centos6下python2.6升级到python2.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我在centos6环境下使用的步骤"><span class="nav-number">2.1.</span> <span class="nav-text">我在centos6环境下使用的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来这3步我没有用，我直接使用的虚拟环境"><span class="nav-number">2.2.</span> <span class="nav-text">接下来这3步我没有用，我直接使用的虚拟环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、centos6环境下开启定时任务，后台执行"><span class="nav-number">3.</span> <span class="nav-text">二、centos6环境下开启定时任务，后台执行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python自动化脚本运行方案"><span class="nav-number">3.1.</span> <span class="nav-text">python自动化脚本运行方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-0"><span class="nav-number">3.1.1.</span> <span class="nav-text">Q-0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-1"><span class="nav-number">3.1.2.</span> <span class="nav-text">Q-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.2.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -807,9 +831,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/08/web/reflux基本使用/';
-          this.page.identifier = '2017/04/08/web/reflux基本使用/';
-          this.page.title = 'reflux基本使用';
+          this.page.url = 'http://yoursite.com/2017/04/14/vps日常使用/';
+          this.page.identifier = '2017/04/14/vps日常使用/';
+          this.page.title = 'vps日常使用';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';
