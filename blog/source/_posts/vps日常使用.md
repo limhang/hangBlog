@@ -134,6 +134,22 @@ service crond restart
 
 ```
 
+### Q2
+能不能给个参考的定时python任务啊，当然：
+```sh
+  #!/bin/sh
+  cd /root/python_blog
+  source ./bin/activate
+  cd /root/python_blog/python_goose/hang/sis
+  python list.py
+  deactivate
+```
+
+### Q3
+我用的是服务器在美国洛杉矶，所以系统时间上是有时间差的
+比如：我在定时器中使用20 07 换算到中国大陆就是下午7点20，如果是15 22 换算到中国大陆就是上午十点15分
+
+
 ## 参考
 [第三步和第四步](http://blog.csdn.net/a1264716408/article/details/52523645)
 
