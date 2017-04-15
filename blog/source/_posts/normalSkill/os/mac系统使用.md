@@ -33,6 +33,16 @@ categories:
 
 我自己的配置文件在github上的软件配置文件夹中。
 
+## 1-4、终端开始翻墙的功能
+对于程序员来说，终端是每天必备的利器。可是shadowsocks即使配置全局代理，终端还是不管用，接下来介绍一种简单实用的方法：
+如果是默认的 bash，则写入 ~/.bash_profile ，如果是 zsh，则写在 ~/.zshrc
+
+```
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080" 
+alias unsetproxy="unset ALL_PROXY"
+```
+上面的端口(1080)和具体的地址，自己可以使用浏览器访问谷歌，然后自己查看就可以了
+
 # 二、文件操作相关
 ## 2-1、强写ReadOnly文件
 有些文件系统设置为只读属性，这个时候chmod模式改写后，还是不行，这时，可以尝试使用vim打开，然后命令模式下输入：
