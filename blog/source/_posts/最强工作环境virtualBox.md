@@ -25,7 +25,7 @@ categories: 通用技能
         "version": "0.4.0",
         "providers": [{
             "name": "virtualbox",
-            "url": "file://homestead.box"
+            "url": "file:///Users/het/Desktop/virtualbox/virtualbox.box"
         }]
     }]
 }
