@@ -85,6 +85,8 @@ curl  https://bootstrap.pypa.io/get-pip.py | python2.7 -
 此时yum就ok啦
 ```
 
+参考：[centos6.5下python2.6升级python2.7](https://ruiaylin.github.io/2014/12/12/python%20update/)
+
 # 二、centos6环境下开启定时任务，后台执行
 ## python自动化脚本运行方案
 
@@ -149,8 +151,17 @@ service crond restart
 我用的是服务器在美国洛杉矶，所以系统时间上是有时间差的
 比如：我在定时器中使用20 07 换算到中国大陆就是下午7点20，如果是15 22 换算到中国大陆就是上午十点15分
 
-
 ## 参考
 [第三步和第四步](http://blog.csdn.net/a1264716408/article/details/52523645)
 
 [第一步和第二步](https://www.vpser.net/manage/crontab.html)
+
+
+# 三、centos6.5环境下vsftpd安装与配置
+* 以root身份在终端输入yum install vsftpd
+* 添加jacob上传用户，以root身份在终端输入useradd jacob,并通过passwd jacob设置密码，用于上传;
+* 修改vsftpd配置文件，通过命令cd /etc/vsftpd/ && vim user_list打开文件，在该文件最下方添加jacob用户， 在该目录下通过命令vim vsftpd.conf, 将userlist_enable的值改为NO
+* 通过命令重启vsftpd,并通过命令service iptables stop和setenforce 0关闭防火墙
+
+参考：[centos6.5下vsftpd安装](http://jingyan.baidu.com/article/636f38bb4923fbd6b8461016.html)
+

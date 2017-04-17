@@ -85,3 +85,6 @@ var Particle = function(pos, target, vel, marker, usePhysics) {
     update();
   }
 ```
+
+# 参考
+[参考译文](http://creativejs.com/tutorials/creating-fireworks/)
