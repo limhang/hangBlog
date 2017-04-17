@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="virtualBox," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识">
-<meta name="keywords" content="iOS">
+<meta name="description" content="缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了">
+<meta name="keywords" content="virtualBox">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用clang分析oc源码">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/iOS/使用clang分析oc源码/index.html">
+<meta property="og:title" content="最强工作环境virtualBox">
+<meta property="og:url" content="http://yoursite.com/2017/04/17/最强工作环境virtualBox/index.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识">
-<meta property="og:updated_time" content="2017-04-10T08:55:28.000Z">
+<meta property="og:description" content="缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了">
+<meta property="og:updated_time" content="2017-04-17T07:45:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用clang分析oc源码">
-<meta name="twitter:description" content="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识">
+<meta name="twitter:title" content="最强工作环境virtualBox">
+<meta name="twitter:description" content="缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/iOS/使用clang分析oc源码/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/17/最强工作环境virtualBox/"/>
 
 
 
 
 
-  <title> 使用clang分析oc源码 | 航的小站 </title>
+  <title> 最强工作环境virtualBox | 航的小站 </title>
 </head>
 
 
@@ -317,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/iOS/使用clang分析oc源码/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/最强工作环境virtualBox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -338,7 +338,7 @@
             
             
               
-                使用clang分析oc源码
+                最强工作环境virtualBox
               
             
           </h1>
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T16:48:11+08:00">
-                2017-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T10:44:53+08:00">
+                2017-04-17
               </time>
             
 
@@ -376,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/通用技能/" itemprop="url" rel="index">
+                    <span itemprop="name">通用技能</span>
                   </a>
                 </span>
 
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/10/iOS/使用clang分析oc源码/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/17/最强工作环境virtualBox/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/10/iOS/使用clang分析oc源码/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/17/最强工作环境virtualBox/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,19 +422,28 @@
       
 
       
-        <h1 id="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识"><a href="#缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识" class="headerlink" title="缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识"></a>缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识</h1><a id="more"></a>
-<h1 id="一、分析方法"><a href="#一、分析方法" class="headerlink" title="一、分析方法"></a>一、分析方法</h1><p>使用clang编译器，查看oc代码<br>指令：clang -rewrite-objc xxx.m</p>
-<h1 id="二、基础知识"><a href="#二、基础知识" class="headerlink" title="二、基础知识"></a>二、基础知识</h1><h2 id="2-1、理解结构体和结构体指针"><a href="#2-1、理解结构体和结构体指针" class="headerlink" title="2-1、理解结构体和结构体指针"></a>2-1、理解结构体和结构体指针</h2><p>结构体：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">struct 结构体名&#123;</div><div class="line">    结构体所包含的变量或数组</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>既然结构体是一种数据类型，那么就可以用它来定义变量。例如：<br>struct stu stu1, stu2;</p>
-<p>你也可以在定义结构体的同时定义结构体变量：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> stu&#123;</div><div class="line">    <span class="keyword">char</span> *name;  <span class="comment">//姓名</span></div><div class="line">    <span class="keyword">int</span> num;  <span class="comment">//学号</span></div><div class="line">    <span class="keyword">int</span> age;  <span class="comment">//年龄</span></div><div class="line">    <span class="keyword">char</span> group;  <span class="comment">//所在学习小组</span></div><div class="line">    <span class="keyword">float</span> score;  <span class="comment">//成绩</span></div><div class="line">&#125; stu1, stu2;</div></pre></td></tr></table></figure></p>
-<p>如果只需要 stu1、stu2 两个变量，后面不需要再使用结构体名定义其他变量，那么在定义时也可以不给出结构体名，如下所示：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span>&#123;  <span class="comment">//没有写 stu</span></div><div class="line">    <span class="keyword">char</span> *name;  <span class="comment">//姓名</span></div><div class="line">    <span class="keyword">int</span> num;  <span class="comment">//学号</span></div><div class="line">    <span class="keyword">int</span> age;  <span class="comment">//年龄</span></div><div class="line">    <span class="keyword">char</span> group;  <span class="comment">//所在学习小组</span></div><div class="line">    <span class="keyword">float</span> score;  <span class="comment">//成绩</span></div><div class="line">&#125; stu1, stu2;</div></pre></td></tr></table></figure></p>
-<p>结构体指针：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> stu&#123;</div><div class="line">    <span class="keyword">char</span> *name;  <span class="comment">//姓名</span></div><div class="line">    <span class="keyword">int</span> num;  <span class="comment">//学号</span></div><div class="line">    <span class="keyword">int</span> age;  <span class="comment">//年龄</span></div><div class="line">    <span class="keyword">char</span> group;  <span class="comment">//所在小组</span></div><div class="line">    <span class="keyword">float</span> score;  <span class="comment">//成绩</span></div><div class="line">&#125; stu1 = &#123; <span class="string">"Tom"</span>, <span class="number">12</span>, <span class="number">18</span>, <span class="string">'A'</span>, <span class="number">136.5</span> &#125;;</div><div class="line"><span class="comment">//结构体指针</span></div><div class="line"><span class="keyword">struct</span> stu *pstu = &amp;stu1;</div></pre></td></tr></table></figure></p>
-<p>也可以在定义结构体的同时定义结构体指针：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> stu&#123;</div><div class="line">    <span class="keyword">char</span> *name;  <span class="comment">//姓名</span></div><div class="line">    <span class="keyword">int</span> num;  <span class="comment">//学号</span></div><div class="line">    <span class="keyword">int</span> age;  <span class="comment">//年龄</span></div><div class="line">    <span class="keyword">char</span> group;  <span class="comment">//所在小组</span></div><div class="line">    <span class="keyword">float</span> score;  <span class="comment">//成绩</span></div><div class="line">&#125; stu1 = &#123; <span class="string">"Tom"</span>, <span class="number">12</span>, <span class="number">18</span>, <span class="string">'A'</span>, <span class="number">136.5</span> &#125;, *pstu = &amp;stu1;</div></pre></td></tr></table></figure></p>
-<p>注意，结构体变量名和数组名不同，数组名在表达式中会被转换为数组指针，而结构体变量名不会，无论在任何表达式中它表示的都是整个集合本身，要想取得结构体变量的地址，必须在前面加&amp;，所以给 pstu 赋值只能写作：<br>struct stu *pstu = &stu1;<br><a href="http://c.biancheng.net/cpp/html/88.html" target="_blank" rel="external">参考</a></p>
-<h2 id="2-2、C-构造函数"><a href="#2-2、C-构造函数" class="headerlink" title="2-2、C++构造函数"></a>2-2、C++构造函数</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Counter</div><div class="line">&#123;</div><div class="line"> </div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">// 类Counter的构造函数</span></div><div class="line">    <span class="comment">// 特点：以类名作为函数名，无返回类型</span></div><div class="line">    Counter()</div><div class="line">    &#123;</div><div class="line">        m_value = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">          </div><div class="line"><span class="keyword">private</span>:     </div><div class="line">    <span class="comment">// 数据成员</span></div><div class="line">  <span class="keyword">int</span> m_value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://ticktick.blog.51cto.com/823160/194307" target="_blank" rel="external">参考</a></p>
-<h2 id="2-3、函数指针"><a href="#2-3、函数指针" class="headerlink" title="2-3、函数指针"></a>2-3、函数指针</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">say_hello</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span>;  </div><div class="line"><span class="keyword">void</span> (*fptr)(<span class="keyword">const</span> <span class="keyword">char</span> *);  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">void</span> (*fptr)(<span class="keyword">const</span> <span class="keyword">char</span> *) = say_hello;  </div><div class="line">    fptr(<span class="string">"KingPlesk"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">say_hello</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello %s\n"</span>, str);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/feigegegegegegegeg/article/details/52469731" target="_blank" rel="external">参考</a></p>
+        <h1 id="缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了"><a href="#缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了" class="headerlink" title="缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了"></a>缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了</h1><a id="more"></a>
+<h1 id="一、安装准备以及手动安装"><a href="#一、安装准备以及手动安装" class="headerlink" title="一、安装准备以及手动安装"></a>一、安装准备以及手动安装</h1><h2 id="1-1、安装准备"><a href="#1-1、安装准备" class="headerlink" title="1-1、安装准备"></a>1-1、安装准备</h2><ul>
+<li>下载 VirtualBox</li>
+<li>下载  Vagrant</li>
+<li>下载需要安装的virtualbox，接下来以laravel/homestead为例<br>在这一步中，由于防火长城的原因，导致使用vagrant box add xxx会非常的慢，所以我一般使用手动安装导入。具体的思路就是在自己的vps上下载下来box,wget url，然后使用bypy上传到百度云，然后下从百度云上拉下来。到此基本的需要软件就弄好了</li>
+</ul>
+<h2 id="1-2、手动安装box"><a href="#1-2、手动安装box" class="headerlink" title="1-2、手动安装box"></a>1-2、手动安装box</h2><p>新建文件metadata.json<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"laravel/homestead"</span>,</div><div class="line">    <span class="string">"versions"</span>: [&#123;</div><div class="line">        <span class="string">"version"</span>: <span class="string">"0.4.0"</span>,</div><div class="line">        <span class="string">"providers"</span>: [&#123;</div><div class="line">            <span class="string">"name"</span>: <span class="string">"virtualbox"</span>,</div><div class="line">            <span class="string">"url"</span>: <span class="string">"file://homestead.box"</span></div><div class="line">        &#125;]</div><div class="line">    &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Then run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant box add metadata.json</div></pre></td></tr></table></figure></p>
+<p>This will install the box with a version and can be confirmed by:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ vagrant box list</div><div class="line">laravel/homestead               (virtualbox, 2.1.0)</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong>这里需要自己就确定版本<br><a href="https://www.vagrantup.com/docs/cli/box.html" target="_blank" rel="external">官方vagrant指令</a><br><a href="http://stackoverflow.com/questions/34946837/box-laravel-homestead-could-not-be-found" target="_blank" rel="external">手动安装参考</a></p>
+<h1 id="二、homestead使用步骤"><a href="#二、homestead使用步骤" class="headerlink" title="二、homestead使用步骤"></a>二、homestead使用步骤</h1><h2 id="2-1、下载配置github上的Homestead"><a href="#2-1、下载配置github上的Homestead" class="headerlink" title="2-1、下载配置github上的Homestead"></a>2-1、下载配置github上的Homestead</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">cd ~</div><div class="line">git clone https://github.com/laravel/homestead.git Homestead</div><div class="line"></div><div class="line">cd Homestead</div><div class="line"></div><div class="line">// 检出所需要的版本...</div><div class="line">git checkout v4.0.5</div><div class="line"></div><div class="line">// Mac / Linux...</div><div class="line">bash init.sh</div><div class="line"></div><div class="line">// Windows...</div><div class="line">init.bat</div></pre></td></tr></table></figure>
+<p>可以查看init.sh代码，知道在mac下，其实就是将3个文件拷贝到<strong>../homestead下</strong></p>
+<h2 id="2-2、更多的详细步骤"><a href="#2-2、更多的详细步骤" class="headerlink" title="2-2、更多的详细步骤"></a>2-2、更多的详细步骤</h2><p><a href="http://d.laravel-china.org/docs/5.4/homestead" target="_blank" rel="external">详细步骤可见</a>，接下来主要说说这里面没有将明白的地方。</p>
+<h2 id="2-3、一些问题"><a href="#2-3、一些问题" class="headerlink" title="2-3、一些问题"></a>2-3、一些问题</h2><h3 id="2-3-1、ip设置"><a href="#2-3-1、ip设置" class="headerlink" title="2-3-1、ip设置"></a>2-3-1、ip设置</h3><p>在Homestead.yaml中将ip进行设置，如果是在本地进行调试，可以将ip设置为127.0.0.1</p>
+<h3 id="2-3-2、ssh密钥设置"><a href="#2-3-2、ssh密钥设置" class="headerlink" title="2-3-2、ssh密钥设置"></a>2-3-2、ssh密钥设置</h3><p>在Homestead文件中运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;you@homestead&quot;</div></pre></td></tr></table></figure></p>
+<p>然后直接几个回车就好</p>
+<h3 id="2-3-3、相关配置"><a href="#2-3-3、相关配置" class="headerlink" title="2-3-3、相关配置"></a>2-3-3、相关配置</h3><p>配置共享文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">folders:</div><div class="line">    - map: ~/Code //这个路径是本地的目录路径，这里更新可以直接同步虚拟环境中</div><div class="line">      to: /home/vagrant/Code //这个路径是虚拟环境中的路径（vagrant ssh可进入环境）</div></pre></td></tr></table></figure></p>
+<p>配置nginx站点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sites:</div><div class="line">    - map: homestead.app</div><div class="line">      to: /home/vagrant/Code/Laravel/public</div></pre></td></tr></table></figure></p>
+<p>这些东西如果更改的话，<strong>warning：</strong>一定要运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant reload --provision</div></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://d.laravel-china.org/docs/5.4/homestead" target="_blank" rel="external">laravel开发环境配置</a></p>
+<p><a href="https://quericy.me/blog/827/" target="_blank" rel="external">homestead离线安装指南</a></p>
 
       
     </div>
@@ -485,7 +494,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/virtualBox/" rel="tag"># virtualBox</a>
           
         </div>
       
@@ -498,18 +507,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/iOS/iOS代码规范/" rel="next" title="iOS代码规范">
-                <i class="fa fa-chevron-left"></i> iOS代码规范
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/10/iOS/xcode相关/" rel="prev" title="xcode相关">
-                xcode相关 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/17/常用api汇总/" rel="prev" title="常用api汇总">
+                常用api汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -680,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识"><span class="nav-number">1.</span> <span class="nav-text">缘由：如果要深入理解oc，分析其运行时源码是非常有必要的，在此给出分析方式，和必要的基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、分析方法"><span class="nav-number">2.</span> <span class="nav-text">一、分析方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、基础知识"><span class="nav-number">3.</span> <span class="nav-text">二、基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1、理解结构体和结构体指针"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、理解结构体和结构体指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2、C-构造函数"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、C++构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3、函数指针"><span class="nav-number">3.3.</span> <span class="nav-text">2-3、函数指针</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了"><span class="nav-number">1.</span> <span class="nav-text">缘由：一款可移动的工作环境，一款可备份的工作环境，今后换电脑，不用再折腾各种环境软件配置了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、安装准备以及手动安装"><span class="nav-number">2.</span> <span class="nav-text">一、安装准备以及手动安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1、安装准备"><span class="nav-number">2.1.</span> <span class="nav-text">1-1、安装准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2、手动安装box"><span class="nav-number">2.2.</span> <span class="nav-text">1-2、手动安装box</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、homestead使用步骤"><span class="nav-number">3.</span> <span class="nav-text">二、homestead使用步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1、下载配置github上的Homestead"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、下载配置github上的Homestead</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2、更多的详细步骤"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、更多的详细步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3、一些问题"><span class="nav-number">3.3.</span> <span class="nav-text">2-3、一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1、ip设置"><span class="nav-number">3.3.1.</span> <span class="nav-text">2-3-1、ip设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2、ssh密钥设置"><span class="nav-number">3.3.2.</span> <span class="nav-text">2-3-2、ssh密钥设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3、相关配置"><span class="nav-number">3.3.3.</span> <span class="nav-text">2-3-3、相关配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -805,9 +810,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/10/iOS/使用clang分析oc源码/';
-          this.page.identifier = '2017/04/10/iOS/使用clang分析oc源码/';
-          this.page.title = '使用clang分析oc源码';
+          this.page.url = 'http://yoursite.com/2017/04/17/最强工作环境virtualBox/';
+          this.page.identifier = '2017/04/17/最强工作环境virtualBox/';
+          this.page.title = '最强工作环境virtualBox';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';
