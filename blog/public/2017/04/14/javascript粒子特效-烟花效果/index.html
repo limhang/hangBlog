@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/14/javascript粒子特效-烟花效果/index.html">
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效">
-<meta property="og:updated_time" content="2017-04-14T03:22:20.000Z">
+<meta property="og:updated_time" content="2017-04-17T02:35:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript粒子特效-烟花效果">
 <meta name="twitter:description" content="缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效">
@@ -429,6 +429,8 @@
 <p>值得注意的是pos和vel属性。 这些描述了我们的粒子的位置和速度。 其余几乎都是渲染的窗饰，所以我们稍后再来看看。</p>
 <p>首先，我们必须设置一切，您将在初始化方法中看到：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">initialize</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">// start by measuring the viewport</span></div><div class="line">  onWindowResize();</div><div class="line"></div><div class="line">  <span class="comment">// create a canvas for the fireworks</span></div><div class="line">  mainCanvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line">  mainContext = mainCanvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">  <span class="comment">// and another one for, like, an off screen buffer</span></div><div class="line">  <span class="comment">// because that's rad n all</span></div><div class="line">  fireworkCanvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line">  fireworkContext = fireworkCanvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">  <span class="comment">// set up the colours for the fireworks</span></div><div class="line">  createFireworkPalette(<span class="number">12</span>);</div><div class="line"></div><div class="line">  <span class="comment">// set the dimensions on the canvas</span></div><div class="line">  setMainCanvasDimensions();</div><div class="line"></div><div class="line">  <span class="comment">// add the canvas in</span></div><div class="line">  <span class="built_in">document</span>.body.appendChild(mainCanvas);</div><div class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'mouseup'</span>, createFirework, <span class="literal">true</span>);</div><div class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'touchend'</span>, createFirework, <span class="literal">true</span>);</div><div class="line"></div><div class="line">  <span class="comment">// and now we set off</span></div><div class="line">  update();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://creativejs.com/tutorials/creating-fireworks/" target="_blank" rel="external">参考译文</a></p>
+
       
     </div>
 
@@ -490,6 +492,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/17/常用api汇总/" rel="next" title="常用api汇总">
+                <i class="fa fa-chevron-left"></i> 常用api汇总
+              </a>
             
           </div>
 
@@ -601,7 +607,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -612,7 +618,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -623,7 +629,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -669,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、烟花特效"><span class="nav-number">1.</span> <span class="nav-text">一、烟花特效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析需求"><span class="nav-number">1.1.</span> <span class="nav-text">分析需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#粒子类"><span class="nav-number">1.2.</span> <span class="nav-text">粒子类</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、烟花特效"><span class="nav-number">1.</span> <span class="nav-text">一、烟花特效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析需求"><span class="nav-number">1.1.</span> <span class="nav-text">分析需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#粒子类"><span class="nav-number">1.2.</span> <span class="nav-text">粒子类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

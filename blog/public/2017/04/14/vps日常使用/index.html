@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/14/vps日常使用/index.html">
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录">
-<meta property="og:updated_time" content="2017-04-14T02:10:46.000Z">
+<meta property="og:updated_time" content="2017-04-17T01:59:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vps日常使用">
 <meta name="twitter:description" content="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录">
@@ -451,6 +451,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@dbmasterxxx ~]# which yum </div><div class="line">/usr/bin/yum</div><div class="line">#修改 yum中的python </div><div class="line">将第一行  #!/usr/bin/python  改为 #!/usr/bin/python2.6</div><div class="line">此时yum就ok啦</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>参考：<a href="https://ruiaylin.github.io/2014/12/12/python%20update/" target="_blank" rel="external">centos6.5下python2.6升级python2.7</a></p>
 <h1 id="二、centos6环境下开启定时任务，后台执行"><a href="#二、centos6环境下开启定时任务，后台执行" class="headerlink" title="二、centos6环境下开启定时任务，后台执行"></a>二、centos6环境下开启定时任务，后台执行</h1><h2 id="python自动化脚本运行方案"><a href="#python自动化脚本运行方案" class="headerlink" title="python自动化脚本运行方案"></a>python自动化脚本运行方案</h2><p>引子：一直想用vps自动运行我的python脚本，但是有几个问题我一直都懒得去查和解决。。但是做coderhelper数据抓取的时候，我总不能每天都定点去抓数据吧，所以其实还是出于我很懒的原因，才有这个小文章的。</p>
 <h3 id="Q-0"><a href="#Q-0" class="headerlink" title="Q-0"></a>Q-0</h3><p>我写的脚本是运行在python3.5上的，所以系统自带的2.7的版本我是运行不了的，而且我习惯使用python的虚拟环境，不想污染自己的开发环境，那么我必须启动一个脚本然后打开运行环境，然后运行我的python脚本，在运行完成后，在退出</p>
 <p>解决：我尝试使用python去写脚本，运行之后，发现没什么作用，搜索之后，发现网上关于这个的解决也比较少，大多是说source应该替换为‘.’，后来我又使用了shell脚本，但是效果是一样的，后来我意识到，其实是起作用了的，只是打开了activate环境，然后马上就关闭了而已，不会出现自己终端运行出现的(caogao)，这种现象。</p>
@@ -467,6 +468,13 @@
 <h3 id="Q3"><a href="#Q3" class="headerlink" title="Q3"></a>Q3</h3><p>我用的是服务器在美国洛杉矶，所以系统时间上是有时间差的<br>比如：我在定时器中使用20 07 换算到中国大陆就是下午7点20，如果是15 22 换算到中国大陆就是上午十点15分</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/a1264716408/article/details/52523645" target="_blank" rel="external">第三步和第四步</a></p>
 <p><a href="https://www.vpser.net/manage/crontab.html" target="_blank" rel="external">第一步和第二步</a></p>
+<h1 id="三、centos6-5环境下vsftpd安装与配置"><a href="#三、centos6-5环境下vsftpd安装与配置" class="headerlink" title="三、centos6.5环境下vsftpd安装与配置"></a>三、centos6.5环境下vsftpd安装与配置</h1><ul>
+<li>以root身份在终端输入yum install vsftpd</li>
+<li>添加jacob上传用户，以root身份在终端输入useradd jacob,并通过passwd jacob设置密码，用于上传;</li>
+<li>修改vsftpd配置文件，通过命令cd /etc/vsftpd/ &amp;&amp; vim user_list打开文件，在该文件最下方添加jacob用户， 在该目录下通过命令vim vsftpd.conf, 将userlist_enable的值改为NO</li>
+<li>通过命令重启vsftpd,并通过命令service iptables stop和setenforce 0关闭防火墙</li>
+</ul>
+<p>参考：<a href="http://jingyan.baidu.com/article/636f38bb4923fbd6b8461016.html" target="_blank" rel="external">centos6.5下vsftpd安装</a></p>
 
       
     </div>
@@ -644,7 +652,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -655,7 +663,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -666,7 +674,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -712,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录"><span class="nav-number">1.</span> <span class="nav-text">缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、centos6下python2-6升级到python2-7"><span class="nav-number">2.</span> <span class="nav-text">一、centos6下python2.6升级到python2.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我在centos6环境下使用的步骤"><span class="nav-number">2.1.</span> <span class="nav-text">我在centos6环境下使用的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来这3步我没有用，我直接使用的虚拟环境"><span class="nav-number">2.2.</span> <span class="nav-text">接下来这3步我没有用，我直接使用的虚拟环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、centos6环境下开启定时任务，后台执行"><span class="nav-number">3.</span> <span class="nav-text">二、centos6环境下开启定时任务，后台执行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python自动化脚本运行方案"><span class="nav-number">3.1.</span> <span class="nav-text">python自动化脚本运行方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-0"><span class="nav-number">3.1.1.</span> <span class="nav-text">Q-0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-1"><span class="nav-number">3.1.2.</span> <span class="nav-text">Q-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q2"><span class="nav-number">3.1.3.</span> <span class="nav-text">Q2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q3"><span class="nav-number">3.1.4.</span> <span class="nav-text">Q3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.2.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录"><span class="nav-number">1.</span> <span class="nav-text">缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、centos6下python2-6升级到python2-7"><span class="nav-number">2.</span> <span class="nav-text">一、centos6下python2.6升级到python2.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我在centos6环境下使用的步骤"><span class="nav-number">2.1.</span> <span class="nav-text">我在centos6环境下使用的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来这3步我没有用，我直接使用的虚拟环境"><span class="nav-number">2.2.</span> <span class="nav-text">接下来这3步我没有用，我直接使用的虚拟环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、centos6环境下开启定时任务，后台执行"><span class="nav-number">3.</span> <span class="nav-text">二、centos6环境下开启定时任务，后台执行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python自动化脚本运行方案"><span class="nav-number">3.1.</span> <span class="nav-text">python自动化脚本运行方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-0"><span class="nav-number">3.1.1.</span> <span class="nav-text">Q-0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-1"><span class="nav-number">3.1.2.</span> <span class="nav-text">Q-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q2"><span class="nav-number">3.1.3.</span> <span class="nav-text">Q2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q3"><span class="nav-number">3.1.4.</span> <span class="nav-text">Q3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.2.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、centos6-5环境下vsftpd安装与配置"><span class="nav-number">4.</span> <span class="nav-text">三、centos6.5环境下vsftpd安装与配置</span></a></li></ol></div>
             
 
           </div>

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="API," />
 
 
 
@@ -87,17 +87,19 @@
 
 
 
-<meta name="description" content="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结">
-<meta name="keywords" content="iOS">
+<meta name="description" content="缘由：汇总自己申请和分析的api接口，方便自己查询">
+<meta name="keywords" content="API">
 <meta property="og:type" content="article">
-<meta property="og:title" content="compilerandruntimeanalysis">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/iOS/compilerandruntimeanalysis/index.html">
+<meta property="og:title" content="常用api汇总">
+<meta property="og:url" content="http://yoursite.com/2017/04/17/常用api汇总/index.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结">
-<meta property="og:updated_time" content="2017-04-10T09:11:38.000Z">
+<meta property="og:description" content="缘由：汇总自己申请和分析的api接口，方便自己查询">
+<meta property="og:image" content="http://ok2nitkry.bkt.clouddn.com/youdaoapi.jpg">
+<meta property="og:updated_time" content="2017-04-17T02:16:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="compilerandruntimeanalysis">
-<meta name="twitter:description" content="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结">
+<meta name="twitter:title" content="常用api汇总">
+<meta name="twitter:description" content="缘由：汇总自己申请和分析的api接口，方便自己查询">
+<meta name="twitter:image" content="http://ok2nitkry.bkt.clouddn.com/youdaoapi.jpg">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/iOS/compilerandruntimeanalysis/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/17/常用api汇总/"/>
 
 
 
 
 
-  <title> compilerandruntimeanalysis | 航的小站 </title>
+  <title> 常用api汇总 | 航的小站 </title>
 </head>
 
 
@@ -317,7 +319,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/iOS/compilerandruntimeanalysis/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/常用api汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -338,7 +340,7 @@
             
             
               
-                compilerandruntimeanalysis
+                常用api汇总
               
             
           </h1>
@@ -353,8 +355,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T17:09:13+08:00">
-                2017-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T10:05:02+08:00">
+                2017-04-17
               </time>
             
 
@@ -376,8 +378,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/后端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">后端开发</span>
                   </a>
                 </span>
 
@@ -394,9 +396,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/10/iOS/compilerandruntimeanalysis/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/17/常用api汇总/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/10/iOS/compilerandruntimeanalysis/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/17/常用api汇总/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,17 +424,12 @@
       
 
       
-        <h1 id="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结"><a href="#缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结" class="headerlink" title="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结"></a>缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结</h1><a id="more"></a>
-<h1 id="编译器的主要职责"><a href="#编译器的主要职责" class="headerlink" title="编译器的主要职责"></a>编译器的主要职责</h1><p>1、静态分析（静态的检查语法错误），更类似于翻译器，代码还未写入内存，所以该阶段也没有内存的概念。只能检查出很低级的错误。</p>
-<p>2、将c家族的代码转换为llvm-ir中间码</p>
-<p><a href="https://objccn.io/issue-6-2/" target="_blank" rel="external">llvm编译器详解</a></p>
-<p><a href="https://my.oschina.net/chars/blog/615241" target="_blank" rel="external">llvm编译器和运行时分析</a></p>
-<p><a href="http://justsee.iteye.com/blog/2163777" target="_blank" rel="external">运行时系统分析</a></p>
-<p><a href="http://tech.glowing.com/cn/objective-c-runtime/" target="_blank" rel="external">比较基础的运行时解释文章</a></p>
-<h1 id="存在的不解与疑惑（下文为我的初步理解与分析）"><a href="#存在的不解与疑惑（下文为我的初步理解与分析）" class="headerlink" title="存在的不解与疑惑（下文为我的初步理解与分析）"></a>存在的不解与疑惑（下文为我的初步理解与分析）</h1><p>运行时————查看维基百科等很多资料，回顾以往开发经历，可以确定，所谓运行时，动态语言，就是在app运行在手机上的这个时间过程。</p>
-<p>在这个过程中，可以进行消息的转发，类型的确定(id)，那么疑问来了。。。</p>
-<p>梳理xcode编译到运行到手机的过程，xcode编译器clang，编译完成之后，到底生成的是什么，是机器码？是中间码？还是什么，google了很久之后，没什么答案，但是分析之后，我感觉是什么可能不重要，但是绝对不会是机器码。。。查看苹果官方文档和clang关于oc-runtime的文档，发现其实mac和iOS手机上面可以运行苹果应用，是因为操作系统上面有运行时库（可以维基百科这个词），所以编译之后应该是中间码，而且这个中间码可以被操作系统上面的运行时库解析，然后消息转发的时候，完成代码的定位和解释（类似解释器），没有找到就报错了（运行时错误）。</p>
-<p>而我们在xcode中可以看到的运行时库，是苹果提供给开发者的，和操作系统中的运行时库是不一样的，操作系统（iOS和mac）提供的运行时库（c和汇编写的），我们应该是看不到的。xcode中可见的运行时库主要目的苹果给的说明是，链接不同语言的brige，在编译器最初阶段，会将所有的import导入翻译，其实我们所做的所谓runtime黑魔法，就是做的这一步。————对某些消息转发进行替换，在操作系统上(iOS和mac)运行的时候，操作系统的运行时库再来定位代码和操作（这步是不透明的）。</p>
+        <h1 id="缘由：汇总自己申请和分析的api接口，方便自己查询"><a href="#缘由：汇总自己申请和分析的api接口，方便自己查询" class="headerlink" title="缘由：汇总自己申请和分析的api接口，方便自己查询"></a>缘由：汇总自己申请和分析的api接口，方便自己查询</h1><a id="more"></a>
+<h1 id="一、翻译接口"><a href="#一、翻译接口" class="headerlink" title="一、翻译接口"></a>一、翻译接口</h1><h2 id="有道翻译"><a href="#有道翻译" class="headerlink" title="有道翻译"></a>有道翻译</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://fanyi.youdao.com/openapi.do?keyfrom=&lt;keyfrom&gt;&amp;key=&lt;key&gt;&amp;type=data&amp;doctype=&lt;doctype&gt;&amp;version=1.1&amp;q=要翻译的文本</div></pre></td></tr></table></figure>
+<p><img src="http://ok2nitkry.bkt.clouddn.com/youdaoapi.jpg" alt="有道翻译api"></p>
+<p><a href="http://fanyi.youdao.com/openapi?path=data-mode" target="_blank" rel="external">接口详细讲解</a></p>
+<h2 id="第三方翻译"><a href="#第三方翻译" class="headerlink" title="第三方翻译"></a>第三方翻译</h2><p><a href="http://139.199.209.106/trans/google.action?from=en&amp;to=zh&amp;query=Here" target="_blank" rel="external">第三方翻译</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://github.com/TonnyL/Awesome_APIs/blob/master/Chinese.md" target="_blank" rel="external">github上汇总的常用API</a></p>
 
       
     </div>
@@ -483,7 +480,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/API/" rel="tag"># API</a>
           
         </div>
       
@@ -496,18 +493,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/normalSkill/谷歌插件推荐/" rel="next" title="谷歌插件推荐">
-                <i class="fa fa-chevron-left"></i> 谷歌插件推荐
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/10/iOS/iOS闭包和回调函数/" rel="prev" title="iOS闭包和回调函数">
-                iOS闭包和回调函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/14/javascript粒子特效-烟花效果/" rel="prev" title="javascript粒子特效-烟花效果">
+                javascript粒子特效-烟花效果 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -678,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结"><span class="nav-number">1.</span> <span class="nav-text">缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译器的主要职责"><span class="nav-number">2.</span> <span class="nav-text">编译器的主要职责</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存在的不解与疑惑（下文为我的初步理解与分析）"><span class="nav-number">3.</span> <span class="nav-text">存在的不解与疑惑（下文为我的初步理解与分析）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：汇总自己申请和分析的api接口，方便自己查询"><span class="nav-number">1.</span> <span class="nav-text">缘由：汇总自己申请和分析的api接口，方便自己查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、翻译接口"><span class="nav-number">2.</span> <span class="nav-text">一、翻译接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#有道翻译"><span class="nav-number">2.1.</span> <span class="nav-text">有道翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方翻译"><span class="nav-number">2.2.</span> <span class="nav-text">第三方翻译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -803,9 +796,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/10/iOS/compilerandruntimeanalysis/';
-          this.page.identifier = '2017/04/10/iOS/compilerandruntimeanalysis/';
-          this.page.title = 'compilerandruntimeanalysis';
+          this.page.url = 'http://yoursite.com/2017/04/17/常用api汇总/';
+          this.page.identifier = '2017/04/17/常用api汇总/';
+          this.page.title = '常用api汇总';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';
