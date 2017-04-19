@@ -97,6 +97,16 @@ sites:
 ```
 vagrant reload --provision
 ```
+
+### 2-3-4使用root权限在vagrant下
+```
+sudo passwd root
+输入密码
+
+su -
+输入密码登录
+```
+
 # 参考
 [laravel开发环境配置](http://d.laravel-china.org/docs/5.4/homestead)
 
