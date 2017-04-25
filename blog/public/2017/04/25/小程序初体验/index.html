@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="小程序," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结">
-<meta name="keywords" content="iOS">
+<meta name="description" content="缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1.0到web2.0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛-_-…">
+<meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="compilerandruntimeanalysis">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/iOS/compilerandruntimeanalysis/index.html">
+<meta property="og:title" content="小程序初体验">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/小程序初体验/index.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结">
-<meta property="og:updated_time" content="2017-04-25T03:22:36.000Z">
+<meta property="og:description" content="缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1.0到web2.0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛-_-…">
+<meta property="og:updated_time" content="2017-04-25T09:38:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="compilerandruntimeanalysis">
-<meta name="twitter:description" content="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结">
+<meta name="twitter:title" content="小程序初体验">
+<meta name="twitter:description" content="缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1.0到web2.0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛-_-…">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/iOS/compilerandruntimeanalysis/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/25/小程序初体验/"/>
 
 
 
 
 
-  <title> compilerandruntimeanalysis | 航的小站 </title>
+  <title> 小程序初体验 | 航的小站 </title>
 </head>
 
 
@@ -317,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/iOS/compilerandruntimeanalysis/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/小程序初体验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -338,7 +338,7 @@
             
             
               
-                compilerandruntimeanalysis
+                小程序初体验
               
             
           </h1>
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T17:09:13+08:00">
-                2017-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T17:12:31+08:00">
+                2017-04-25
               </time>
             
 
@@ -376,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
                   </a>
                 </span>
 
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/10/iOS/compilerandruntimeanalysis/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/25/小程序初体验/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/10/iOS/compilerandruntimeanalysis/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/25/小程序初体验/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,17 +422,34 @@
       
 
       
-        <h1 id="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结"><a href="#缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结" class="headerlink" title="缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结"></a>缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结</h1><a id="more"></a>
-<h1 id="编译器的主要职责"><a href="#编译器的主要职责" class="headerlink" title="编译器的主要职责"></a>编译器的主要职责</h1><p>1、静态分析（静态的检查语法错误），更类似于翻译器，代码还未写入内存，所以该阶段也没有内存的概念。只能检查出很低级的错误。</p>
-<p>2、将c家族的代码转换为llvm-ir中间码</p>
-<p><a href="https://objccn.io/issue-6-2/" target="_blank" rel="external">llvm编译器详解</a></p>
-<p><a href="https://my.oschina.net/chars/blog/615241" target="_blank" rel="external">llvm编译器和运行时分析</a></p>
-<p><a href="http://justsee.iteye.com/blog/2163777" target="_blank" rel="external">运行时系统分析</a></p>
-<p><a href="http://tech.glowing.com/cn/objective-c-runtime/" target="_blank" rel="external">比较基础的运行时解释文章</a></p>
-<h1 id="存在的不解与疑惑（下文为我的初步理解与分析）"><a href="#存在的不解与疑惑（下文为我的初步理解与分析）" class="headerlink" title="存在的不解与疑惑（下文为我的初步理解与分析）"></a>存在的不解与疑惑（下文为我的初步理解与分析）</h1><p>运行时————查看维基百科等很多资料，回顾以往开发经历，可以确定，所谓运行时，动态语言，就是在app运行在手机上的这个时间过程。</p>
-<p>在这个过程中，可以进行消息的转发，类型的确定(id)，那么疑问来了。。。</p>
-<p>梳理xcode编译到运行到手机的过程，xcode编译器clang，编译完成之后，到底生成的是什么，是机器码？是中间码？还是什么，google了很久之后，没什么答案，但是分析之后，我感觉是什么可能不重要，但是绝对不会是机器码。。。查看苹果官方文档和clang关于oc-runtime的文档，发现其实mac和iOS手机上面可以运行苹果应用，是因为操作系统上面有运行时库（可以维基百科这个词），所以编译之后应该是中间码，而且这个中间码可以被操作系统上面的运行时库解析，然后消息转发的时候，完成代码的定位和解释（类似解释器），没有找到就报错了（运行时错误）。</p>
-<p>而我们在xcode中可以看到的运行时库，是苹果提供给开发者的，和操作系统中的运行时库是不一样的，操作系统（iOS和mac）提供的运行时库（c和汇编写的），我们应该是看不到的。xcode中可见的运行时库主要目的苹果给的说明是，链接不同语言的brige，在编译器最初阶段，会将所有的import导入翻译，其实我们所做的所谓runtime黑魔法，就是做的这一步。————对某些消息转发进行替换，在操作系统上(iOS和mac)运行的时候，操作系统的运行时库再来定位代码和操作（这步是不透明的）。</p>
+        <h1 id="缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1-0到web2-0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛-…"><a href="#缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1-0到web2-0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛-…" class="headerlink" title="缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1.0到web2.0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛-_-…"></a>缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1.0到web2.0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛<strong>-_-…</strong></h1><a id="more"></a>
+<h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-1、入门必知"><a href="#1-1、入门必知" class="headerlink" title="1-1、入门必知"></a>1-1、入门必知</h2><p>在小程序中最关键也是必不可少的，是 app.js、app.json、app.wxss 这三个。其中，.js后缀的是脚本文件，.json后缀的文件是配置文件，.wxss后缀的是样式表文件。微信小程序会读取这些文件，并生成小程序实例。</p>
+<p>app.js是小程序的脚本代码。我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量。调用框架提供的丰富的 API，如本例的同步存储及同步读取本地数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//app.js</span></div><div class="line">App(&#123;</div><div class="line">  <span class="attr">onLaunch</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//调用API从本地缓存中获取数据</span></div><div class="line">    <span class="keyword">var</span> logs = wx.getStorageSync(<span class="string">'logs'</span>) || []</div><div class="line">    logs.unshift(<span class="built_in">Date</span>.now())</div><div class="line">    wx.setStorageSync(<span class="string">'logs'</span>, logs)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">getUserInfo</span>:<span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.globalData.userInfo)&#123;</div><div class="line">      <span class="keyword">typeof</span> cb == <span class="string">"function"</span> &amp;&amp; cb(<span class="keyword">this</span>.globalData.userInfo)</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="comment">//调用登录接口</span></div><div class="line">      wx.login(&#123;</div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          wx.getUserInfo(&#123;</div><div class="line">            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">              that.globalData.userInfo = res.userInfo;</div><div class="line">              <span class="keyword">typeof</span> cb == <span class="string">"function"</span> &amp;&amp; cb(that.globalData.userInfo)</div><div class="line">            &#125;</div><div class="line">          &#125;)</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">globalData</span>:&#123;</div><div class="line">    <span class="attr">userInfo</span>:<span class="literal">null</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>app.json 是对整个小程序的全局配置。我们可以在这个文件中配置小程序是由哪些页面组成，配置小程序的窗口背景色，配置导航条样式，配置默认标题。<strong>注意该文件不可添加任何注释。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"pages"</span>:[</div><div class="line">    <span class="string">"pages/index/index"</span>,</div><div class="line">    <span class="string">"pages/logs/logs"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"window"</span>:&#123;</div><div class="line">    <span class="string">"backgroundTextStyle"</span>:<span class="string">"light"</span>,</div><div class="line">    <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#fff"</span>,</div><div class="line">    <span class="string">"navigationBarTitleText"</span>: <span class="string">"WeChat"</span>,</div><div class="line">    <span class="string">"navigationBarTextStyle"</span>:<span class="string">"black"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>app.wxss 是整个小程序的公共样式表。我们可以在页面组件的 class 属性上直接使用 app.wxss 中声明的样式规则。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**app.wxss**/</div><div class="line">.container &#123;</div><div class="line">  height: 100%;</div><div class="line">  display: flex;</div><div class="line">  flex-direction: column;</div><div class="line">  align-items: center;</div><div class="line">  justify-content: space-between;</div><div class="line">  padding: 200rpx 0;</div><div class="line">  box-sizing: border-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="二、创建页面相关"><a href="#二、创建页面相关" class="headerlink" title="二、创建页面相关"></a>二、创建页面相关</h1><h2 id="2-1、创建页面前准备工作"><a href="#2-1、创建页面前准备工作" class="headerlink" title="2-1、创建页面前准备工作"></a>2-1、创建页面前准备工作</h2><p>微信小程序中的每一个页面的【路径+页面名】都需要写在 app.json 的 pages 中，且 pages 中的第一个页面是小程序的首页。</p>
+<p>每一个小程序页面是由同路径下同名的四个不同后缀文件的组成，如：index.js、index.wxml、index.wxss、index.json。.js后缀的文件是脚本文件，.json后缀的文件是配置文件，.wxss后缀的是样式表文件，.wxml后缀的文件是页面结构文件。</p>
+<ul>
+<li>index.wxml 是页面的结构文件：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!--index.wxml--&gt;</div><div class="line">&lt;view class=&quot;container&quot;&gt;</div><div class="line">  &lt;view  bindtap=&quot;bindViewTap&quot; class=&quot;userinfo&quot;&gt;</div><div class="line">    &lt;image class=&quot;userinfo-avatar&quot; src=&quot;&#123;&#123;userInfo.avatarUrl&#125;&#125;&quot; background-size=&quot;cover&quot;&gt;&lt;/image&gt;</div><div class="line">    &lt;text class=&quot;userinfo-nickname&quot;&gt;&#123;&#123;userInfo.nickName&#125;&#125;&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">  &lt;view class=&quot;usermotto&quot;&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;&#123;&#123;motto&#125;&#125;&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/view&gt;</div></pre></td></tr></table></figure>
+<p>本例中使用了<view>、<image>、<text>来搭建页面结构，绑定数据和交互处理函数。</text></image></view></p>
+<ul>
+<li>index.js 是页面的脚本文件，在这个文件中我们可以监听并处理页面的生命周期函数、获取小程序实例，声明并处理数据，响应页面交互事件等。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//index.js</span></div><div class="line"><span class="comment">//获取应用实例</span></div><div class="line"><span class="keyword">var</span> app = getApp()</div><div class="line">Page(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">motto</span>: <span class="string">'Hello World'</span>,</div><div class="line">    <span class="attr">userInfo</span>: &#123;&#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">//事件处理函数</span></div><div class="line">  bindViewTap: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    wx.navigateTo(&#123;</div><div class="line">      <span class="attr">url</span>: <span class="string">'../logs/logs'</span></div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">onLoad</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'onLoad'</span>)</div><div class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span></div><div class="line">    <span class="comment">//调用应用实例的方法获取全局数据</span></div><div class="line">    app.getUserInfo(<span class="function"><span class="keyword">function</span>(<span class="params">userInfo</span>)</span>&#123;</div><div class="line">      <span class="comment">//更新数据</span></div><div class="line">      that.setData(&#123;</div><div class="line">        <span class="attr">userInfo</span>:userInfo</div><div class="line">      &#125;)</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>index.wxss 是页面的样式表：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**index.wxss**/</span></div><div class="line"><span class="selector-class">.userinfo</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.userinfo-avatar</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">128</span>rpx;</div><div class="line">  <span class="attribute">height</span>: <span class="number">128</span>rpx;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20</span>rpx;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.userinfo-nickname</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#aaa</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.usermotto</span> &#123;</div><div class="line">  <span class="attribute">margin-top</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>页面的样式表是非必要的。当有页面样式表时，页面的样式表中的样式规则会层叠覆盖 app.wxss 中的样式规则。如果不指定页面的样式表，也可以在页面的结构文件中直接使用 app.wxss 中指定的样式规则。</p>
+<ul>
+<li>index.json 是页面的配置文件：</li>
+</ul>
+<p>页面的配置文件是非必要的。当有页面的配置文件时，配置项在该页面会覆盖 app.json 的 window 中相同的配置项。如果没有指定的页面配置文件，则在该页面直接使用 app.json 中的默认配置。</p>
 
       
     </div>
@@ -483,7 +500,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
           
         </div>
       
@@ -496,18 +513,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/normalSkill/谷歌插件推荐/" rel="next" title="谷歌插件推荐">
-                <i class="fa fa-chevron-left"></i> 谷歌插件推荐
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/10/iOS/iOS闭包和回调函数/" rel="prev" title="iOS闭包和回调函数">
-                iOS闭包和回调函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/24/iOS基础汇总/" rel="prev" title="iOS基础汇总">
+                iOS基础汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -678,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结"><span class="nav-number">1.</span> <span class="nav-text">缘由：iOS的编译和运行时一直都有混淆，在此，做个记录和总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译器的主要职责"><span class="nav-number">2.</span> <span class="nav-text">编译器的主要职责</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存在的不解与疑惑（下文为我的初步理解与分析）"><span class="nav-number">3.</span> <span class="nav-text">存在的不解与疑惑（下文为我的初步理解与分析）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1-0到web2-0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛-…"><span class="nav-number">1.</span> <span class="nav-text">缘由：体验体验，渐渐的明白了一个道理，很多的套路和操作，并非“无源之水，无本之木”，从web1.0到web2.0，从移动互联网到知识经济，从粉丝效应到内容营销，从社交软件群控到大平台联盟，它们之间有着各种套路和操作，但是这些之间当真没有联系嘛-_-…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、基本概念"><span class="nav-number">2.</span> <span class="nav-text">一、基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1、入门必知"><span class="nav-number">2.1.</span> <span class="nav-text">1-1、入门必知</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、创建页面相关"><span class="nav-number">3.</span> <span class="nav-text">二、创建页面相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1、创建页面前准备工作"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、创建页面前准备工作</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -803,9 +816,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/10/iOS/compilerandruntimeanalysis/';
-          this.page.identifier = '2017/04/10/iOS/compilerandruntimeanalysis/';
-          this.page.title = 'compilerandruntimeanalysis';
+          this.page.url = 'http://yoursite.com/2017/04/25/小程序初体验/';
+          this.page.identifier = '2017/04/25/小程序初体验/';
+          this.page.title = '小程序初体验';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';
