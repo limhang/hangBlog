@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="缘由：记录iOS代码书写规范，不定期更新">
+<meta name="description" content="缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。 一、常用技巧知识1-1、xcode使用相关1-1-1、建立新的文件夹  1.$cd 到你要创建文件夹的目录。 2.终端输入$ mkdir View。 3.将创建好的文件夹拖入工程点Copy就OK了。注意：蓝色文件夹（folder）一">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS代码规范">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/iOS/iOS代码规范/index.html">
+<meta property="og:title" content="iOS基础汇总">
+<meta property="og:url" content="http://yoursite.com/2017/04/24/iOS基础汇总/index.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：记录iOS代码书写规范，不定期更新">
-<meta property="og:updated_time" content="2017-04-10T09:02:27.000Z">
+<meta property="og:description" content="缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。 一、常用技巧知识1-1、xcode使用相关1-1-1、建立新的文件夹  1.$cd 到你要创建文件夹的目录。 2.终端输入$ mkdir View。 3.将创建好的文件夹拖入工程点Copy就OK了。注意：蓝色文件夹（folder）一">
+<meta property="og:updated_time" content="2017-04-24T07:44:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS代码规范">
-<meta name="twitter:description" content="缘由：记录iOS代码书写规范，不定期更新">
+<meta name="twitter:title" content="iOS基础汇总">
+<meta name="twitter:description" content="缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。 一、常用技巧知识1-1、xcode使用相关1-1-1、建立新的文件夹  1.$cd 到你要创建文件夹的目录。 2.终端输入$ mkdir View。 3.将创建好的文件夹拖入工程点Copy就OK了。注意：蓝色文件夹（folder）一">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/iOS/iOS代码规范/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/24/iOS基础汇总/"/>
 
 
 
 
 
-  <title> iOS代码规范 | 航的小站 </title>
+  <title> iOS基础汇总 | 航的小站 </title>
 </head>
 
 
@@ -317,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/iOS/iOS代码规范/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/24/iOS基础汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -338,7 +338,7 @@
             
             
               
-                iOS代码规范
+                iOS基础汇总
               
             
           </h1>
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T16:56:29+08:00">
-                2017-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-24T15:39:03+08:00">
+                2017-04-24
               </time>
             
 
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/10/iOS/iOS代码规范/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/24/iOS基础汇总/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/10/iOS/iOS代码规范/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/24/iOS基础汇总/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,18 +422,13 @@
       
 
       
-        <h1 id="缘由：记录iOS代码书写规范，不定期更新"><a href="#缘由：记录iOS代码书写规范，不定期更新" class="headerlink" title="缘由：记录iOS代码书写规范，不定期更新"></a>缘由：记录iOS代码书写规范，不定期更新</h1><a id="more"></a>
-<h1 id="一、viewController代码结构"><a href="#一、viewController代码结构" class="headerlink" title="一、viewController代码结构"></a>一、viewController代码结构</h1><ul>
-<li>属性：@property(nonatomic,strong)UIButton *confirmButton</li>
-<li>VC生命周期：#pragma mark - life cycle</li>
-<li>系统控件代理：#pragma mark - UITableViewDelegate</li>
-<li>自定义代理：#pragma mark - CustomDelegate</li>
-<li>事件响应：#pragma mark - event response</li>
-<li>私有方法(一般都是时间控件外观小处理，也可以放在分类中)：#pragma mark - private methods</li>
-<li>setter和getter方法：#pragma mark - setters and getters</li>
+        <p>缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。</p>
+<p>一、常用技巧知识<br>1-1、xcode使用相关<br>1-1-1、建立新的文件夹</p>
+<ul>
+<li>1.$cd 到你要创建文件夹的目录。</li>
+<li>2.终端输入$ mkdir View。</li>
+<li>3.将创建好的文件夹拖入工程点Copy就OK了。<br><strong>注意：</strong>蓝色文件夹（folder）一般作为资源文件夹使用，与黄色文件夹（groups）的主要区别是不参与编译，所以在上述步骤中，如果是代码文件就选择groups的。</li>
 </ul>
-<p>注：控件添加到view上面都是在viewDidLoad中，使用[self.view addSubview:self.firstLabel];调用getter方法</p>
-<p><a href="http://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html" target="_blank" rel="external">很好的架构资料</a></p>
 
       
     </div>
@@ -497,18 +492,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/iOS/iOS闭包和回调函数/" rel="next" title="iOS闭包和回调函数">
-                <i class="fa fa-chevron-left"></i> iOS闭包和回调函数
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/10/iOS/使用clang分析oc源码/" rel="prev" title="使用clang分析oc源码">
-                使用clang分析oc源码 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/18/nginx配置信息/" rel="prev" title="nginx配置信息">
+                nginx配置信息 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -586,17 +577,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -669,22 +651,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：记录iOS代码书写规范，不定期更新"><span class="nav-number">1.</span> <span class="nav-text">缘由：记录iOS代码书写规范，不定期更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、viewController代码结构"><span class="nav-number">2.</span> <span class="nav-text">一、viewController代码结构</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -804,9 +770,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/10/iOS/iOS代码规范/';
-          this.page.identifier = '2017/04/10/iOS/iOS代码规范/';
-          this.page.title = 'iOS代码规范';
+          this.page.url = 'http://yoursite.com/2017/04/24/iOS基础汇总/';
+          this.page.identifier = '2017/04/24/iOS基础汇总/';
+          this.page.title = 'iOS基础汇总';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';
