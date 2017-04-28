@@ -3,6 +3,8 @@ title: js疑难点总结
 date: 2017-04-09 09:08:05
 tags: javascript
 categories: 前端
+keywords: javascript 难点 闭包 作用域 归纳 
+description: javascript语法难点总结归纳
 ---
 
 # 缘由：javascript的疑难点大概有闭包、作用域、this指向、回调函数和原型链等等，在此做个总结

@@ -1,0 +1,1211 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧~~">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css基础">
+<meta property="og:url" content="http://lmhang.com/web/css基础.html">
+<meta property="og:site_name" content="航的小站">
+<meta property="og:description" content="缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧~~">
+<meta property="og:updated_time" content="2017-04-25T03:22:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css基础">
+<meta name="twitter:description" content="缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧~~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lmhang.com/web/css基础.html"/>
+
+
+
+
+
+  <title> css基础 | 航的小站 </title>
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5d03bb1ad9d17d10ede55db86f335a2f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">航的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lmhang.com/web/css基础.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李明航">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="航的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                css基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T17:11:43+08:00">
+                2017-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/web/css基础.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="web/css基础.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧"><a href="#缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧" class="headerlink" title="缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧~~"></a>缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧~~</h1><a id="more"></a>
+<h1 id="1-Html标记与文档结构"><a href="#1-Html标记与文档结构" class="headerlink" title="1.Html标记与文档结构"></a>1.Html标记与文档结构</h1><h2 id="1-1-Html标记基础"><a href="#1-1-Html标记基础" class="headerlink" title="1-1.Html标记基础"></a>1-1.Html标记基础</h2><h3 id="1-1-1-html标签的2种写法"><a href="#1-1-1-html标签的2种写法" class="headerlink" title="1-1-1.html标签的2种写法"></a>1-1-1.html标签的2种写法</h3><ul>
+<li><p>闭合标签</p>
+<p>  &lt;标签名 属性_1=”属性值” 属性_2=”属性值”&gt;文本内容&lt;/标签名&gt;</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Words by Dogsworth<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I wandered lonely as a dog.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>自闭合标签</p>
+<p>  &lt;标签名 属性_1=”属性值” 属性_2=”属性值” /&gt;</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/cisco.jpg"</span> <span class="attr">alt</span>=<span class="string">"My dog Cisco"</span> /&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="1-1-2-基本的块级标签和行内标签"><a href="#1-1-2-基本的块级标签和行内标签" class="headerlink" title="1-1-2.基本的块级标签和行内标签"></a>1-1-2.基本的块级标签和行内标签</h3><ul>
+<li><p>块级标签</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;-&lt;h6&gt; :6 级标签，&lt;h1&gt;表示最重要 </div><div class="line">&lt;p&gt;:段落</div><div class="line">&lt;ol&gt;:有序列表</div><div class="line">&lt;li&gt;:列表项</div><div class="line">&lt;blockquote&gt;:独立引用</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>行内标签</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a&gt;:链接(anchor，锚) </div><div class="line">&lt;img&gt;:图片</div><div class="line">&lt;em&gt;:斜体</div><div class="line">&lt;strong&gt;:重要</div><div class="line">&lt;abbr&gt;:简写</div><div class="line">&lt;cite&gt;:引证</div><div class="line">&lt;q&gt;:文本内引用</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="1-2-Html文档结构"><a href="#1-2-Html文档结构" class="headerlink" title="1-2.Html文档结构"></a>1-2.Html文档结构</h2><ul>
+<li><p>Html文档结构概览（流布局，块级元素，行内元素）</p>
+<p>  所谓“文档流”的效果，也就是 HTML 元素会按照它们各自在标记中 出现的先后顺序，依次从页面上方“流向”下方。</p>
+<p>  几乎所有 HTML 元素的 <strong>display</strong> 属性值要么为 <strong>block</strong>，要么为 <strong>inline</strong>。最明显的一 个例外是 table 元素，它有自己特殊的 display 属性值。</p>
+<p>  <strong>块级元素</strong>(比如标题和段落)会相互堆叠在一起沿页面向下排列，每个元素分别占 <strong>一行</strong>。而<strong>行内元素</strong>(比如链接和图片)则会相互并列，只有在<strong>空间不足以并列</strong>的情 况下才会<strong>折到下一行</strong>显示。</p>
+</li>
+</ul>
+<ul>
+<li><p>块级元素（<strong>块级元素盒子会扩展到与父元素同宽</strong>）</p>
+<p>  显示块级元素的轮廓之后，可以发现元素盒子比它们包含的文本要 大一些。<strong>每个盒子的高度比内容稍微高一点</strong>，而<strong>宽度跟浏览器窗口一样宽</strong>!</p>
+<p>  在简易页面中，所有块级元素的父元素都是 body，而它的宽度默认与浏览器窗 口一样宽(当然有少量边距)。因此，所有块级元素就与浏览器窗口一样宽了。说到 这，相信你就能理解为什么块级元素始终会占一行了。对了，就是因为它们始终会 保持与浏览器窗口同宽。这样一来，一个块级元素旁边也就没有空间容纳另一个块 级元素了。</p>
+</li>
+<li><p>行内元素（<strong>行内元素盒子会“收缩包裹”其内容，并且会尽可能包紧</strong>）</p>
+<p>  说到这，你就可以理解为什么几个行内元素会并排显示在一行，而每个块级元素都 会另起一行了。</p>
+</li>
+</ul>
+<h1 id="2、css工作原理"><a href="#2、css工作原理" class="headerlink" title="2、css工作原理"></a>2、css工作原理</h1><h2 id="2-1-css基本使用"><a href="#2-1-css基本使用" class="headerlink" title="2-1.css基本使用"></a>2-1.css基本使用</h2><h3 id="2-1-1-Html添加样式的3种方法-代码放在何处"><a href="#2-1-1-Html添加样式的3种方法-代码放在何处" class="headerlink" title="2-1-1.Html添加样式的3种方法(代码放在何处)"></a>2-1-1.Html添加样式的3种方法(代码放在何处)</h3><ul>
+<li><p>行内样式</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"font-size: 12px; font-weight:bold; font-style:italic; color:red;"</span>&gt;</span>By adding inline CSS styling to this paragraph, you override the default styles.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>嵌入样式</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>	<span class="comment">&lt;!-- 其他 head 元素(如 meta、title)放在这里 --&gt;</span></div><div class="line">	</div><div class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">			<span class="selector-tag">h1</span> &#123;<span class="attribute">font-size</span>:<span class="number">16px</span>;&#125;</div><div class="line">			<span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:blue;&#125;</div><div class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>链接样式</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"styles.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-1-2-css命名使用规则（最简单的例子）"><a href="#2-1-2-css命名使用规则（最简单的例子）" class="headerlink" title="2-1-2.css命名使用规则（最简单的例子）"></a>2-1-2.css命名使用规则（最简单的例子）</h3><ul>
+<li><p>类似键值对的形式</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:red; <span class="attribute">font-size</span>:<span class="number">12px</span>; <span class="attribute">font-weight</span>:bold;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>多个选择符组合在一起使用</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span> &#123;<span class="attribute">color</span>:blue; <span class="attribute">font-weight</span>:bold;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-2-选中Html标签的方法（id-属性，上下文选择符）"><a href="#2-2-选中Html标签的方法（id-属性，上下文选择符）" class="headerlink" title="2-2.选中Html标签的方法（id,属性，上下文选择符）"></a>2-2.选中Html标签的方法（id,属性，上下文选择符）</h2><h3 id="2-2-1-上下文选择符"><a href="#2-2-1-上下文选择符" class="headerlink" title="2-2-1.上下文选择符"></a>2-2-1.上下文选择符</h3><p>上下文选择符（后代组合式选择符）的格式如下:</p>
+<p>标签 1 标签 2 {声明}</p>
+<p>其中，标签 2 就是我们想要选择目标，而且只有在标签 1 是其祖先元素(不一定是父元素)的情况下才会被选中。<strong>无论从该标签到作为 祖先的上下文之间隔着多少层次都没有关系。</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">article</span> <span class="selector-tag">p</span> &#123;<span class="attribute">font-weight</span>:bold;&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-2-2-子选择符-gt"><a href="#2-2-2-子选择符-gt" class="headerlink" title="2-2-2.子选择符&gt;"></a>2-2-2.子选择符&gt;</h3><p>标签 1 &gt; 标签 2</p>
+<p>标签 2 必须是标签 1 的子元素，或者反过来说，标签 1 必须是标签 2 的父元素。与常 规的上下文选择符不同，这个选择符中的标签 1 不能是标签 2 的父元素之外的其他 祖先元素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">section</span> &gt; <span class="selector-tag">h2</span> &#123;<span class="attribute">font-style</span>:italic;&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-2-3-紧邻同胞选择符"><a href="#2-2-3-紧邻同胞选择符" class="headerlink" title="2-2-3.紧邻同胞选择符+"></a>2-2-3.紧邻同胞选择符+</h3><p>标签 1 + 标签 2</p>
+<p>标签 2 必须紧跟在其同胞标签 1 的后面。 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h2</span> + <span class="selector-tag">p</span> &#123;<span class="attribute">font-variant</span>:small-caps;&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-2-4-通用选择符"><a href="#2-2-4-通用选择符" class="headerlink" title="2-2-4.通用选择符*"></a>2-2-4.通用选择符*</h3><p>通用选择符*(常被称为星号选择符)是一个通配符，它匹配任何元素，因此下面这条规则</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#123;<span class="attribute">color</span>:green;&#125;</div></pre></td></tr></table></figure>
+<p>会导致所有元素(的文本和边框)都变成绿色。</p>
+<h3 id="2-2-5-ID-和类选择符"><a href="#2-2-5-ID-和类选择符" class="headerlink" title="2-2-5.ID 和类选择符"></a>2-2-5.ID 和类选择符</h3><p>ID 和类为我们选择元素提供了另一套手段，利用它们可以不用考虑文档的层次结构。 只要你在 HTML 标记中为元素添加了 id 和 class 属性，就可以在 CSS 选择符中使用 ID 和类名，直接选中文档中特定的区域。</p>
+<p><strong>ID 的用途是在页面中唯一地标识一个元素。正因为如此，同一个页面中的每一个 ID 属性，都必须有独一无二的值(名字)。好吧，换一个角度讲，每个 ID 名在页面中 都只能用一次。</strong></p>
+<p><strong>类的目的是为了标识一组具有相同特征的元素，比如本章前面例子中的那个specialtext 类。</strong></p>
+<ul>
+<li><p>类选择符</p>
+<p>  1.通用类选择符</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"specialtext"</span>&gt;</span> When a tag has a class attribute, you can target it<span class="tag">&lt;<span class="name">span</span>&gt;</span>regardless<span class="tag">&lt;/<span class="name">span</span>&gt;</span> of its position in the hierarchy.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">.specialtext &#123;font-style:italic;&#125;</div></pre></td></tr></table></figure>
+<p>  2.标签带类选择符</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">font-family</span>:helvetica, sans-serif; <span class="attribute">font-size</span>:<span class="number">1.2em</span>;&#125;</div><div class="line"><span class="selector-class">.specialtext</span> &#123;<span class="attribute">font-style</span>:italic;&#125;</div><div class="line"><span class="selector-tag">p</span><span class="selector-class">.specialtext</span> &#123;<span class="attribute">color</span>:red;&#125;</div><div class="line"></div><div class="line">该规则只选择带 <span class="selector-tag">specialtext</span> 类的段落。像这样组合标签 名和类选择符，可以让你更精确地选择特定的标签。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>ID选择符</p>
+<p>  ID 与类的写法相似，而且表示 ID 选择符的#(井号)的用法，也跟表示类选择符的. (句号)类似。如果有一个段落像下面这样设定了 ID 属性</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"specialtext"</span>&gt;</span>This is the special text.<span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">那么，相应的 ID 选择符就是这样的:</div><div class="line">#specialtext &#123;CSS样式声明&#125;</div><div class="line">或者这样的:</div><div class="line">p#specialtext &#123;CSS样式声明&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-3-伪类和伪元素"><a href="#2-3-伪类和伪元素" class="headerlink" title="2-3.伪类和伪元素"></a>2-3.伪类和伪元素</h2><h3 id="2-3-1-伪类"><a href="#2-3-1-伪类" class="headerlink" title="2-3-1.伪类"></a>2-3-1.伪类</h3><p>伪类这个叫法源自它们与类相似，但实际上并没有类会附加到标记中的标签上。伪类分两种。</p>
+<p>1.UI(User Interface，用户界面)伪类会在 HTML 元素处于某个状态时(比如鼠标 指针位于链接上)，为该元素应用 CSS 样式。</p>
+<p>2.结构化伪类会在标记中存在某种结构上的关系时(如某个元素是一组元素中的第 一个或最后一个)，为相应元素应用 CSS 样式。</p>
+<ul>
+<li><p>UI伪类</p>
+<p>  1、链接伪类</p>
+<hr>
+<p>  Link。此时，链接就在那儿等着用户点击。<br>  Visited。用户此前点击过这个链接。<br>  Hover。鼠标指针正悬停在链接上。<br>  Active。链接正在被点击(鼠标在元素上按下，还没有释放)。<br>  a:link {color:black;}<br>  a:visited {color:gray;}<br>  a:hover {text-decoration:none;}<br>  a:active {color:red;}</p>
+<hr>
+<p>  <strong>warning</strong>：一个冒号(:)表示伪类，两个冒号(::)表示 CSS3 新增的伪元素。尽管浏览器目 前都支持对 CSS 1 和 CSS 2 的伪元素使用一个冒号，但希望你能习惯于用双冒号代 替单冒号，因为这些单冒号的伪元素最终可能都会被淘汰掉。</p>
+<p>  2、:focus 伪类</p>
+<pre><code class="css"><span class="selector-tag">input</span><span class="selector-pseudo">:focus</span> {<span class="attribute">border</span>:<span class="number">1px</span> solid blue;}
+</code></pre>
+<p>  会在光标位于 input 字段中时，为该字段添加一个蓝色边框。这样可以让用户明确<br>地知道输入的字符会出现在哪里。</p>
+<p>  3、:target 伪类</p>
+<pre><code>如果用户点击一个指向页面中其他元素的链接，则那个元素就是目标(target)，可以 用:target 伪类选中它。
+</code></pre></li>
+<li><p>结构化伪类</p>
+<p>  1、:first-child 和:last-child</p>
+<p>  :first-child 代表一组同胞元素中的第一个元素，而:last-child 则代表最后一个。</p>
+<p>  2、:nth-child</p>
+<pre><code>e:nth-child(n)
+</code></pre><p>  e 表示元素名，n 表示一个数值(也可以使用 odd 或 even)。</p>
+</li>
+</ul>
+<h3 id="2-3-2-伪元素"><a href="#2-3-2-伪元素" class="headerlink" title="2-3-2.伪元素"></a>2-3-2.伪元素</h3><p>顾名思义，伪元素就是你的文档中若有实无的元素。以下我们介绍几个最有用的伪 元素</p>
+<p>1、::first-letter 伪元素</p>
+<pre><code>p::first-letter {font-size:300%;}
+</code></pre><p>段落首字符放大的效果。</p>
+<p>2、::first-line 伪元素</p>
+<pre><code>p::first-line {font-variant:small-caps;} 
+</code></pre><p>可以把第一行以小型大写字母显示</p>
+<p>3、::before 和::after 伪元素</p>
+<pre><code>&lt;p class=&quot;age&quot;&gt;25&lt;/p&gt;
+p.age::before {content:&quot;Age: &quot;;}
+p.age::after {content:&quot; years.&quot;;}
+
+Age: 25 years.
+</code></pre><h1 id="3、定位元素"><a href="#3、定位元素" class="headerlink" title="3、定位元素"></a>3、定位元素</h1><h2 id="3-1、盒子模型"><a href="#3-1、盒子模型" class="headerlink" title="3-1、盒子模型"></a>3-1、盒子模型</h2><h3 id="3-1-1、盒子模型属性"><a href="#3-1-1、盒子模型属性" class="headerlink" title="3-1-1、盒子模型属性"></a>3-1-1、盒子模型属性</h3><p>1、边框(border)。可以设置边框的宽窄、样式和颜色。</p>
+<pre><code>宽度(border-width)。可以使用 thin、medium 和 thick 等文本值，也可以使用 除百分比和负值之外的任何绝对值。
+
+样式(border-style)。有 none、hidden、dotted、dashed、solid、double、groove、 ridge、inset 和 outset 等文本值。
+
+颜色(border-color)。可以使用任意颜色值，包括 RGB、HSL、十六进制颜色 值和颜色关键字。
+</code></pre><p>2、内边距(padding)。可以设置盒子内容区与边框的间距。 </p>
+<p>3、外边距(margin)。可以设置盒子与相邻元素的间距。</p>
+<pre><code>垂直方向上的外边距会叠加，这可是你必须得知道的一件事。
+
+p {height:50px; border:1px solid #000; backgroundcolor:#fff; margin-top:50px;margin-bottom:30px;}
+</code></pre><p><strong>warning：</strong></p>
+<p>由于第一段的下外边距与第二段的上外边距相邻，你自然会认为它们之间的外边距 是 80 像素(50+30)，但是你错啦!它们实际的间距是 50 像素。像这样上下外边距 相遇时，它们就会相互重叠，直至一个外边距碰到另一个元素的边框。就上面的例 子而言，第二段较宽的上外边距会碰到第一段的边框。也就是说，较宽的外边距决 定两个元素最终离多远，没错——50 像素。这个过程就叫外边距叠加。</p>
+<p>外边距的左右边距则和外边距的上下边距原理相反，左右边距是2者相加。</p>
+<h3 id="3-1-2、盒子有多大"><a href="#3-1-2、盒子有多大" class="headerlink" title="3-1-2、盒子有多大"></a>3-1-2、盒子有多大</h3><p>首先，谈一谈设定盒子的宽度，因为控制元 素的宽度是创建多栏布局的头等大事。一开始我们会看到给没有宽度的元素添加边 框、内边距和外边距的效果，然后再看看通过 CSS 给它设置了宽度之后，它的行为有什么不同。</p>
+<ul>
+<li><p>没有宽度的盒子</p>
+<p>  盒模型结论一:没有(就是没有设置 width 的)宽度的元素始终会扩展到填满其父 元素的宽度为止。添加水平边框、内边距和外边距，会导致内容宽度减少，减少量 等于水平边框、内边距和外边距的和。</p>
+</li>
+<li><p>有宽度的盒子</p>
+<p>  盒模型结论二:为设定了宽度的盒子添加边框、内边距和外边距，会导致盒子扩展 得更宽。实际上，盒子的 width 属性设定的只是盒子内容区的宽度，而非盒子要占 据的水平宽度。</p>
+</li>
+</ul>
+<h2 id="3-2、浮动与清除"><a href="#3-2、浮动与清除" class="headerlink" title="3-2、浮动与清除"></a>3-2、浮动与清除</h2><h3 id="3-2-1、浮动"><a href="#3-2-1、浮动" class="headerlink" title="3-2-1、浮动"></a>3-2-1、浮动</h3><p>CSS 设计 float 属性的主要目的，是为了实现文本绕排图片的效果。然而，这个属 性居然也成了创建多栏布局最简单的方式。</p>
+<p>说得形象一点，在你浮动一张图片或者其他元素时，你是在要求浏览器把它往上方 推，直到它碰到父元素(也就是 body 元素)的内边界。后面的段落(带灰色边框) 不再认为浮动元素在文档流中位于它的前面了，因而它会占据父元素左上角的位置。 不过，它的内容(文本)会绕开浮动的图片。</p>
+<p>接下来我们再看看浮动的另一面，这也是必须得理解的。浮动元素位于“文档流外 部”，因而它已经不被包含在标记中的父元素之内了。正因为如此，它对布局可能产 生破坏性影响。</p>
+<p><strong>围住浮动元素的三种方法</strong></p>
+<p>1、为父元素添加 overflow:hidden</p>
+<pre><code> &lt;section&gt;
+     &lt;img src=&quot;images/rubber_duck2.jpg&quot;&gt;
+     &lt;p&gt;It&apos;s fun to float.&lt;/p&gt;
+&lt;/section&gt;
+&lt;footer&gt; Here is the footer element that runs across the bottom of the
+   page.
+&lt;/footer&gt;
+
+section {border:1px solid blue; margin:0 0 10px 0; overflow:hidden;}
+img {float:left;}
+p {border:1px solid red;}
+</code></pre><p>2、同时浮动父元素</p>
+<pre><code>section {border:1px solid blue; float:left; width:100%;} 
+img {float:left;}
+footer {border:1px solid red; clear:left;}
+</code></pre><p>3、添加非浮动的清除元素</p>
+<pre><code>方案一：
+&lt;section&gt; 4 &lt;img src=&quot;images/rubber_duck.jpg&quot;&gt;
+    &lt;p&gt;It&apos;s fun to float.&lt;/p&gt;
+    &lt;div class=&quot;clear_me&quot;&gt;&lt;/div&gt;    
+&lt;/section&gt;
+&lt;footer&gt; Here is the footer element...&lt;/footer&gt;
+
+section {border:1px solid blue;}
+img {float:left;}
+.clear_me {clear:left;}
+footer {border:1px solid red;}
+
+方案二：
+&lt;section class=&quot;clearfix&quot;&gt;
+  &lt;img src=&quot;images/rubber_duck.jpg&quot;&gt;
+  &lt;p&gt;It&apos;s fun to float.&lt;/p&gt;
+&lt;/section&gt;
+&lt;footer&gt; Here is the footer element...&lt;/footer&gt;
+
+.clearfix:after {
+       content:&quot;.&quot;;
+       display:block;
+       height:0;
+       visibility:hidden;
+       clear:both;
+}
+</code></pre><h3 id="3-2-3、浮动与清除的例子（源码中也有解释）"><a href="#3-2-3、浮动与清除的例子（源码中也有解释）" class="headerlink" title="3-2-3、浮动与清除的例子（源码中也有解释）"></a>3-2-3、浮动与清除的例子（源码中也有解释）</h3><p><a href="https://github.com/sanyueyuxincao/train/blob/master/baidu_front/section0/float_study.html" target="_blank" rel="external">浮动与清除Demo</a>    </p>
+<h2 id="3-3、定位"><a href="#3-3、定位" class="headerlink" title="3-3、定位"></a>3-3、定位</h2><h3 id="3-3-1、相对定位"><a href="#3-3-1、相对定位" class="headerlink" title="3-3-1、相对定位"></a>3-3-1、相对定位</h3><p>相对定位是相对哪里定位的呢？相对的是原来它在文档流中的位置，发生移动，不影响其他的元素布局，原来自身所在的空间保留不动，也可能超过body的边界</p>
+<h3 id="3-3-2、绝对定位"><a href="#3-3-2、绝对定位" class="headerlink" title="3-3-2、绝对定位"></a>3-3-2、绝对定位</h3><p>与相对定位相反，绝对定位是将元素连根拔起，然后在相对定位上下文（默认是body,当将其某个祖先元素设置为position:relative之后，该元素就是定位上下文了），来进行位置确定。</p>
+<h3 id="3-3-3、固定定位"><a href="#3-3-3、固定定位" class="headerlink" title="3-3-3、固定定位"></a>3-3-3、固定定位</h3><p>和绝对定位类似，也是完全将元素连根拔起，但是它参考的浏览器的边界或者手机的屏幕，不会随着滚动发生偏移。</p>
+<h3 id="3-3-4、显示属性（display：inline-block）"><a href="#3-3-4、显示属性（display：inline-block）" class="headerlink" title="3-3-4、显示属性（display：inline||block）"></a>3-3-4、显示属性（display：inline||block）</h3><p>   把块级元素变成行内元素(或者相反)的魔法如下</p>
+<pre><code> /*默认为 block*/
+p {display:inline;} 
+/*默认为 inline*/
+a {display:block;}
+</code></pre><p><strong>warning：</strong></p>
+<p>Top的值表示对象相对原位置向下偏移的距离，bottom的值表示对象相对原位置向上偏移的距离，两者同时存在时，只有Top起作用。</p>
+<p>left的值表示对象相对原位置向右偏移的距离，right的值表示对象相对原位置向左偏移的距离，两者同时存在时，只有left起作用。</p>
+<h1 id="4、页面布局"><a href="#4、页面布局" class="headerlink" title="4、页面布局"></a>4、页面布局</h1><h2 id="4-1、布局的基本概念"><a href="#4-1、布局的基本概念" class="headerlink" title="4-1、布局的基本概念"></a>4-1、布局的基本概念</h2><h3 id="4-1-1、多栏布局的实现方案"><a href="#4-1-1、多栏布局的实现方案" class="headerlink" title="4-1-1、多栏布局的实现方案"></a>4-1-1、多栏布局的实现方案</h3><ul>
+<li>固定宽度</li>
+<li>流动（主流）</li>
+<li>弹性（较为复杂，暂不考虑）</li>
+</ul>
+<h3 id="4-1-2、布局高度和布局宽度"><a href="#4-1-2、布局高度和布局宽度" class="headerlink" title="4-1-2、布局高度和布局宽度"></a>4-1-2、布局高度和布局宽度</h3><ul>
+<li><p>布局高度</p>
+<p>  多数情况下，布局高度不需要我们考虑，事实上，我们不应该给元素设置高度。</p>
+</li>
+<li><p>布局宽度</p>
+<p>  布局宽度比较重要，需要仔细考虑设置</p>
+</li>
+</ul>
+<h2 id="4-2、三栏布局"><a href="#4-2、三栏布局" class="headerlink" title="4-2、三栏布局"></a>4-2、三栏布局</h2><p><strong>只要掌握了创建三栏布局的技术，你想搞多少栏就 能搞多少栏。</strong></p>
+<h3 id="4-2-1、三栏固定宽度布局"><a href="#4-2-1、三栏固定宽度布局" class="headerlink" title="4-2-1、三栏固定宽度布局"></a>4-2-1、三栏固定宽度布局</h3><p><a href="https://github.com/sanyueyuxincao/train/blob/master/baidu_front/section0/task3_1.html" target="_blank" rel="external">例子详解</a></p>
+<h3 id="4-2-2、三栏中栏流动布局"><a href="#4-2-2、三栏中栏流动布局" class="headerlink" title="4-2-2、三栏中栏流动布局"></a>4-2-2、三栏中栏流动布局</h3><p><a href="https://github.com/sanyueyuxincao/train/blob/master/baidu_front/section0/task3_2.html" target="_blank" rel="external">例子详解</a></p>
+<h2 id="4-3、多栏布局"><a href="#4-3、多栏布局" class="headerlink" title="4-3、多栏布局"></a>4-3、多栏布局</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><h2 id="1、网络资源"><a href="#1、网络资源" class="headerlink" title="1、网络资源"></a>1、网络资源</h2><p><a href="http://www.cnblogs.com/dolphinX/archive/2012/10/13/2722501.html" target="_blank" rel="external">css布局-dispaly,position,float</a></p>
+<p><a href="https://css-tricks.com/all-about-floats/" target="_blank" rel="external">css布局-float详解，英文</a></p>
+<p><a href="https://segmentfault.com/a/1190000000680773" target="_blank" rel="external">css相对定位和绝对定位</a></p>
+<p><a href="http://weibo.com/ttarticle/p/show?id=2309403986600882225385" target="_blank" rel="external">关于css position: absolute、relative定位问题</a></p>
+<p><a href="http://www.tuicool.com/articles/nYr22qn" target="_blank" rel="external">HTML、CSS知识点总结，浅显易懂</a></p>
+<h2 id="2、书籍相关"><a href="#2、书籍相关" class="headerlink" title="2、书籍相关"></a>2、书籍相关</h2><p><a href="http://vdisk.weibo.com/s/7C37FWhg2OD?from=page_100505_profile&amp;wvr=6" target="_blank" rel="external">css设计指南3</a></p>
+<h2 id="3、练手项目"><a href="#3、练手项目" class="headerlink" title="3、练手项目"></a>3、练手项目</h2><p><a href="http://ife.baidu.com/2016/task/all" target="_blank" rel="external">百度前端技术学院</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ok2nitkry.bkt.clouddn.com/wechatPay.png.png" alt="李明航 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ok2nitkry.bkt.clouddn.com/aliPay.png.png" alt="李明航 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/web/reflux基本使用.html" rel="next" title="reflux基本使用">
+                <i class="fa fa-chevron-left"></i> reflux基本使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/normalSkill/博客搭建.html" rel="prev" title="博客搭建">
+                博客搭建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="李明航" />
+          <p class="site-author-name" itemprop="name">李明航</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sanyueyuxincao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧"><span class="nav-number">1.</span> <span class="nav-text">缘由：前期有看过一些css相关的书籍，但是一直都没有做总结和记录，现在开始吧~~</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Html标记与文档结构"><span class="nav-number">2.</span> <span class="nav-text">1.Html标记与文档结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Html标记基础"><span class="nav-number">2.1.</span> <span class="nav-text">1-1.Html标记基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-html标签的2种写法"><span class="nav-number">2.1.1.</span> <span class="nav-text">1-1-1.html标签的2种写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-基本的块级标签和行内标签"><span class="nav-number">2.1.2.</span> <span class="nav-text">1-1-2.基本的块级标签和行内标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Html文档结构"><span class="nav-number">2.2.</span> <span class="nav-text">1-2.Html文档结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、css工作原理"><span class="nav-number">3.</span> <span class="nav-text">2、css工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-css基本使用"><span class="nav-number">3.1.</span> <span class="nav-text">2-1.css基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-Html添加样式的3种方法-代码放在何处"><span class="nav-number">3.1.1.</span> <span class="nav-text">2-1-1.Html添加样式的3种方法(代码放在何处)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-css命名使用规则（最简单的例子）"><span class="nav-number">3.1.2.</span> <span class="nav-text">2-1-2.css命名使用规则（最简单的例子）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-选中Html标签的方法（id-属性，上下文选择符）"><span class="nav-number">3.2.</span> <span class="nav-text">2-2.选中Html标签的方法（id,属性，上下文选择符）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-上下文选择符"><span class="nav-number">3.2.1.</span> <span class="nav-text">2-2-1.上下文选择符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-子选择符-gt"><span class="nav-number">3.2.2.</span> <span class="nav-text">2-2-2.子选择符></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-紧邻同胞选择符"><span class="nav-number">3.2.3.</span> <span class="nav-text">2-2-3.紧邻同胞选择符+</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-通用选择符"><span class="nav-number">3.2.4.</span> <span class="nav-text">2-2-4.通用选择符*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-ID-和类选择符"><span class="nav-number">3.2.5.</span> <span class="nav-text">2-2-5.ID 和类选择符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-伪类和伪元素"><span class="nav-number">3.3.</span> <span class="nav-text">2-3.伪类和伪元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-伪类"><span class="nav-number">3.3.1.</span> <span class="nav-text">2-3-1.伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-伪元素"><span class="nav-number">3.3.2.</span> <span class="nav-text">2-3-2.伪元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、定位元素"><span class="nav-number">4.</span> <span class="nav-text">3、定位元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1、盒子模型"><span class="nav-number">4.1.</span> <span class="nav-text">3-1、盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1、盒子模型属性"><span class="nav-number">4.1.1.</span> <span class="nav-text">3-1-1、盒子模型属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2、盒子有多大"><span class="nav-number">4.1.2.</span> <span class="nav-text">3-1-2、盒子有多大</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2、浮动与清除"><span class="nav-number">4.2.</span> <span class="nav-text">3-2、浮动与清除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1、浮动"><span class="nav-number">4.2.1.</span> <span class="nav-text">3-2-1、浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3、浮动与清除的例子（源码中也有解释）"><span class="nav-number">4.2.2.</span> <span class="nav-text">3-2-3、浮动与清除的例子（源码中也有解释）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3、定位"><span class="nav-number">4.3.</span> <span class="nav-text">3-3、定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1、相对定位"><span class="nav-number">4.3.1.</span> <span class="nav-text">3-3-1、相对定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2、绝对定位"><span class="nav-number">4.3.2.</span> <span class="nav-text">3-3-2、绝对定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3、固定定位"><span class="nav-number">4.3.3.</span> <span class="nav-text">3-3-3、固定定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-4、显示属性（display：inline-block）"><span class="nav-number">4.3.4.</span> <span class="nav-text">3-3-4、显示属性（display：inline||block）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、页面布局"><span class="nav-number">5.</span> <span class="nav-text">4、页面布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1、布局的基本概念"><span class="nav-number">5.1.</span> <span class="nav-text">4-1、布局的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1、多栏布局的实现方案"><span class="nav-number">5.1.1.</span> <span class="nav-text">4-1-1、多栏布局的实现方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2、布局高度和布局宽度"><span class="nav-number">5.1.2.</span> <span class="nav-text">4-1-2、布局高度和布局宽度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2、三栏布局"><span class="nav-number">5.2.</span> <span class="nav-text">4-2、三栏布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1、三栏固定宽度布局"><span class="nav-number">5.2.1.</span> <span class="nav-text">4-2-1、三栏固定宽度布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2、三栏中栏流动布局"><span class="nav-number">5.2.2.</span> <span class="nav-text">4-2-2、三栏中栏流动布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3、多栏布局"><span class="nav-number">5.3.</span> <span class="nav-text">4-3、多栏布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、网络资源"><span class="nav-number">6.1.</span> <span class="nav-text">1、网络资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、书籍相关"><span class="nav-number">6.2.</span> <span class="nav-text">2、书籍相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、练手项目"><span class="nav-number">6.3.</span> <span class="nav-text">3、练手项目</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李明航</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://lmhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://lmhang.com/web/css基础.html';
+          this.page.identifier = 'web/css基础.html';
+          this.page.title = 'css基础';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lmhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
