@@ -22,3 +22,25 @@ categories: iOS
 **注意：**蓝色文件夹（folder）一般作为资源文件夹使用，与黄色文件夹（groups）的主要区别是不参与编译，所以在上述步骤中，如果是代码文件就选择groups的。
 
 
+二、网络请求
+1-1、YTKNetwork
+1-1-1、基本使用
+
+1-1-2、上传图片数组
+需求：上传一个图片数组，与服务端的kw是：img，数组元素是NSData
+代码：
+```oc
+- (AFConstructingBlock)constructingBodyBlock {
+    return ^(id<AFMultipartFormData> formData) {
+        for (int i = 0;i < _img.count; i++){
+            NSData *data = UIImageJPEGRepresentation(_img[i], 0.5);
+            if ((float)data.length/1024 > 1000) {
+                data = UIImageJPEGRepresentation(_img[i], 1024*1000.0/(float)data.length);
+            }
+            NSString *name = [NSString stringWithFormat:@"image%d.png",i];
+            NSString *type = @"image/jpeg";
+            [formData appendPartWithFileData:data name:@"img" fileName:name mimeType:type];
+        }
+    };
+}
+```

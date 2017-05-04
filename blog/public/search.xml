@@ -19,7 +19,7 @@
     <entry>
       <title><![CDATA[iOS基础汇总]]></title>
       <url>%2FiOS%E5%9F%BA%E7%A1%80%E6%B1%87%E6%80%BB.html</url>
-      <content type="text"><![CDATA[缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。 零、list about what i need0-0、 一、常用技巧知识1-1、xcode使用相关1-1-1、建立新的文件夹 1.$cd 到你要创建文件夹的目录。 2.终端输入$ mkdir View。 3.将创建好的文件夹拖入工程点Copy就OK了。注意：蓝色文件夹（folder）一般作为资源文件夹使用，与黄色文件夹（groups）的主要区别是不参与编译，所以在上述步骤中，如果是代码文件就选择groups的。]]></content>
+      <content type="text"><![CDATA[缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。 零、list about what i need0-0、 一、常用技巧知识1-1、xcode使用相关1-1-1、建立新的文件夹 1.$cd 到你要创建文件夹的目录。 2.终端输入$ mkdir View。 3.将创建好的文件夹拖入工程点Copy就OK了。注意：蓝色文件夹（folder）一般作为资源文件夹使用，与黄色文件夹（groups）的主要区别是不参与编译，所以在上述步骤中，如果是代码文件就选择groups的。 二、网络请求1-1、YTKNetwork1-1-1、基本使用 1-1-2、上传图片数组需求：上传一个图片数组，与服务端的kw是：img，数组元素是NSData代码：12345678910111213- (AFConstructingBlock)constructingBodyBlock &#123; return ^(id&lt;AFMultipartFormData&gt; formData) &#123; for (int i = 0;i &lt; _img.count; i++)&#123; NSData *data = UIImageJPEGRepresentation(_img[i], 0.5); if ((float)data.length/1024 &gt; 1000) &#123; data = UIImageJPEGRepresentation(_img[i], 1024*1000.0/(float)data.length); &#125; NSString *name = [NSString stringWithFormat:@&quot;image%d.png&quot;,i]; NSString *type = @&quot;image/jpeg&quot;; [formData appendPartWithFileData:data name:@&quot;img&quot; fileName:name mimeType:type]; &#125; &#125;;&#125;]]></content>
     </entry>
 
     

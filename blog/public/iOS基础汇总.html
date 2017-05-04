@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lmhang.com/iOS基础汇总.html">
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。">
-<meta property="og:updated_time" content="2017-04-26T02:39:43.000Z">
+<meta property="og:updated_time" content="2017-05-04T09:07:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS基础汇总">
 <meta name="twitter:description" content="缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。">
@@ -431,6 +431,8 @@
 <li>2.终端输入$ mkdir View。</li>
 <li>3.将创建好的文件夹拖入工程点Copy就OK了。<br><strong>注意：</strong>蓝色文件夹（folder）一般作为资源文件夹使用，与黄色文件夹（groups）的主要区别是不参与编译，所以在上述步骤中，如果是代码文件就选择groups的。</li>
 </ul>
+<p>二、网络请求<br>1-1、YTKNetwork<br>1-1-1、基本使用</p>
+<p>1-1-2、上传图片数组<br>需求：上传一个图片数组，与服务端的kw是：img，数组元素是NSData<br>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (AFConstructingBlock)constructingBodyBlock &#123;</div><div class="line">    return ^(id&lt;AFMultipartFormData&gt; formData) &#123;</div><div class="line">        for (int i = 0;i &lt; _img.count; i++)&#123;</div><div class="line">            NSData *data = UIImageJPEGRepresentation(_img[i], 0.5);</div><div class="line">            if ((float)data.length/1024 &gt; 1000) &#123;</div><div class="line">                data = UIImageJPEGRepresentation(_img[i], 1024*1000.0/(float)data.length);</div><div class="line">            &#125;</div><div class="line">            NSString *name = [NSString stringWithFormat:@&quot;image%d.png&quot;,i];</div><div class="line">            NSString *type = @&quot;image/jpeg&quot;;</div><div class="line">            [formData appendPartWithFileData:data name:@&quot;img&quot; fileName:name mimeType:type];</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
