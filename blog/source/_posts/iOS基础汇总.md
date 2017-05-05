@@ -101,3 +101,23 @@ categories: iOS
     return dateStr;
 }
 ```
+
+三、UI相关
+3-1、label控件
+* 计算label的宽度
+1、获取多行文字size的方法
+```objectivec
+- (CGRect)boundingRectWithSize:(CGSize)size options:(NSStringDrawingOptions)options attributes:(NSDictionary *)attributes context:(NSStringDrawingContext *)context NS_AVAILABLE_IOS(7_0);
+
+//使用方法
+CGSize titleSize = [testString boundingRectWithSize:CGSizeMake(200, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
+
+```
+
+2、获取单行文字size的方法
+```objectivec
+NSString *testString = @"我要测试一下文字内容的长度哦,不要一定非常准确,但是也可能非常正确,我就是用来测试文字行数才弄这么多字数在这里,呵呵,赶紧运行看看结果吧,不过你要记录一下单行计算下的size数值,后面会用来做比对的.";
+// 计算一下14号字体的情况下,size的结果
+CGSize size =[testString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+```
+
