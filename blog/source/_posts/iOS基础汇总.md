@@ -29,7 +29,7 @@ categories: iOS
 1-1-2、上传图片数组
 需求：上传一个图片数组，与服务端的kw是：img，数组元素是NSData
 代码：
-```oc
+```objectivec
 - (AFConstructingBlock)constructingBodyBlock {
     return ^(id<AFMultipartFormData> formData) {
         for (int i = 0;i < _img.count; i++){
@@ -42,5 +42,62 @@ categories: iOS
             [formData appendPartWithFileData:data name:@"img" fileName:name mimeType:type];
         }
     };
+}
+```
+
+三、时间处理
+1-1、零时区，东八区时间转换
+需求：服务器传给客户端的是零时区，我们处在东8区，所以客服端需要显示的时间要在零时区上加8小时。服务器返回的格式为：xxxx-xx-xx xx-xx-xx，那么：
+代码：
+```objectivec
+//将服务器返回的字符串转为nsdate
++ (NSDate *)stringToDate: (NSString *)string {
+
+    NSAssert(string, @"Parameter 'string' should not be nil");
+    static NSDateFormatter *_dateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _dateFormatter = [[NSDateFormatter alloc] init];
+    });
+    [_dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
+    NSDate *destDate= [_dateFormatter dateFromString: string];
+    return destDate;
+}
+
+//将任意类型的nsdate转换为东8区的nsdate
++(NSDate *)getNowDateFromatAnDate:(NSDate *)anyDate
+{
+    //设置源日期时区
+    NSTimeZone* sourceTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];//或GMT
+    //设置转换后的目标日期时区
+    NSTimeZone* destinationTimeZone = [NSTimeZone localTimeZone];
+    //得到源日期与世界标准时间的偏移量
+    NSInteger sourceGMTOffset = [sourceTimeZone secondsFromGMTForDate:anyDate];
+    //目标日期与本地时区的偏移量
+    NSInteger destinationGMTOffset = [destinationTimeZone secondsFromGMTForDate:anyDate];
+    //得到时间偏移量的差值
+    NSTimeInterval interval = destinationGMTOffset - sourceGMTOffset;
+    //转为现在时间
+    NSDate* destinationDateNow = [[NSDate alloc] initWithTimeInterval:interval sinceDate:anyDate];
+    return destinationDateNow;
+}
+
+//将nsdate转换为字符串xxxx-xx-xx xx-xx-xx
++ (NSString *)dateToString: (NSDate *)date {
+    
+    NSAssert(date, @"Parameter 'date' should not be nil");
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate: date];
+    NSInteger year = [dateComponent year];
+    NSInteger month = [dateComponent month];
+    NSInteger day = [dateComponent day];
+    NSInteger hour = [dateComponent hour];
+    NSInteger minute = [dateComponent minute];
+
+    NSString *dateStr = [NSString stringWithFormat:@"%d-%d-%d %d:%d",(int)year,(int)month,(int)day,(int)hour,(int)minute];
+    
+    return dateStr;
 }
 ```
