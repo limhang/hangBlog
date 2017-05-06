@@ -124,3 +124,44 @@ CGSize size =[testString sizeWithAttributes:@{NSFontAttributeName:[UIFont system
 3-2、searchBar控件
 * 点击取消按钮，退出当前界面，主要的问题在于当searchbar退出焦点后，canclebtn是处于disable状态
 
+四、内存管理相关
+4-1、内存管理基础
+属性介绍：copy和strong；
+可变和不可变数据结构：NSString和NSMutableString，NSArray和NSMutableArray，NSDictionary和NSMutableDictionary
+深拷贝和浅拷贝
+
+理解这张图就够了：
+![内存管理图解](http://ok2nitkry.bkt.clouddn.com/iOS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB_%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.png)
+
+上图中需要注意的是如果源对象和副本对象都是不可变类型，那么这个复制是属于浅拷贝，也就是说只是指针的复制，想想为什么，这里可以在项目中实际打印出地址看看
+```objectivec
+#import "Jacob.h"
+
+@interface Jacob ()
+@property (nonatomic, copy)NSString *jacobstring;
+@property (nonatomic, copy)NSString *jacobCopyString;
+@property (nonatomic, strong)NSMutableArray *Mutablearray;
+@property (nonatomic, copy)NSArray *array;
+@end
+
+@implementation Jacob
+
+- (void)getMessage {
+    NSLog(@"message : %@",_name);
+    self.jacobstring = @"xxx";
+    self.jacobCopyString = self.jacobstring;
+    NSLog(@"string = %p copyString = %p ", self.jacobstring, self.jacobCopyString);
+    NSLog(@"before:string=%@ copyString=%@",self.jacobstring, self.jacobCopyString);
+    self.jacobstring = @"yyy";
+    NSLog(@"string = %p copyString = %p ", self.jacobstring, self.jacobCopyString);
+
+    NSLog(@"before:string=%@ copyString=%@",self.jacobstring, self.jacobCopyString);
+    self.array = @[@"1",@"2"];
+    self.Mutablearray = [self.array mutableCopy];
+    [self.Mutablearray addObject:@"3"];
+    NSLog(@"%@",self.Mutablearray);
+}
+
+@end
+```
+
