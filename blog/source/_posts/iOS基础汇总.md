@@ -121,3 +121,6 @@ NSString *testString = @"我要测试一下文字内容的长度哦,不要一定
 CGSize size =[testString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
 ```
 
+3-2、searchBar控件
+* 点击取消按钮，退出当前界面，主要的问题在于当searchbar退出焦点后，canclebtn是处于disable状态
+
