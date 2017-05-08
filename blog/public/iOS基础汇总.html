@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。">
 <meta property="og:image" content="http://ok2nitkry.bkt.clouddn.com/iOS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB_%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.png">
-<meta property="og:updated_time" content="2017-05-06T06:39:30.000Z">
+<meta property="og:updated_time" content="2017-05-08T03:10:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS基础汇总">
 <meta name="twitter:description" content="缘由：好久都没有写原生iOS应用了，很多的东西都忘的差不多了，之前也有做过零零散散的笔记，这里对这次开发做个记录，汇总下iOS开发的基础知识，这样就不怕以后又忘记了。">
@@ -442,6 +442,10 @@
 </li>
 </ul>
 <p>2、获取单行文字size的方法<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *testString = <span class="string">@"我要测试一下文字内容的长度哦,不要一定非常准确,但是也可能非常正确,我就是用来测试文字行数才弄这么多字数在这里,呵呵,赶紧运行看看结果吧,不过你要记录一下单行计算下的size数值,后面会用来做比对的."</span>;</div><div class="line"><span class="comment">// 计算一下14号字体的情况下,size的结果</span></div><div class="line"><span class="built_in">CGSize</span> size =[testString sizeWithAttributes:@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">14</span>]&#125;];</div></pre></td></tr></table></figure></p>
+<ul>
+<li>label省略号显示问题<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSLineBreakByWordWrapping</span> = <span class="number">0</span> <span class="comment">//以空格为边界，保留单词。</span></div><div class="line"><span class="built_in">NSLineBreakByCharWrapping</span> <span class="comment">//保留整个字符</span></div><div class="line"><span class="built_in">NSLineBreakByClipping</span> <span class="comment">//简单剪裁，到边界为止</span></div><div class="line"><span class="built_in">NSLineBreakByTruncatingHead</span> <span class="comment">//前面部分文字以……方式省略，显示尾部文字内容</span></div><div class="line"><span class="built_in">NSLineBreakByTruncatingTail</span> <span class="comment">//结尾部分的内容以……方式省略，显示头的文字内容。</span></div><div class="line"><span class="built_in">NSLineBreakByTruncatingMiddle</span> <span class="comment">//中间的内容以……方式省略，显示头尾的文字内容。</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>3-2、searchBar控件</p>
 <ul>
 <li>点击取消按钮，退出当前界面，主要的问题在于当searchbar退出焦点后，canclebtn是处于disable状态</li>

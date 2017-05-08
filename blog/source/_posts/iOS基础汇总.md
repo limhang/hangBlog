@@ -121,6 +121,16 @@ NSString *testString = @"我要测试一下文字内容的长度哦,不要一定
 CGSize size =[testString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
 ```
 
+* label省略号显示问题
+```objectivec
+NSLineBreakByWordWrapping = 0 //以空格为边界，保留单词。
+NSLineBreakByCharWrapping //保留整个字符
+NSLineBreakByClipping //简单剪裁，到边界为止
+NSLineBreakByTruncatingHead //前面部分文字以……方式省略，显示尾部文字内容
+NSLineBreakByTruncatingTail //结尾部分的内容以……方式省略，显示头的文字内容。
+NSLineBreakByTruncatingMiddle //中间的内容以……方式省略，显示头尾的文字内容。
+```
+
 3-2、searchBar控件
 * 点击取消按钮，退出当前界面，主要的问题在于当searchbar退出焦点后，canclebtn是处于disable状态
 
