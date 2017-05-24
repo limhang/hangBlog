@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[阿里云lumen开发环境配置]]></title>
+      <url>%2F%E9%98%BF%E9%87%8C%E4%BA%91lumen%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html</url>
+      <content type="text"><![CDATA[缘由：阿里云做活动，9元半年vps，就体验了下，在国内用阿里云还是有保障的，今天记录下lumen开发环境的配置 一、安装composer 安装composer的4行代码如下： 1234567php -r &quot;copy(&apos;https://getcomposer.org/installer&apos;, &apos;composer-setup.php&apos;);&quot;php -r &quot;if (hash_file(&apos;SHA384&apos;, &apos;composer-setup.php&apos;) === &apos;669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410&apos;) &#123; echo &apos;Installer verified&apos;; &#125; else &#123; echo &apos;Installer corrupt&apos;; unlink(&apos;composer-setup.php&apos;); &#125; echo PHP_EOL;&quot;php composer-setup.phpphp -r &quot;unlink(&apos;composer-setup.php&apos;);&quot; 将composer做成全局的 1sudo mv composer.phar /usr/local/bin/composer 二、安装lumen 配置Composer中国镜像，国内用户都懂得。 1composer config -g repo.packagist composer https://packagist.phpcomposer.com 建立一个目录为lumen的项目 1composer create-project --prefer-dist laravel/lumen lumen 三、安装中出现的问题12[Symfony\Component\Process\Exception\RuntimeException] The Process class relies on proc_open, which is not available on your PHP installation. 解决办法：1231.找到php.ini文件，搜索disable_functions2.删除搜索到的这一行3.[参考的资料](https://stackoverflow.com/questions/19911737/laravel4-composer-install-got-proc-open-not-available-error)]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[shadowsocks配置须知]]></title>
       <url>%2Fshadowsocks%E9%85%8D%E7%BD%AE%E9%A1%BB%E7%9F%A5.html</url>
       <content type="text"><![CDATA[缘由：记录下shadowsocks的基本配置，方便今后查找一、VPS上安装shadowsocks1pip install shadowsocks 二、配置文件配置123456789101112131415161718192021&#123; "server":"138.128.198.147", "timeout":600, "method":"aes-256-cfb", "port_password": &#123; "9000":"hehe", "9001":"haha", "9002":"xiaozuo", "9003":"zhanyuan", "9004":"minghang" &#125;, "_comment": &#123; "9000":"hehe", "9001":"haha", "9002":"xiaozuo", "9003":"zhanyuan", "9004":"minghang" &#125;&#125; 三、启动服务将配置文件保存为/etc/shadowsocks/config.json，然后按配置文件启动shadowsocks：1ssserver -c /etc/shadowsocks/config.json -d start 停止shadowsocks服务：1ssserver -d stop]]></content>
