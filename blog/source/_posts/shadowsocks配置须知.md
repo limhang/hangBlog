@@ -3,11 +3,11 @@ title: shadowsocks配置须知
 date: 2017-05-18 10:08:03
 tags: vps使用指南
 categories: 通用技能
-keywords: 翻墙 shadowsocks 配置 config
-description: shadowsocks基本配置，多人共享shadowsocks
 ---
 
 # 缘由：记录下shadowsocks的基本配置，方便今后查找
+
+<!--more-->
 
 # 一、VPS上安装shadowsocks
 ```

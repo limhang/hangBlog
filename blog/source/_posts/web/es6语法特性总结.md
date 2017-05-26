@@ -3,8 +3,6 @@ title: es6语法特性总结
 date: 2017-04-09 08:54:52
 tags: javascript
 categories: 前端
-keywords: web es6语法 新特性 总结
-description: es6语法新特性总结，js语法基础难点回顾归纳
 ---
 
 # 缘由：es6的书籍从来还没有系统的看过，这几天系统看看es6吧，顺便写写总结

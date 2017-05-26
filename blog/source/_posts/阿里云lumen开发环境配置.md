@@ -3,8 +3,6 @@ title: 阿里云lumen开发环境配置
 date: 2017-05-24 16:38:37
 tags: php
 categories: 后端开发
-keywords: php lumen 后端开发 api接口
-description: php lumen 开发环境配置
 ---
 
 # 缘由：阿里云做活动，9元半年vps，就体验了下，在国内用阿里云还是有保障的，今天记录下lumen开发环境的配置

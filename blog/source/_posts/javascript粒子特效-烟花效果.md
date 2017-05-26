@@ -5,7 +5,7 @@ tags: javascript粒子特效
 categories: web
 ---
 
- 缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效
+# 缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效
 
 <!--more-->
 
