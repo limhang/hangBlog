@@ -51,3 +51,124 @@ The Process class relies on proc_open, which is not available on your PHP instal
 2.删除搜索到的这一行
 3.[参考的资料](https://stackoverflow.com/questions/19911737/laravel4-composer-install-got-proc-open-not-available-error)
 ```
+
+# 四、使用lumen中遇到的问题
+## 4-1、nginx配置问题
+查找lumen的root路径配置，发现只用定位到public文件夹就可以了
+nginx配置中的index.xxx后缀文件配置也是挺烦的
+我的阿里云nginx配置文件如下：
+
+```
+user www www;
+worker_processes auto;
+
+error_log /data/wwwlogs/error_nginx.log crit;
+pid /var/run/nginx.pid;
+worker_rlimit_nofile 51200;
+
+events {
+  use epoll;
+  worker_connections 51200;
+  multi_accept on;
+}
+
+http {
+  include mime.types;
+  default_type application/octet-stream;
+
+  log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+              '$status $body_bytes_sent "$http_referer" '
+                    '"$http_user_agent" "$http_x_forwarded_for"';
+   
+  access_log  logs/access.log  main;
+
+  server_names_hash_bucket_size 128;
+  client_header_buffer_size 32k;
+  large_client_header_buffers 4 32k;
+  client_max_body_size 1024m;
+  client_body_buffer_size 10m;
+  sendfile on;
+  tcp_nopush on;
+  keepalive_timeout 120;
+  server_tokens off;
+  tcp_nodelay on;
+
+  fastcgi_connect_timeout 300;
+  fastcgi_send_timeout 300;
+  fastcgi_read_timeout 300;
+  fastcgi_buffer_size 64k;
+  fastcgi_buffers 4 64k;
+  fastcgi_busy_buffers_size 128k;
+  fastcgi_temp_file_write_size 128k;
+  fastcgi_intercept_errors on;
+
+  #Gzip Compression
+  gzip on;
+  gzip_buffers 16 8k;
+  gzip_comp_level 6;
+  gzip_http_version 1.1;
+  gzip_min_length 256;
+  gzip_proxied any;
+  gzip_vary on;
+  gzip_types
+    text/xml application/xml application/atom+xml application/rss+xml application/xhtml+xml image/svg+xml
+    text/javascript application/javascript application/x-javascript
+    text/x-json application/json application/x-web-app-manifest+json
+    text/css text/plain text/x-component
+    font/opentype application/x-font-ttf application/vnd.ms-fontobject
+    image/x-icon;
+  gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+
+  #If you have a lot of static files to serve through Nginx then caching of the files' metadata (not the actual files' contents) can save some latency.
+  open_file_cache max=1000 inactive=20s;
+  open_file_cache_valid 30s;
+  open_file_cache_min_uses 2;
+  open_file_cache_errors on;
+
+######################## default ############################
+  server {
+  listen 80;
+  server_name _;
+  root /data/lumen/public;
+  index index.php index.html index.htm;
+  access_log /data/wwwlogs/access_nginx.log main;
+  location /nginx_status {
+    stub_status on;
+    access_log off;
+    allow 127.0.0.1;
+    deny all;
+    }
+
+  location / {
+	  try_files $uri $uri/ /index.php?$query_string;
+  }
+
+
+  location ~ [^/]\.php(/|$) {
+    #fastcgi_pass remote_php_ip:9000;
+    fastcgi_pass unix:/dev/shm/php-cgi.sock;
+    fastcgi_index index.php;
+	fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    include fastcgi.conf;
+    }
+  location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|mp4|ico)$ {
+    expires 30d;
+    access_log off;
+    }
+  location ~ .*\.(js|css)?$ {
+    expires 7d;
+    access_log off;
+    }
+  location ~ /\.ht {
+    deny all;
+    }
+  }
+
+########################## vhost #############################
+  include vhost/*.conf;
+}
+```
+
+## 4-2、.env环境配置
+在lumen中，配置开发环境是通过.env文件进行的，出现的错误是无法连接到数据库，这个定位也花了好久时间，最终的错误是，我使用的阿里云多语言环境设置里，连接数据库只能通过localhost，而.env环境中写的是ip地址，127.0.0.1
+修改127.0.0.1为localhost就可以了
