@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lmhang.com/javascript粒子特效-烟花效果.html">
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效">
-<meta property="og:updated_time" content="2017-04-25T03:22:36.000Z">
+<meta property="og:updated_time" content="2017-05-26T01:57:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript粒子特效-烟花效果">
 <meta name="twitter:description" content="缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效">
@@ -422,8 +422,7 @@
       
 
       
-        <p> 缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效</p>
-<a id="more"></a>
+        <h1 id="缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效"><a href="#缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效" class="headerlink" title="缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效"></a>缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效</h1><a id="more"></a>
 <h1 id="一、烟花特效"><a href="#一、烟花特效" class="headerlink" title="一、烟花特效"></a>一、烟花特效</h1><h2 id="分析需求"><a href="#分析需求" class="headerlink" title="分析需求"></a>分析需求</h2><p>主要实现点击画布，然后粒子升空爆炸的效果，分2步，第一步绘制粒子，实现升空动画爆炸动画，第二步结合物理的速度和运动规律来写</p>
 <h2 id="粒子类"><a href="#粒子类" class="headerlink" title="粒子类"></a>粒子类</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Particle = <span class="function"><span class="keyword">function</span>(<span class="params">pos, target, vel, marker, usePhysics</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">// properties for animation</span></div><div class="line">  <span class="comment">// and colouring</span></div><div class="line">  <span class="keyword">this</span>.GRAVITY  = <span class="number">0.06</span>;</div><div class="line">  <span class="keyword">this</span>.alpha    = <span class="number">1</span>;</div><div class="line">  <span class="keyword">this</span>.easing   = <span class="built_in">Math</span>.random() * <span class="number">0.02</span>;</div><div class="line">  <span class="keyword">this</span>.fade     = <span class="built_in">Math</span>.random() * <span class="number">0.1</span>;</div><div class="line">  <span class="keyword">this</span>.gridX    = marker % <span class="number">120</span>;</div><div class="line">  <span class="keyword">this</span>.gridY    = <span class="built_in">Math</span>.floor(marker / <span class="number">120</span>) * <span class="number">12</span>;</div><div class="line">  <span class="keyword">this</span>.color    = marker;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.pos = &#123;</div><div class="line">    <span class="attr">x</span>: pos.x || <span class="number">0</span>,</div><div class="line">    <span class="attr">y</span>: pos.y || <span class="number">0</span></div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.vel = &#123;</div><div class="line">    <span class="attr">x</span>: vel.x || <span class="number">0</span>,</div><div class="line">    <span class="attr">y</span>: vel.y || <span class="number">0</span></div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.lastPos = &#123;</div><div class="line">    <span class="attr">x</span>: <span class="keyword">this</span>.pos.x,</div><div class="line">    <span class="attr">y</span>: <span class="keyword">this</span>.pos.y</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.target = &#123;</div><div class="line">    <span class="attr">y</span>: target.y || <span class="number">0</span></div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.usePhysics = usePhysics || <span class="literal">false</span>;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>值得注意的是pos和vel属性。 这些描述了我们的粒子的位置和速度。 其余几乎都是渲染的窗饰，所以我们稍后再来看看。</p>
@@ -607,7 +606,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -675,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、烟花特效"><span class="nav-number">1.</span> <span class="nav-text">一、烟花特效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析需求"><span class="nav-number">1.1.</span> <span class="nav-text">分析需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#粒子类"><span class="nav-number">1.2.</span> <span class="nav-text">粒子类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效"><span class="nav-number">1.</span> <span class="nav-text">缘由：第一次学习JavaScript的粒子特效，做个记录总结，本次更新烟花特效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、烟花特效"><span class="nav-number">2.</span> <span class="nav-text">一、烟花特效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析需求"><span class="nav-number">2.1.</span> <span class="nav-text">分析需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#粒子类"><span class="nav-number">2.2.</span> <span class="nav-text">粒子类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

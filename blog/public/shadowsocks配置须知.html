@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="翻墙 shadowsocks 配置 config" />
+  <meta name="keywords" content="vps使用指南," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="shadowsocks基本配置，多人共享shadowsocks">
+<meta name="description" content="缘由：记录下shadowsocks的基本配置，方便今后查找">
 <meta name="keywords" content="vps使用指南">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shadowsocks配置须知">
 <meta property="og:url" content="http://lmhang.com/shadowsocks配置须知.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="shadowsocks基本配置，多人共享shadowsocks">
-<meta property="og:updated_time" content="2017-05-18T02:16:52.000Z">
+<meta property="og:description" content="缘由：记录下shadowsocks的基本配置，方便今后查找">
+<meta property="og:updated_time" content="2017-05-26T01:56:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shadowsocks配置须知">
-<meta name="twitter:description" content="shadowsocks基本配置，多人共享shadowsocks">
+<meta name="twitter:description" content="缘由：记录下shadowsocks的基本配置，方便今后查找">
 
 
 
@@ -410,10 +410,6 @@
           
 
           
-              <div class="post-description">
-                  shadowsocks基本配置，多人共享shadowsocks
-              </div>
-          
 
         </div>
       </header>
@@ -426,7 +422,8 @@
       
 
       
-        <h1 id="缘由：记录下shadowsocks的基本配置，方便今后查找"><a href="#缘由：记录下shadowsocks的基本配置，方便今后查找" class="headerlink" title="缘由：记录下shadowsocks的基本配置，方便今后查找"></a>缘由：记录下shadowsocks的基本配置，方便今后查找</h1><h1 id="一、VPS上安装shadowsocks"><a href="#一、VPS上安装shadowsocks" class="headerlink" title="一、VPS上安装shadowsocks"></a>一、VPS上安装shadowsocks</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+        <h1 id="缘由：记录下shadowsocks的基本配置，方便今后查找"><a href="#缘由：记录下shadowsocks的基本配置，方便今后查找" class="headerlink" title="缘由：记录下shadowsocks的基本配置，方便今后查找"></a>缘由：记录下shadowsocks的基本配置，方便今后查找</h1><a id="more"></a>
+<h1 id="一、VPS上安装shadowsocks"><a href="#一、VPS上安装shadowsocks" class="headerlink" title="一、VPS上安装shadowsocks"></a>一、VPS上安装shadowsocks</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
 <h1 id="二、配置文件配置"><a href="#二、配置文件配置" class="headerlink" title="二、配置文件配置"></a>二、配置文件配置</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"server"</span>:<span class="string">"138.128.198.147"</span>,</div><div class="line">	<span class="string">"timeout"</span>:<span class="number">600</span>,</div><div class="line">	<span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</div><div class="line">	<span class="string">"port_password"</span>:</div><div class="line">	&#123;</div><div class="line">		<span class="string">"9000"</span>:<span class="string">"hehe"</span>,</div><div class="line">		<span class="string">"9001"</span>:<span class="string">"haha"</span>,</div><div class="line">		<span class="string">"9002"</span>:<span class="string">"xiaozuo"</span>,</div><div class="line">		<span class="string">"9003"</span>:<span class="string">"zhanyuan"</span>,</div><div class="line">		<span class="string">"9004"</span>:<span class="string">"minghang"</span></div><div class="line">	&#125;,</div><div class="line">	<span class="string">"_comment"</span>:</div><div class="line">	&#123;</div><div class="line">		<span class="string">"9000"</span>:<span class="string">"hehe"</span>,</div><div class="line">		<span class="string">"9001"</span>:<span class="string">"haha"</span>,</div><div class="line">		<span class="string">"9002"</span>:<span class="string">"xiaozuo"</span>,</div><div class="line">		<span class="string">"9003"</span>:<span class="string">"zhanyuan"</span>,</div><div class="line">		<span class="string">"9004"</span>:<span class="string">"minghang"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="三、启动服务"><a href="#三、启动服务" class="headerlink" title="三、启动服务"></a>三、启动服务</h1><p>将配置文件保存为/etc/shadowsocks/config.json，然后按配置文件启动shadowsocks：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssserver -c /etc/shadowsocks/config.json -d start</div></pre></td></tr></table></figure></p>
 <p>停止shadowsocks服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssserver -d stop</div></pre></td></tr></table></figure></p>
@@ -607,7 +604,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
