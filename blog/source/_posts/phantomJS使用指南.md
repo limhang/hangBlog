@@ -5,7 +5,12 @@ tags:
 categories:
 ---
 
+# 缘由：phantomjs初体验
+
+<!--more-->
+
 # 一、安装指南
+
 ## 1-1、依赖库的安装
 ```
 yum install fontconfig freetype freetype-devel fontconfig-devel libstdc++
