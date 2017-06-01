@@ -206,3 +206,111 @@ http://39.108.82.4/v1_0/common/quoraInfo/searchQuora/焦点
     }
 }
 ```
+
+## 三、鉴赏模块接口
+### 3-1、图片查询接口
+
+```
+http://39.108.82.4/v1_0/common/photoViewInfo/lists
+```
+
+* 注意：返回的url中后面有'\n'需要去掉
+
+```js
+{
+    "code": 200, 
+    "info": "", 
+    "datas": {
+        "lists": [
+            {
+                "id": 18, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Sydney,%20Australia.jpg"
+            }, 
+            {
+                "id": 17, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Bu%CC%81%C3%B0ir-%20at%20the%20end%20of%20the%20road.jpg"
+            }, 
+            {
+                "id": 16, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Bamboo%20forest%20Kyoto%202.jpg
+"
+            }, 
+            {
+                "id": 15, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Amsterdam%20II.jpg
+"
+            }, 
+            {
+                "id": 14, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Algarve,%20Portugal.jpg
+"
+            }, 
+            {
+                "id": 13, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Afternoon%20sunlight.jpg
+"
+            }, 
+            {
+                "id": 12, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/EMPIRE%20STATE.jpg
+"
+            }, 
+            {
+                "id": 11, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Go%C5%82ucho%CC%81w%20Castle.jpg
+"
+            }, 
+            {
+                "id": 10, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Half%20Tower.jpg
+"
+            }, 
+            {
+                "id": 9, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Dresden,%20German.jpg
+"
+            }, 
+            {
+                "id": 8, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Great%20Smoky%20Mountains,%20U.S..jpg
+"
+            }, 
+            {
+                "id": 7, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/fishing.jpg
+"
+            }, 
+            {
+                "id": 6, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Hallstatt,%20Austria.jpg
+"
+            }, 
+            {
+                "id": 5, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/France,%20Europe,.jpg
+"
+            }, 
+            {
+                "id": 4, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/breidavik%20church...jpg
+"
+            }, 
+            {
+                "id": 3, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Guardian%20of%20heaven.jpg
+"
+            }, 
+            {
+                "id": 2, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Glass%20lake....jpg
+"
+            }, 
+            {
+                "id": 1, 
+                "imgUrl": "http://oqv1anv8e.bkt.clouddn.com/Foggy%20Morning.jpg
+"
+            }
+        ]
+    }
+}
+```
