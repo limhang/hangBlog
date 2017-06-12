@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[time接口]]></title>
+      <url>%2Ftime%E6%8E%A5%E5%8F%A3.html</url>
+      <content type="text"><![CDATA[缘由：时间管理应用的接口一、登录注册模块接口注册接口123url:http://time.coderhelper.cn/v1_0/person/user/register请求方式：post参数：username password 登录接口123url:http://time.coderhelper.cn/v1_0/person/user/login请求方式：post参数：username password]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[mysql数据库基础]]></title>
       <url>%2Fmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80.html</url>
       <content type="text"><![CDATA[缘由：做个记录，方便查看，都是很简单的东西，久了不写就忘 一、创建数据库，给用户赋予权限创建数据库1create database time; 给用户权限1grant all privileges on *.* to jacob@localhost identified by &apos;password&apos; with grant option; 二、创建表12345678910CREATE TABLE users( id INT NOT NULL AUTO_INCREMENT, status INT NOT NULL, vip_level INT NOT NULL, username VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL, publish_time VARCHAR(80) NOT NULL, token VARCHAR(200) NOT NULL, PRIMARY KEY ( id ))ENGINE=InnoDB DEFAULT CHARSET=utf8;]]></content>
