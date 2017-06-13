@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[php调试小结]]></title>
+      <url>%2Fphp%E8%B0%83%E8%AF%95%E5%B0%8F%E7%BB%93.html</url>
+      <content type="text"><![CDATA[缘由：排除一切不可能的，剩下的即使再不可能，那也是真相————Sherlock Holmes 一、php初级调试技巧使用nginx+php开发服务器，遇到500错误，是非常头痛的，良好的调试技巧，可以快速定位。 1-1、php.ini中设置display_errors 设置display_errors = On 重启php-fpm，使设置生效，service php-fpm restart上述的设置在开发环境中，是很有效的，可以直接将错误信息显示在浏览器上，但是生成环境千万不能这样做，这样会让黑客探测到很多服务器的信息，很容易被黑 1-2、php.ini中设置log_errors 设置log_errors = On error_log 设置错误信息存放文件，例如：”/usr/local/php56/var/log/php-error.log” 设置刚刚log文件的读写属性，我在这里被坑过一次，chmod 777 log 重启php-fpm，使设置生效，service php-fpm restart上述的设置可以在生成环境中使用，出现问题可以直接到指定文件夹中去找错误报告 1-3、php-fpm.conf中设置主要设置2个地方，一个是catch_workers_output = yes 一个是error_log = log/php-fpm.log也就是错误的位置]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[time接口]]></title>
       <url>%2Ftime%E6%8E%A5%E5%8F%A3.html</url>
       <content type="text"><![CDATA[缘由：时间管理应用的接口 一、登录注册模块接口注册接口123url:http://time.coderhelper.cn/v1_0/person/user/register请求方式：post参数：username password 登录接口123url:http://time.coderhelper.cn/v1_0/person/user/login请求方式：post参数：username password 二、时间管理模块接口1http://time.coderhelper.cn/v1_0/time/user/create?token=7ff6dccc65f9a80cbdffa0d5cf6369ec&amp;timeType=2&amp;duration=20&amp;timedesc=xxxx&amp;loadTime=2017 123456789CREATE TABLE manager( id INT NOT NULL AUTO_INCREMENT, timeType INT NOT NULL, duration VARCHAR(50) NOT NULL, user_id VARCHAR(50) NOT NULL, timedesc VARCHAR(200) NOT NULL, loadTime VARCHAR(100) NOT NULL, PRIMARY KEY ( id ))ENGINE=InnoDB DEFAULT CHARSET=utf8;]]></content>
