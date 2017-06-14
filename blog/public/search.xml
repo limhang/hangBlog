@@ -26,7 +26,7 @@
     <entry>
       <title><![CDATA[time接口]]></title>
       <url>%2Ftime%E6%8E%A5%E5%8F%A3.html</url>
-      <content type="text"><![CDATA[缘由：时间管理应用的接口 一、登录注册模块接口注册接口123url:http://time.coderhelper.cn/v1_0/person/user/register请求方式：post参数：username password 登录接口123url:http://time.coderhelper.cn/v1_0/person/user/login请求方式：post参数：username password 二、时间管理模块接口添加时间项目接口12url:http://time.coderhelper.cn/v1_0/time/user/timecreate请求方式：post 参数 说明 类型 duration 时长 string timedesc 详细说明 string timeType 时间分类 string token 令牌指定用户 string loadTime 上传当天时间 string]]></content>
+      <content type="text"><![CDATA[缘由：时间管理应用的接口 一、登录注册模块接口注册接口123url:http://time.coderhelper.cn/v1_0/person/user/register请求方式：post参数：username password 登录接口123url:http://time.coderhelper.cn/v1_0/person/user/login请求方式：post参数：username password 二、时间管理模块接口添加时间项目接口12url:http://time.coderhelper.cn/v1_0/time/user/timecreate请求方式：post 参数 说明 类型 duration 时长 string timedesc 详细说明 string timeType 时间分类 string token 令牌指定用户 string loadTime 上传当天时间 string 查询用户某天时间详细接口12url:http://time.coderhelper.cn/v1_0/time/user/timequery请求参数：get 参数 说明 类型 token 用户标识令牌 string time 查询那一天 string]]></content>
     </entry>
 
     

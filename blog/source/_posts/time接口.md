@@ -38,3 +38,15 @@ url:http://time.coderhelper.cn/v1_0/time/user/timecreate
 | timeType |时间分类|string|
 | token |令牌指定用户|string|
 |loadTime|上传当天时间|string|
+
+
+查询用户某天时间详细接口
+```
+url:http://time.coderhelper.cn/v1_0/time/user/timequery
+请求参数：get
+```
+
+|参数|说明|类型|
+|:---|:---:|---:|
+|token|用户标识令牌|string|
+|time|查询那一天|string|
