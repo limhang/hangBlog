@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lmhang.com/time接口.html">
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：时间管理应用的接口">
-<meta property="og:updated_time" content="2017-06-12T10:29:33.000Z">
+<meta property="og:updated_time" content="2017-06-14T11:06:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="time接口">
 <meta name="twitter:description" content="缘由：时间管理应用的接口">
@@ -427,8 +427,44 @@
         <h1 id="缘由：时间管理应用的接口"><a href="#缘由：时间管理应用的接口" class="headerlink" title="缘由：时间管理应用的接口"></a>缘由：时间管理应用的接口</h1><a id="more"></a>
 <h1 id="一、登录注册模块接口"><a href="#一、登录注册模块接口" class="headerlink" title="一、登录注册模块接口"></a>一、登录注册模块接口</h1><p>注册接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">url:http://time.coderhelper.cn/v1_0/person/user/register</div><div class="line">请求方式：post</div><div class="line">参数：username password</div></pre></td></tr></table></figure></p>
 <p>登录接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">url:http://time.coderhelper.cn/v1_0/person/user/login</div><div class="line">请求方式：post</div><div class="line">参数：username password</div></pre></td></tr></table></figure></p>
-<h1 id="二、时间管理模块接口"><a href="#二、时间管理模块接口" class="headerlink" title="二、时间管理模块接口"></a>二、时间管理模块接口</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://time.coderhelper.cn/v1_0/time/user/create?token=7ff6dccc65f9a80cbdffa0d5cf6369ec&amp;timeType=2&amp;duration=20&amp;timedesc=xxxx&amp;loadTime=2017</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE manager(</div><div class="line">   id INT NOT NULL AUTO_INCREMENT,</div><div class="line">   timeType INT NOT NULL,</div><div class="line">   duration VARCHAR(50) NOT NULL,</div><div class="line">   user_id VARCHAR(50) NOT NULL,</div><div class="line">   timedesc VARCHAR(200) NOT NULL,</div><div class="line">   loadTime VARCHAR(100) NOT NULL,</div><div class="line">   PRIMARY KEY ( id )</div><div class="line">)ENGINE=InnoDB DEFAULT CHARSET=utf8;</div></pre></td></tr></table></figure>
+<h1 id="二、时间管理模块接口"><a href="#二、时间管理模块接口" class="headerlink" title="二、时间管理模块接口"></a>二、时间管理模块接口</h1><p>添加时间项目接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">url:http://time.coderhelper.cn/v1_0/time/user/timecreate</div><div class="line">请求方式：post</div></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:right">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">duration</td>
+<td style="text-align:center">时长</td>
+<td style="text-align:right">string</td>
+</tr>
+<tr>
+<td style="text-align:left">timedesc</td>
+<td style="text-align:center">详细说明</td>
+<td style="text-align:right">string</td>
+</tr>
+<tr>
+<td style="text-align:left">timeType</td>
+<td style="text-align:center">时间分类</td>
+<td style="text-align:right">string</td>
+</tr>
+<tr>
+<td style="text-align:left">token</td>
+<td style="text-align:center">令牌指定用户</td>
+<td style="text-align:right">string</td>
+</tr>
+<tr>
+<td style="text-align:left">loadTime</td>
+<td style="text-align:center">上传当天时间</td>
+<td style="text-align:right">string</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
 
