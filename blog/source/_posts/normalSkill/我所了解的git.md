@@ -19,6 +19,14 @@ categories: 通用技能
 
 * 切换分支：git checkout <name>
 
+* 创建本地分支：git checkout -b [branch-name]
+
+* 将创建的本地分支上传到远端服务器：git push origin [branch-name]
+
+* 删除本地分支：git branch -D [branch-name]
+
+* 删除远端分支：git push origin :[branch-name]  --注意origin后面接一个空格
+
 * 创建+切换分支：git checkout -b <name>
 
 * 合并某分支到当前分支：git merge <name>
