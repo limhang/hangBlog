@@ -136,6 +136,14 @@ npm的start是一个特殊的脚本名称，它的特殊性表现在，在命令
 
 3、Loaders--（可以使用react开发）
 
+# 4、小技巧
+在文件夹中配置好package.json之后，使用
+npm install安装，但是速度太慢，怎么办，当然可以使用镜像文件安装啦，和python,php一样都有国内镜像
+
+```
+sudo npm install -gd express --registry=http://registry.npm.taobao.org
+```
+
 
 【详细步骤移步参考资料】
 
