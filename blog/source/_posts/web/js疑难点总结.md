@@ -337,3 +337,59 @@ function可以被赋值给变量，可以作为函数的参数进行传递，可
 ```
 
 [译文参考](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+
+
+# 四、特殊函数答疑
+## 4-1、bind函数应用分析
+### 4-1-1、bind函数功能
+bind()方法会创建一个新函数，当这个新函数被调用时，它的this值是传递给bind()的第一个参数, 它的参数是bind()的其他参数和其原本的参数. 
+
+react应用：
+```js
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+```
+
+
+### 4-1-2、bind函数demo
+bind() 最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的 this 值。JavaScript新手经常犯的一个错误是将一个方法从对象中拿出来，然后再调用，希望方法中的 this 是原来的对象。（比如在回调中传入这个方法。）如果不做特殊处理的话，一般会丢失原来的对象。从原来的函数和原来的对象创建一个绑定函数，则能很漂亮地解决这个问题：
+
+```js
+this.x = 9; 
+var module = {
+  x: 81,
+  getX: function() { return this.x; }
+};
+
+module.getX(); // 返回 81
+
+var retrieveX = module.getX;
+retrieveX(); // 返回 9, 在这种情况下，"this"指向全局作用域
+
+// 创建一个新函数，将"this"绑定到module对象
+// 新手可能会被全局的x变量和module里的属性x所迷惑
+var boundGetX = retrieveX.bind(module);
+boundGetX(); // 返回 81
+```
+
