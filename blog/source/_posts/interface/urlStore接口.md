@@ -48,4 +48,17 @@ url:http://urlapi.coderhelper.cn/v1_0/url/user/urlcreate
 {"code":200,"info":"","datas":{"category":"test","tag":"web","detail":"justFortest","userId":"7393ee8db55db7ea99070676e0029972","id":1}}
 ```
 
-## 2-2、查询url接口
+## 2-2、查询url[按页查询]接口
+```
+url:http://urlapi.coderhelper.cn/v1_0/url/user/urlquerypage
+请求参数：post
+```
+
+|参数|说明|类型|
+|:---|:---:|---:|
+|token|令牌|string|
+|page|查询的页码|string|
+
+```json
+{"code":200,"info":"","datas":{"lists":[{"id":1,"category":"test","userId":"7393ee8db55db7ea99070676e0029972","tag":"web","detail":"justFortest","url":""}]}}
+```

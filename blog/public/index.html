@@ -508,7 +508,30 @@
 </tbody>
 </table>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">"code"</span>:<span class="number">200</span>,<span class="attr">"info"</span>:<span class="string">""</span>,<span class="attr">"datas"</span>:&#123;<span class="attr">"category"</span>:<span class="string">"test"</span>,<span class="attr">"tag"</span>:<span class="string">"web"</span>,<span class="attr">"detail"</span>:<span class="string">"justFortest"</span>,<span class="attr">"userId"</span>:<span class="string">"7393ee8db55db7ea99070676e0029972"</span>,<span class="attr">"id"</span>:<span class="number">1</span>&#125;&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-2、查询url接口"><a href="#2-2、查询url接口" class="headerlink" title="2-2、查询url接口"></a>2-2、查询url接口</h2>
+<h2 id="2-2、查询url-按页查询-接口"><a href="#2-2、查询url-按页查询-接口" class="headerlink" title="2-2、查询url[按页查询]接口"></a>2-2、查询url[按页查询]接口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">url:http://urlapi.coderhelper.cn/v1_0/url/user/urlquerypage</div><div class="line">请求参数：post</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:right">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">token</td>
+<td style="text-align:center">令牌</td>
+<td style="text-align:right">string</td>
+</tr>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:center">查询的页码</td>
+<td style="text-align:right">string</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">"code"</span>:<span class="number">200</span>,<span class="attr">"info"</span>:<span class="string">""</span>,<span class="attr">"datas"</span>:&#123;<span class="attr">"lists"</span>:[&#123;<span class="attr">"id"</span>:<span class="number">1</span>,<span class="attr">"category"</span>:<span class="string">"test"</span>,<span class="attr">"userId"</span>:<span class="string">"7393ee8db55db7ea99070676e0029972"</span>,<span class="attr">"tag"</span>:<span class="string">"web"</span>,<span class="attr">"detail"</span>:<span class="string">"justFortest"</span>,<span class="attr">"url"</span>:<span class="string">""</span>&#125;]&#125;&#125;</div></pre></td></tr></table></figure>
+
           
         
       
