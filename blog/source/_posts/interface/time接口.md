@@ -1,8 +1,8 @@
 ---
 title: time接口
 date: 2017-06-12 17:23:08
-tags: interface
-categories: interface
+tags: api
+categories: api
 ---
 
 # 缘由：时间管理应用的接口

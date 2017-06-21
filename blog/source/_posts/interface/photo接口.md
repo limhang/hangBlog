@@ -1,8 +1,8 @@
 ---
 title: photo接口
 date: 2017-06-01 15:18:26
-tags: interface
-categories: interface
+tags: api
+categories: api
 ---
 
 # photo接口

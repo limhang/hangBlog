@@ -1,8 +1,8 @@
 ---
 title: 常用api汇总
 date: 2017-04-17 10:05:02
-tags: API
-categories: 后端开发
+tags: api
+categories: api
 ---
 
 # 缘由：汇总自己申请和分析的api接口，方便自己查询

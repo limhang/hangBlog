@@ -1,0 +1,1038 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vps使用指南," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录">
+<meta name="keywords" content="vps使用指南">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vps日常使用">
+<meta property="og:url" content="http://lmhang.com/normalSkill/vps日常使用.html">
+<meta property="og:site_name" content="航的小站">
+<meta property="og:description" content="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录">
+<meta property="og:updated_time" content="2017-06-05T08:29:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vps日常使用">
+<meta name="twitter:description" content="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lmhang.com/normalSkill/vps日常使用.html"/>
+
+
+
+
+
+  <title> vps日常使用 | 航的小站 </title>
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5d03bb1ad9d17d10ede55db86f335a2f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">航的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lmhang.com/normalSkill/vps日常使用.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李明航">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="航的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vps日常使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T09:34:43+08:00">
+                2017-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/通用技能/" itemprop="url" rel="index">
+                    <span itemprop="name">通用技能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/normalSkill/vps日常使用.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="normalSkill/vps日常使用.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录"><a href="#缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录" class="headerlink" title="缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录"></a>缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录</h1><a id="more"></a>
+<h1 id="一、centos6下python2-6升级到python2-7"><a href="#一、centos6下python2-6升级到python2-7" class="headerlink" title="一、centos6下python2.6升级到python2.7"></a>一、centos6下python2.6升级到python2.7</h1><h2 id="我在centos6环境下使用的步骤"><a href="#我在centos6环境下使用的步骤" class="headerlink" title="我在centos6环境下使用的步骤"></a>我在centos6环境下使用的步骤</h2><ul>
+<li><p>更新指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y update</div><div class="line">yum groupinstall -y &apos;development tools&apos;</div></pre></td></tr></table></figure>
+<p>  另外还需要安装 python 工具需要的额外软件包 SSL, bz2, zlib</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y zlib-devel bzip2-devel openssl-devel xz-libs wget</div></pre></td></tr></table></figure>
+</li>
+<li><p>源码安装Python 2.7.x</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http://www.python.org/ftp/python/2.7.8/Python-2.7.8.tar.xz</div><div class="line">xz -d Python-2.7.8.tar.xz</div><div class="line">tar -xvf Python-2.7.8.tar</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装详情：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 进入目录:</div><div class="line">cd Python-2.7.8</div><div class="line"># 运行配置 configure:</div><div class="line">./configure --prefix=/usr/local</div><div class="line"># 编译安装:</div><div class="line">make</div><div class="line">make altinstall</div><div class="line"># 检查 Python 版本:</div><div class="line">[root@dbmasterxxx ~]# python2.7 -V</div><div class="line">Python 2.7.8</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置 PATH</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export PATH=&quot;/usr/local/bin:$PATH&quot;</div><div class="line">or </div><div class="line">ln -s /usr/local/bin/python2.7  /usr/bin/python</div><div class="line"># 检查</div><div class="line">[root@dbmasterxxx ~]# python -V</div><div class="line">Python 2.7.8</div><div class="line">[root@dbmasterxxx ~]# which python </div><div class="line">/usr/bin/python</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="接下来这3步我没有用，我直接使用的虚拟环境"><a href="#接下来这3步我没有用，我直接使用的虚拟环境" class="headerlink" title="接下来这3步我没有用，我直接使用的虚拟环境"></a>接下来这3步我没有用，我直接使用的虚拟环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">virtualenv caogao -p python2.7</div></pre></td></tr></table></figure>
+<ul>
+<li><p>安装 setuptools</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#获取软件包</div><div class="line">wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.4.2.tar.gz</div><div class="line"># 解压:</div><div class="line">tar -xvf setuptools-1.4.2.tar.gz</div><div class="line">cd setuptools-1.4.2</div><div class="line"># 使用 Python 2.7.8 安装 setuptools</div><div class="line">python2.7 setup.py install</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装 PIP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl  https://bootstrap.pypa.io/get-pip.py | python2.7 -</div></pre></td></tr></table></figure>
+</li>
+<li><p>修复 yum 工具<br>此时yum应该是失效的，因为此时默认python版本已经是2.7了。而yum需要的是2.6 所以：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@dbmasterxxx ~]# which yum </div><div class="line">/usr/bin/yum</div><div class="line">#修改 yum中的python </div><div class="line">将第一行  #!/usr/bin/python  改为 #!/usr/bin/python2.6</div><div class="line">此时yum就ok啦</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参考：<a href="https://ruiaylin.github.io/2014/12/12/python%20update/" target="_blank" rel="external">centos6.5下python2.6升级python2.7</a></p>
+<h1 id="二、centos6环境下开启定时任务，后台执行"><a href="#二、centos6环境下开启定时任务，后台执行" class="headerlink" title="二、centos6环境下开启定时任务，后台执行"></a>二、centos6环境下开启定时任务，后台执行</h1><h2 id="python自动化脚本运行方案"><a href="#python自动化脚本运行方案" class="headerlink" title="python自动化脚本运行方案"></a>python自动化脚本运行方案</h2><p>引子：一直想用vps自动运行我的python脚本，但是有几个问题我一直都懒得去查和解决。。但是做coderhelper数据抓取的时候，我总不能每天都定点去抓数据吧，所以其实还是出于我很懒的原因，才有这个小文章的。</p>
+<h3 id="Q-0"><a href="#Q-0" class="headerlink" title="Q-0"></a>Q-0</h3><p>我写的脚本是运行在python3.5上的，所以系统自带的2.7的版本我是运行不了的，而且我习惯使用python的虚拟环境，不想污染自己的开发环境，那么我必须启动一个脚本然后打开运行环境，然后运行我的python脚本，在运行完成后，在退出</p>
+<p>解决：我尝试使用python去写脚本，运行之后，发现没什么作用，搜索之后，发现网上关于这个的解决也比较少，大多是说source应该替换为‘.’，后来我又使用了shell脚本，但是效果是一样的，后来我意识到，其实是起作用了的，只是打开了activate环境，然后马上就关闭了而已，不会出现自己终端运行出现的(caogao)，这种现象。</p>
+<h3 id="Q-1"><a href="#Q-1" class="headerlink" title="Q-1"></a>Q-1</h3><p>怎样让脚本自动运行在vps上，关键词是crontab</p>
+<p>第一步，使用crontab -e命令，可能出现的错是“Error detected while processing /root/.vimrc:”—-解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@~]# vim ~/.bashrc</div><div class="line"> </div><div class="line">export EDITOR=/usr/bin/vim</div><div class="line">  </div><div class="line">[root@~]# source ~/.bashrc</div></pre></td></tr></table></figure>
+<p>第二步，编辑要定时执行的脚本，eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">每天凌晨3:00执行备份程序：0 3 * * * /root/backup.sh</div><div class="line"></div><div class="line">每周日8点30分执行日志清理程序：30 8 * * 7 /root/clear.sh</div></pre></td></tr></table></figure>
+<p>第三步，让root用户生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">crontab -u root /var/spool/cron/root</div></pre></td></tr></table></figure>
+<p>第四步，重启crontab服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service crond restart</div></pre></td></tr></table></figure>
+<h3 id="Q2"><a href="#Q2" class="headerlink" title="Q2"></a>Q2</h3><p>能不能给个参考的定时python任务啊，当然：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">cd</span> /root/python_blog</div><div class="line"><span class="built_in">source</span> ./bin/activate</div><div class="line"><span class="built_in">cd</span> /root/python_blog/python_goose/hang/sis</div><div class="line">python list.py</div><div class="line">deactivate</div></pre></td></tr></table></figure></p>
+<h3 id="Q3"><a href="#Q3" class="headerlink" title="Q3"></a>Q3</h3><p>我用的是服务器在美国洛杉矶，所以系统时间上是有时间差的<br>比如：我在定时器中使用20 07 换算到中国大陆就是下午7点20，如果是15 22 换算到中国大陆就是上午十点15分</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/a1264716408/article/details/52523645" target="_blank" rel="external">第三步和第四步</a></p>
+<p><a href="https://www.vpser.net/manage/crontab.html" target="_blank" rel="external">第一步和第二步</a></p>
+<h1 id="三、centos6-5环境下vsftpd安装与配置"><a href="#三、centos6-5环境下vsftpd安装与配置" class="headerlink" title="三、centos6.5环境下vsftpd安装与配置"></a>三、centos6.5环境下vsftpd安装与配置</h1><ul>
+<li>以root身份在终端输入yum install vsftpd</li>
+<li>添加jacob上传用户，以root身份在终端输入useradd jacob,并通过passwd jacob设置密码，用于上传;</li>
+<li>修改vsftpd配置文件，通过命令cd /etc/vsftpd/ &amp;&amp; vim user_list打开文件，在该文件最下方添加jacob用户， 在该目录下通过命令vim vsftpd.conf, 将userlist_enable的值改为NO</li>
+<li>通过命令重启vsftpd,并通过命令service iptables stop和setenforce 0关闭防火墙</li>
+</ul>
+<p>参考：<a href="http://jingyan.baidu.com/article/636f38bb4923fbd6b8461016.html" target="_blank" rel="external">centos6.5下vsftpd安装</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ok2nitkry.bkt.clouddn.com/wechatPay.png.png" alt="李明航 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ok2nitkry.bkt.clouddn.com/aliPay.png.png" alt="李明航 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vps使用指南/" rel="tag"># vps使用指南</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/web/javascript粒子特效-烟花效果.html" rel="next" title="javascript粒子特效-烟花效果">
+                <i class="fa fa-chevron-left"></i> javascript粒子特效-烟花效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/normalSkill/网站添加谷歌翻译.html" rel="prev" title="网站添加谷歌翻译">
+                网站添加谷歌翻译 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="李明航" />
+          <p class="site-author-name" itemprop="name">李明航</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sanyueyuxincao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录"><span class="nav-number">1.</span> <span class="nav-text">缘由：在使用vps的过程中，也遇到了不少的坑，有些问题没有总结，导致一遍一遍的搜网页，在此一并记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、centos6下python2-6升级到python2-7"><span class="nav-number">2.</span> <span class="nav-text">一、centos6下python2.6升级到python2.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我在centos6环境下使用的步骤"><span class="nav-number">2.1.</span> <span class="nav-text">我在centos6环境下使用的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来这3步我没有用，我直接使用的虚拟环境"><span class="nav-number">2.2.</span> <span class="nav-text">接下来这3步我没有用，我直接使用的虚拟环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、centos6环境下开启定时任务，后台执行"><span class="nav-number">3.</span> <span class="nav-text">二、centos6环境下开启定时任务，后台执行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python自动化脚本运行方案"><span class="nav-number">3.1.</span> <span class="nav-text">python自动化脚本运行方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-0"><span class="nav-number">3.1.1.</span> <span class="nav-text">Q-0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-1"><span class="nav-number">3.1.2.</span> <span class="nav-text">Q-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q2"><span class="nav-number">3.1.3.</span> <span class="nav-text">Q2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q3"><span class="nav-number">3.1.4.</span> <span class="nav-text">Q3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.2.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、centos6-5环境下vsftpd安装与配置"><span class="nav-number">4.</span> <span class="nav-text">三、centos6.5环境下vsftpd安装与配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李明航</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://lmhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://lmhang.com/normalSkill/vps日常使用.html';
+          this.page.identifier = 'normalSkill/vps日常使用.html';
+          this.page.title = 'vps日常使用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lmhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
