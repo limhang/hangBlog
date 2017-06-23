@@ -3,9 +3,16 @@
   
     
     <entry>
+      <title><![CDATA[nginx配置常见问题]]></title>
+      <url>%2Fbackend%2Fnginx%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.html</url>
+      <content type="text"><![CDATA[缘由：Nginx配置问题，location，error_log 问题一、location配置问题问题描述：想用nginx做反向代理，例如【/api/xxx/yyy】检测到/api后，通过location修改proxy_pass，但是location正则一直没法匹配上，一直匹配到【location /】 解决办法：应该是location正则匹配的优先级的问题，采用【location ~ /api/[^\/]+/[^\/]+】匹配 参考资料]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[urlStore接口]]></title>
       <url>%2Finterface%2FurlStore%E6%8E%A5%E5%8F%A3.html</url>
-      <content type="text"><![CDATA[一、urlStore用户模块接口1-1、添加注册接口12url:http://urlapi.coderhelper.cn/v1_0/person/user/register请求方式：post 参数 说明 类型 username 账户 string password 密码 string 1-2、添加登录接口12url:http://urlapi.coderhelper.cn/v1_0/person/user/login请求参数：post 参数 说明 类型 username 账户 string password 密码 string 二、url内容发布接口2-1、发布url接口12url:http://urlapi.coderhelper.cn/v1_0/url/user/urlcreate请求参数：post 参数 说明 类型 token 令牌 string url 需要保持的网址 string category 分类 string tag 标签 string detail 详细描述 string 1&#123;"code":200,"info":"","datas":&#123;"category":"test","tag":"web","detail":"justFortest","userId":"7393ee8db55db7ea99070676e0029972","id":1&#125;&#125; 2-2、查询url[按页查询]接口12url:http://urlapi.coderhelper.cn/v1_0/url/user/urlquerypage请求参数：post 参数 说明 类型 token 令牌 string page 查询的页码 string 1&#123;"code":200,"info":"","datas":&#123;"lists":[&#123;"id":1,"category":"test","userId":"7393ee8db55db7ea99070676e0029972","tag":"web","detail":"justFortest","url":""&#125;]&#125;&#125;]]></content>
+      <content type="text"><![CDATA[缘由：UrlStore应用的接口 一、urlStore用户模块接口1-1、添加注册接口12url:http://urlapi.coderhelper.cn/v1_0/person/user/register请求方式：post 参数 说明 类型 username 账户 string password 密码 string 1-2、添加登录接口12url:http://urlapi.coderhelper.cn/v1_0/person/user/login请求参数：post 参数 说明 类型 username 账户 string password 密码 string 二、url内容发布接口2-1、发布url接口12url:http://urlapi.coderhelper.cn/v1_0/url/user/urlcreate请求参数：post 参数 说明 类型 token 令牌 string url 需要保持的网址 string category 分类 string tag 标签 string detail 详细描述 string 1&#123;"code":200,"info":"","datas":&#123;"category":"test","tag":"web","detail":"justFortest","userId":"7393ee8db55db7ea99070676e0029972","id":1&#125;&#125; 2-2、查询url[按页查询]接口12url:http://urlapi.coderhelper.cn/v1_0/url/user/urlquerypage请求参数：post 参数 说明 类型 token 令牌 string page 查询的页码 string pagenum 每页显示的数据 string 1&#123;"code":200,"info":"","datas":&#123;"lists":[&#123;"id":1,"category":"test","userId":"7393ee8db55db7ea99070676e0029972","tag":"web","detail":"justFortest","url":""&#125;]&#125;&#125;]]></content>
     </entry>
 
     

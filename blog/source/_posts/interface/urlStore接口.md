@@ -4,6 +4,9 @@ date: 2017-06-21 12:21:21
 tags: api
 categories: api
 ---
+# 缘由：UrlStore应用的接口
+
+<!--more-->
 
 # 一、urlStore用户模块接口
 ## 1-1、添加注册接口
@@ -58,6 +61,7 @@ url:http://urlapi.coderhelper.cn/v1_0/url/user/urlquerypage
 |:---|:---:|---:|
 |token|令牌|string|
 |page|查询的页码|string|
+|pagenum|每页显示的数据|string|
 
 ```json
 {"code":200,"info":"","datas":{"lists":[{"id":1,"category":"test","userId":"7393ee8db55db7ea99070676e0029972","tag":"web","detail":"justFortest","url":""}]}}
