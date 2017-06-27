@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[dva框架学习]]></title>
+      <url>%2Fdva%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0.html</url>
+      <content type="text"><![CDATA[缘由：dva&amp;&amp;redux学习总结 一、遇到的问题1-1、es6语法所引起的问题1-1-1、对象处理相关问题 对象的再赋值eg1:input:1234let result0 = &#123;x:1,y:2&#125;;let result1 = &#123;x:2&#125;;let result = &#123;...result0,x:3&#125;;console.log(result); output:1Object &#123;x: 3, y: 2&#125; eg2:input:1234let result0 = &#123;x:1,y:2,z:3&#125;;let result1 = &#123;x:2,y:3&#125;;let result = &#123;...result0,...result1&#125;;console.log(result); output:1Object &#123;x: 2, y: 3, z: 3&#125;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[nginx配置常见问题]]></title>
       <url>%2Fbackend%2Fnginx%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.html</url>
       <content type="text"><![CDATA[缘由：Nginx配置问题，location，error_log 问题一、location配置问题问题描述：想用nginx做反向代理，例如【/api/xxx/yyy】检测到/api后，通过location修改proxy_pass，但是location正则一直没法匹配上，一直匹配到【location /】 解决办法：应该是location正则匹配的优先级的问题，采用【location ~ /api/[^\/]+/[^\/]+】匹配 参考资料]]></content>
