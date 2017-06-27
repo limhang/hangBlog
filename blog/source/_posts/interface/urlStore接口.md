@@ -53,7 +53,7 @@ url:http://urlapi.coderhelper.cn/v1_0/url/user/urlcreate
 
 ## 2-2、查询url[按页查询]接口
 ```
-url:http://urlapi.coderhelper.cn/v1_0/url/user/urlquerypage
+url:http://urlapi.coderhelper.cn/v1_0/url/user/urlquery
 请求参数：post
 ```
 
@@ -62,7 +62,26 @@ url:http://urlapi.coderhelper.cn/v1_0/url/user/urlquerypage
 |token|令牌|string|
 |page|查询的页码|string|
 |pagenum|每页显示的数据|string|
+|item|查询的类型|1：category, 2:tag, 3:detail 不填：all|
+|category|分类查询字段|string|
+|tag|标签查询字段|string|
+|detail|详细查询字段|string|
 
-```json
-{"code":200,"info":"","datas":{"lists":[{"id":1,"category":"test","userId":"7393ee8db55db7ea99070676e0029972","tag":"web","detail":"justFortest","url":""}]}}
+
+## 2-3、查询有哪些标签
 ```
+url:http://url.coderhelper.cn/api/v1_0/url/user/urlquerytag
+请求参数：post
+```
+
+|参数|说明|类型|
+|token|令牌|string|
+
+## 2-4、查询有哪些分类
+```
+url:http://url.coderhelper.cn/api/v1_0/url/user/urlquerycategory
+请求方式：post
+```
+
+|参数|说明|类型|
+|token|令牌|string|
