@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lmhang.com/backend/nginx配置常见问题.html">
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：Nginx配置问题，location，error_log">
-<meta property="og:updated_time" content="2017-06-23T01:58:53.000Z">
+<meta property="og:updated_time" content="2017-06-29T02:28:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx配置常见问题">
 <meta name="twitter:description" content="缘由：Nginx配置问题，location，error_log">
@@ -428,6 +428,9 @@
 <h1 id="问题一、location配置问题"><a href="#问题一、location配置问题" class="headerlink" title="问题一、location配置问题"></a>问题一、location配置问题</h1><p>问题描述：想用nginx做反向代理，例如【/api/xxx/yyy】检测到/api后，通过location修改proxy_pass，但是location正则一直没法匹配上，一直匹配到【location /】</p>
 <p>解决办法：应该是location正则匹配的优先级的问题，采用【location ~ /api/[^\/]+/[^\/]+】匹配</p>
 <p><a href="https://blog.coding.net/blog/tips-in-configuring-Nginx-location" target="_blank" rel="external">参考资料</a></p>
+<h1 id="问题二、ip-port无法生效"><a href="#问题二、ip-port无法生效" class="headerlink" title="问题二、ip:port无法生效"></a>问题二、ip:port无法生效</h1><p>问题描述：需要改变ip的默认port，例如：www.hang.com:81，在nginx中，将listen：81，但是还是无法正常访问</p>
+<p>解决办法：之后想到可能是防火墙的原因，修改/etc/sysconfig/iptables，在iptables中添加81端口，然后重启iptables，命令：service iptables restart，这样修改之后还是不可以，这个时候想到可能是阿里云那边的安全限制，果然是这样，修改阿里云的esc下的安全组设置就可以了</p>
+<p><a href="https://stackoverflow.com/questions/5009324/node-js-nginx-what-now" target="_blank" rel="external">参考资料</a></p>
 
       
     </div>
@@ -673,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：Nginx配置问题，location，error-log"><span class="nav-number">1.</span> <span class="nav-text">缘由：Nginx配置问题，location，error_log</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题一、location配置问题"><span class="nav-number">2.</span> <span class="nav-text">问题一、location配置问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：Nginx配置问题，location，error-log"><span class="nav-number">1.</span> <span class="nav-text">缘由：Nginx配置问题，location，error_log</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题一、location配置问题"><span class="nav-number">2.</span> <span class="nav-text">问题一、location配置问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题二、ip-port无法生效"><span class="nav-number">3.</span> <span class="nav-text">问题二、ip:port无法生效</span></a></li></ol></div>
             
 
           </div>
