@@ -394,4 +394,4 @@ boundGetX(); // 返回 81
 ```
 
 # 五、js原型继承
-[js原型继承](http://ok2nitkry.bkt.clouddn.com/js%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png)
+![js原型继承](http://ok2nitkry.bkt.clouddn.com/js%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png)
