@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[数据结构与算法]]></title>
+      <url>%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.html</url>
+      <content type="text"><![CDATA[缘由：复习总结一下常用数据结构与算法，长期更新 一、数据结构1-1、基础知识物理存储结构：线性存储，链式存储 逻辑结构：线性表，二叉树，图 时间复杂度计算，空间复杂度计算 1-2、队列，栈，优先队列（堆）1-3、二叉树1-3-1、背景知识树是一种比较重要的数据结构，尤其是二叉树。二叉树是一种特殊的树，在二叉树中每个节点最多有两个子节点，一般称为左子节点和右子节点（或左孩子和右孩子），并且二叉树的子树有左右之分，其次序不能任意颠倒。二叉树是递归定义的，因此，与二叉树有关的题目基本都可以用递归思想解决。 1-3-2、基本概念二叉树概念：每个结点最多有两棵子树，所以二叉树中不存在度大于2的结点。二叉树中每一个节点都是一个对象，每一个数据节点都有三个指针，分别是指向父母、左孩子和右孩子的指针。每一个节点都是通过指针相互连接的。相连指针的关系都是父子关系。 满二叉树：在一棵二叉树中，如果所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上，这样的二叉树称为满二叉树。 完全二叉树：完全二叉树是指最后一层左边是满的，右边可能满也可能不满，然后其余层都是满的。一个深度为k，节点个数为 2^k - 1 的二叉树为满二叉树（完全二叉树）。满二叉树一定是完全二叉树，但完全二叉树不一定是满二叉树。 二叉树的遍历：前序遍历，中序遍历，后序遍历 （1）前序遍历（DLR），首先访问根结点，然后遍历左子树，最后遍历右子树。简记根-左-右。 （2）中序遍历（LDR），首先遍历左子树，然后访问根结点，最后遍历右子树。简记左-根-右。 （3）后序遍历（LRD），首先遍历左子树，然后遍历右子树，最后访问根结点。简记左-右-根。 【规律：左右不变，根移位】 实现的代码主要使用递归：1234567891011121314151617181920212223242526 void PreOrderTraverse(BinaryTreeNode * pRoot) &#123; if(pRoot == NULL) return; Visit(pRoot); // 访问根节点 PreOrderTraverse(pRoot-&gt;m_pLeft); // 前序遍历左子树 PreOrderTraverse(pRoot-&gt;m_pRight); // 前序遍历右子树 &#125; void InOrderTraverse(BinaryTreeNode * pRoot) &#123; if(pRoot == NULL) return; InOrderTraverse(pRoot-&gt;m_pLeft); // 中序遍历左子树 Visit(pRoot); // 访问根节点 InOrderTraverse(pRoot-&gt;m_pRight); // 中序遍历右子树 &#125; void PostOrderTraverse(BinaryTreeNode * pRoot) &#123; if(pRoot == NULL) return; PostOrderTraverse(pRoot-&gt;m_pLeft); // 后序遍历左子树 PostOrderTraverse(pRoot-&gt;m_pRight); // 后序遍历右子树 Visit(pRoot); // 访问根节点 &#125; 1-3-3、参考资料轻松搞定二叉树面试题 js算法与数据结构 学习JavaScript数据结构与算法:栈与队列 1-4、查找二叉树（BST）,二叉堆，图二、算法2-1、排序算法2-1-1、bubble排序2-1-2、insert排序2-1-3、快速排序2-2、查找算法2-2-1、二分查找三、参考《数据结构与算法Javascript描述》 《数据结构与算法C语言描述》 《大话数据结构》 算法与数据结构资源推荐 可视化的算法和数据结构网站 javascript数据结构实现——我的github 浙大数据结构与算法-视频]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[linux下遇到的问题]]></title>
       <url>%2Flinux%E4%B8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.html</url>
       <content type="text"><![CDATA[缘由：这里集中记录下linux使用中碰到的问题 问题一、问题描述：给centos6.8配置virtualenv的时候，使用【pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple virtualenv】指令，出现错误：1python3.5: error while loading shared libraries: libpython3.5m.so.1.0: cannot open shared object file: No such file or directory 解决办法：一般这个路径找不到的问题，都是库的配置有问题 使用find指令找到库 1find / -name &quot;libpython3.5m.so.1.0&quot; 配置$LD_LIBRARY_PATH 1export LD_LIBRARY_PATH=/usr/local/lib/ /usr/local/lib/ 路径就是我的库所在位置 参考]]></content>
