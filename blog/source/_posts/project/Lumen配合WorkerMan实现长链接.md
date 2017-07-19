@@ -87,3 +87,15 @@ Cache::put('userName',$userName,60);
 1、[lumen5.4下redis使用配置](http://www.jianshu.com/p/6f543adac732)
 2、[lumen官方cache使用](http://d.laravel-china.org/docs/5.4/cache)
 3、[lumen缓存使用介绍](http://blog.gxxsite.com/lumen-advance-use-cache/)
+
+
+# 四、GatewayWorker&&GatewayClient使用
+## 4-1、基本介绍
+
+
+
+
+# 五、lumen框架的事件和广播
+
+
+# 六、reactJS中使用webSocket
