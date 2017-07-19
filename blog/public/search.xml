@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[Lumen配合WorkerMan实现长链接]]></title>
+      <url>%2Fproject%2FLumen%E9%85%8D%E5%90%88WorkerMan%E5%AE%9E%E7%8E%B0%E9%95%BF%E9%93%BE%E6%8E%A5.html</url>
+      <content type="text"><![CDATA[缘由：Lumen框架下长链接的使用 一、所用工具 后端相关： 1234lumen框架redis数据库workerman(gatewayworker&amp;&amp;gatewayclient)事件通知，广播 前端相关： 12dvareact 二、流程图三、lumen框架下redis使用（lumen5.4）3-1、安装依赖1234567&quot;require&quot;: &#123; &quot;php&quot;: &quot;&gt;=5.6.4&quot;, &quot;laravel/lumen-framework&quot;: &quot;5.4.*&quot;, &quot;vlucas/phpdotenv&quot;: &quot;~2.2&quot;, &quot;illuminate/redis&quot;: &quot;^5.4&quot;, &quot;predis/predis&quot;: &quot;1.1.*&quot; &#125;, 执行composer install 3-2、修改配置项在bootstrap/app.php文件中把123$app-&gt;withFacades();$app-&gt;withEloquent(); 注释取消并且注册redis类代码如下1$app-&gt;register(Illuminate\Redis\RedisServiceProvider::class); 在.env下，修改配置如下：1CACHE_DRIVER=redis 在config文件夹下，查看database.php是否有如下代码：12345678910&apos;redis&apos; =&gt; [ &apos;cluster&apos; =&gt; env(&apos;REDIS_CLUSTER&apos;, false), &apos;default&apos; =&gt; [ &apos;host&apos; =&gt; env(&apos;REDIS_HOST&apos;, &apos;127.0.0.1&apos;), &apos;port&apos; =&gt; env(&apos;REDIS_PORT&apos;, 6379), &apos;database&apos; =&gt; env(&apos;REDIS_DATABASE&apos;, 0), &apos;password&apos; =&gt; env(&apos;REDIS_PASSWORD&apos;, null), ], 3-3、基本使用1234use Illuminate\Support\Facades\Cache;Cache::put(&apos;roomId&apos;, $roomId, 60);Cache::put(&apos;userName&apos;,$userName,60); 详细见参考资料3-3-2 3-4、参考资料1、lumen5.4下redis使用配置2、lumen官方cache使用3、lumen缓存使用介绍]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[redis使用]]></title>
+      <url>%2Fredis%E4%BD%BF%E7%94%A8.html</url>
+      <content type="text"><![CDATA[缘由：主要介绍redis使用 一、redis基础知识回顾]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[XCODE项目重命名]]></title>
       <url>%2FiOS%2FXCODE%E9%A1%B9%E7%9B%AE%E9%87%8D%E5%91%BD%E5%90%8D.html</url>
       <content type="text"><![CDATA[缘由：重命名xcode项目，这里涉及到很多的依赖和关联，所以其实很容易出错的，在此记录一下 step 1–修改项目名打开xcode项目，修改右侧中的name，详细见下图：填写完成之后，点击其他位置，这个时候，系统会给一个弹窗，点击弹窗中的rename按钮 step 2–Rename the Scheme点击左侧栏的【edit schemes】位于【stop】按钮旁边，点击下方的manager schemes，修改schemes,点击一下，选中，然后回车修改名字，关闭xcode 如果使用pod，这里需要多加一步，回到文件夹中，修改OLD.xcworkspace to NEW.xcworkspace step 3–修改文件夹，所有旧文件名这里主要修改，oldNameUItests，oldnaemTests，oldname这3个文件夹的名字 打开oldname.xcodeproj【注意是这个文件，不是pod生成的那个文件】 然后依次对那3个文件进行修改名字的操作，和修改路径的操作，具体位置见下图 step 4–修改plist文件点击Build Settings，修改plist文件路径和bundleid名字 step 5–修改pod相关删除所有与pod相关文件，重新pod install 打开【SoilDetector.xcworkspace】,删除红色失去关联的SoilDetector.xcworkspace文件 在Build phases中，点击Link Binary With Libraries,删除old name的pod文件 command + shift + k ，然后run，ok！]]></content>
@@ -32,7 +46,7 @@
     
     <entry>
       <title><![CDATA[招聘狗拉钩项目]]></title>
-      <url>%2F%E6%8B%9B%E8%81%98%E7%8B%97%E6%8B%89%E9%92%A9%E9%A1%B9%E7%9B%AE.html</url>
+      <url>%2Fproject%2F%E6%8B%9B%E8%81%98%E7%8B%97%E6%8B%89%E9%92%A9%E9%A1%B9%E7%9B%AE.html</url>
       <content type="text"><![CDATA[缘由：记录下之前做过的拉钩招聘狗自动显示项目吧 一、python爬虫获取招聘狗和拉钩网的数据1-1、开发准备工作python3开发环境，virtualenv虚拟环境安装pymysql库，这里可能会不好安装，可以用其他的类似的库替换安装requests库 二、将爬取的数据存入mysql数据库设置自己库的密码和数据库名字，这里看代码 三、编写php接口获取当天数据看代码 四、编写前端图表展示页面看代码 五、启动vps定时任务，实现自动获取数据，实时展示博客中有方法 github地址]]></content>
     </entry>
 
