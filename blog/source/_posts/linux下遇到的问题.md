@@ -27,3 +27,14 @@ export LD_LIBRARY_PATH=/usr/local/lib/
 /usr/local/lib/ 路径就是我的库所在位置
 
 ## [参考](https://stackoverflow.com/questions/39298681/anaconda-python-virtualdev-cant-find-libpython3-5m-so-1-0-on-windows-subsystem)
+
+
+# 问题二、
+## 问题描述：查找指定文件夹下，某些文件是否包含指定字符串
+## 解决办法：
+例如我要查找【/Users/het/Desktop/hangblog/blog】文件夹下，后缀为【yml,html】的文件，那些含有【https://github.com/limhang】，指令如下：
+```
+grep -rnw '/Users/het/Desktop/hangblog/blog' -e 'https://github.com/limhang' --include=\*.{yml,html}
+```
+
+## [参考](https://stackoverflow.com/questions/16956810/how-do-i-find-all-files-containing-specific-text-on-linux)
