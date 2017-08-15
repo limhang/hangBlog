@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：系统整理下计算机网络的知识吧-_-">
 <meta property="og:image" content="http://ok2nitkry.bkt.clouddn.com/%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84_01.png">
-<meta property="og:updated_time" content="2017-08-15T02:49:50.000Z">
+<meta property="og:updated_time" content="2017-08-15T03:30:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络是怎样连接的读书笔记">
 <meta name="twitter:description" content="缘由：系统整理下计算机网络的知识吧-_-">
@@ -440,6 +440,18 @@
 <p>再往后的过程图上就没有画出来了。网络包会通过路由器到达下一个 路由器 R2。这个过程不断重复，最终网络包就会被送到目的地，当目的地 设备成功接收之后，网络包的传输过程就结束了。</p>
 <p>【简单概述】：ip头部信息可以获取数据包传输方向，并且获取下一个目的地的mac地址，并且加入到（修改）mac头部信息，以太网协议根据mac头部，负责将数据传递到目的地。</p>
 <p>图解如下：<br><img src="http://ok2nitkry.bkt.clouddn.com/%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84_01.png" alt="tcp/ip包传输过程"></p>
+<h1 id="三、TCP与UDP"><a href="#三、TCP与UDP" class="headerlink" title="三、TCP与UDP"></a>三、TCP与UDP</h1><h2 id="3-1、tcp"><a href="#3-1、tcp" class="headerlink" title="3-1、tcp"></a>3-1、tcp</h2><h3 id="3-1-1、tcp三次握手"><a href="#3-1-1、tcp三次握手" class="headerlink" title="3-1-1、tcp三次握手"></a>3-1-1、tcp三次握手</h3><p>我初学tcp的时候就有这个疑问，为什么是三次握手？2次不行嘛？<br>这里做个通俗的讲解，通信双方是甲和乙<br>第一次握手：甲发出请求，并附带加密确认消息（确保是乙收到）<br>第二次握手：乙回复甲的请求，并回复加密消息，附加乙的加密消息<br>第三次握手：甲回复乙请求，并回复加密消息</p>
+<p>仔细思考一下，是不是第二次握手的时候，甲收到乙的消息后，甲就已经可以确认双方可正常通信呢？当然，这个时候，甲知道自己发送的数据可达乙处，乙发动的消息可达甲处，这不就是可接受可发送嘛。但是乙呢？乙并不知道自己的消息可到达甲处，乙只能确定自己可接受甲的消息，所以对于乙，通信只能是可接受不一定可达，所以进行第三次我握手，网上也有人说是信道不稳定，确认稳定性，但是从逻辑上看，我觉得我说的很有道理的。</p>
+<h3 id="3-1-2、tcp协议头部格式"><a href="#3-1-2、tcp协议头部格式" class="headerlink" title="3-1-2、tcp协议头部格式"></a>3-1-2、tcp协议头部格式</h3><p>Source Port和Destination Port:分别占用16位，表示源端口号和目的端口号；用于区别主机中的不同进程，而IP地址是用来区分不同的主机的，源端口号和目的端口号配合上IP首部中的源IP地址和目的IP地址就能唯一的确定一个TCP连接；</p>
+<p>Sequence Number:用来标识从TCP发端向TCP收端发送的数据字节流，它表示在这个报文段中的的第一个数据字节在数据流中的序号；主要用来解决网络报乱序的问题；</p>
+<p>Acknowledgment Number:32位确认序列号包含发送确认的一端所期望收到的下一个序号，因此，确认序号应当是上次已成功收到数据字节序号加1。不过，只有当标志位中的ACK标志（下面介绍）为1时该确认序列号的字段才有效。主要用来解决不丢包的问题；</p>
+<p>Offset:给出首部中32 bit字的数目，需要这个值是因为任选字段的长度是可变的。这个字段占4bit（最多能表示15个32bit的的字，即4*15=60个字节的首部长度），因此TCP最多有60字节的首部。然而，没有任选字段，正常的长度是20字节；</p>
+<p>TCP Flags:TCP首部中有6个标志比特，它们中的多个可同时被设置为1，主要是用于操控TCP的状态机的，依次为URG，ACK，PSH，RST，SYN，FIN。每个标志位的意思如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">URG：此标志表示TCP包的紧急指针域（后面马上就要说到）有效，用来保证TCP连接不被中断，并且督促中间层设备要尽快处理这些数据；</div><div class="line"></div><div class="line">ACK：此标志表示应答域有效，就是说前面所说的TCP应答号将会包含在TCP数据包中；有两个取值：0和1，为1的时候表示应答域有效，反之为0；</div><div class="line"></div><div class="line">PSH：这个标志位表示Push操作。所谓Push操作就是指在数据包到达接收端以后，立即传送给应用程序，而不是在缓冲区中排队；</div><div class="line"></div><div class="line">RST：这个标志表示连接复位请求。用来复位那些产生错误的连接，也被用来拒绝错误和非法的数据包；</div><div class="line"></div><div class="line">SYN：表示同步序号，用来建立连接。SYN标志位和ACK标志位搭配使用，当连接请求的时候，SYN=1，ACK=0；连接被响应的时候，SYN=1，ACK=1；这个标志的数据包经常被用来进行端口扫描。扫描者发送一个只有SYN的数据包，如果对方主机响应了一个数据包回来 ，就表明这台主机存在这个端口；但是由于这种扫描方式只是进行TCP三次握手的第一次握手，因此这种扫描的成功表示被扫描的机器不很安全，一台安全的主机将会强制要求一个连接严格的进行TCP的三次握手；</div><div class="line"></div><div class="line">FIN： 表示发送端已经达到数据末尾，也就是说双方的数据传送完成，没有数据可以传送了，发送FIN标志位的TCP数据包后，连接将被断开。这个标志的数据包也经常被用于进行端口扫描。</div></pre></td></tr></table></figure>
+<p>Window:窗口大小，也就是有名的滑动窗口，用来进行流量控制；这是一个复杂的问题，这篇博文中并不会进行总结的；</p>
+<p>ACK ： TCP协议规定，只有ACK=1时有效，也规定连接建立后所有发送的报文的ACK必须为1</p>
+<p>SYN(SYNchronization) ： 在连接建立时用来同步序号。当SYN=1而ACK=0时，表明这是一个连接请求报文。对方若同意建立连接，则应在响应报文中使SYN=1和ACK=1. 因此, SYN置1就表示这是一个连接请求或连接接受报文。</p>
+<p>FIN （finis）即完，终结的意思， 用来释放一个连接。当 FIN = 1 时，表明此报文段的发送方的数据已经发送完毕，并要求释放连接。</p>
 
       
     </div>
@@ -685,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：系统整理下计算机网络的知识吧"><span class="nav-number">1.</span> <span class="nav-text">缘由：系统整理下计算机网络的知识吧-_-</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、浏览器生成消息，探索浏览器内部"><span class="nav-number">2.</span> <span class="nav-text">一、浏览器生成消息，探索浏览器内部</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、ip以太包的收发操作"><span class="nav-number">3.</span> <span class="nav-text">二、ip以太包的收发操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1、基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2、tcp-ip传输过程"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、tcp/ip传输过程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：系统整理下计算机网络的知识吧"><span class="nav-number">1.</span> <span class="nav-text">缘由：系统整理下计算机网络的知识吧-_-</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、浏览器生成消息，探索浏览器内部"><span class="nav-number">2.</span> <span class="nav-text">一、浏览器生成消息，探索浏览器内部</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、ip以太包的收发操作"><span class="nav-number">3.</span> <span class="nav-text">二、ip以太包的收发操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1、基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2、tcp-ip传输过程"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、tcp/ip传输过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、TCP与UDP"><span class="nav-number">4.</span> <span class="nav-text">三、TCP与UDP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1、tcp"><span class="nav-number">4.1.</span> <span class="nav-text">3-1、tcp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1、tcp三次握手"><span class="nav-number">4.1.1.</span> <span class="nav-text">3-1-1、tcp三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2、tcp协议头部格式"><span class="nav-number">4.1.2.</span> <span class="nav-text">3-1-2、tcp协议头部格式</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
