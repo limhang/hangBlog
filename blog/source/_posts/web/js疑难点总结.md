@@ -371,7 +371,6 @@ class Toggle extends React.Component {
 }
 ```
 
-
 ### 4-1-2、bind函数demo
 bind() 最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的 this 值。JavaScript新手经常犯的一个错误是将一个方法从对象中拿出来，然后再调用，希望方法中的 this 是原来的对象。（比如在回调中传入这个方法。）如果不做特殊处理的话，一般会丢失原来的对象。从原来的函数和原来的对象创建一个绑定函数，则能很漂亮地解决这个问题：
 
@@ -393,5 +392,119 @@ var boundGetX = retrieveX.bind(module);
 boundGetX(); // 返回 81
 ```
 
-# 五、js原型继承
+## 4-2、call,apply函数应用分析
+### 4-2-1、call与apply基本使用
+在 javascript 中，call 和 apply 都是为了改变某个函数运行时的上下文（context）而存在的，换句话说，就是为了改变函数体内部 this 的指向。JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。
+
+**eg:**
+
+```
+function fruits() {}
+ 
+fruits.prototype = {
+    color: "red",
+    say: function() {
+        console.log("My color is " + this.color);
+    }
+}
+ 
+var apple = new fruits;
+apple.say();    //My color is red
+```
+
+但是如果我们有一个对象banana= {color : "yellow"} ,我们不想对它重新定义 say 方法，那么我们可以通过 call 或 apply 用 apple 的 say 方法：
+
+```
+banana = {
+    color: "yellow"
+}
+apple.say.call(banana);     //My color is yellow
+apple.say.apply(banana);    //My color is yellow
+```
+
+### 4-2-2、call和apply使用区别
+JavaScript 中，某个函数的参数数量是不固定的，因此要说适用条件的话，当你的参数是明确知道数量时用 call 。
+而不确定的时候用 apply，然后把参数 push 进数组传递进去。当参数数量不确定时，函数内部也可以通过 arguments 这个伪数组来遍历所有的参数。
+
+```
+var  numbers = [5, 458 , 120 , -215 ]; 
+var maxInNumbers = Math.max.apply(Math, numbers),   //458
+    maxInNumbers = Math.max.call(Math,5, 458 , 120 , -215); //458
+```
+
+## 4-3、参考资料
+[妙用Javascript中apply、call、bind](https://www.cnblogs.com/coco1s/p/4833199.html)
+
+# 五、js原型，原型链，继承，构造函数归纳总结
+写在前面：
+这些概念，对于理解js这一门语言非常重要，要清楚的理解上述概念，需要记住以下几点原则：
+
+* 在js世界中，一切皆对象，函数也是对象，对象都有__proto__
+* 函数（fn）都有一个prototype属性，该属性（prototype）有一个属性contructor指向该函数（fn）
+* 继承在设计中一定要明白一个原则，公用性【多个对象公用方法或者属性，节约资源】，独立性【各个对象有自己私有的属性和方法，修改它只会影响到自己】
+
+记住以上三点，就可以开始学习下面的内容了
+
+## 5-1、原型、原型链和构造函数
+
+```
+ // var a = new A('hehe') =>
+ var a = new Object();
+ a.__proto__ = A.prototype; (proto)
+ A.call(a, 'hehe');
+```
+
+下面用一个例子来理解一下
+
+```
+    function Boss(name,money){
+        this.name = name ;
+        this.money = money ;
+    };
+    Boss.prototype = {
+        constructor:Boss ,
+        business:function(){
+            console.log(this.name+"生意做的不错") ;
+        }
+    } ;
+
+    function RichSecondGeneration(name,money,graceful){
+        Boss.call(this,name,money) ;
+        this.graceful = graceful ;
+    } ;
+    RichSecondGeneration.prototype = new Boss() ;
+    
+    RichSecondGeneration.prototype.pickUpGirl = function(){
+        if(this.graceful){
+            console.log(this.name + "把妹很厉害") ;
+        }else{
+            console.log(this.name + "把妹方式很下流") ;
+        }
+    } ;
+
+    var wangsicong = new RichSecondGeneration("王思聪",100000000000,true) ;
+        console.log(wangsicong.name,wangsicong.money,wangsicong.graceful) ;
+        wangsicong.business() ; 
+        wangsicong.pickUpGirl() ;
+    
+    var lizongrui = new RichSecondGeneration("李宗瑞",1000000000,false) ;
+        console.log(lizongrui.name,lizongrui.money,lizongrui.graceful) ;
+        lizongrui.business() ; 
+        lizongrui.pickUpGirl() ;  
+```
+上面代码是最常见的继承实现，常用的继承方式是 原型链继承加借用构造函数构造函数继承。
+
+* 构造函数可以使得实例对象的属性互不相干，原型链继承可以使得实例对象共享已定义好的方法 ；
+* 属性继承原理：(new + call);
+* 方法继承原理：原型链
+
+但是大家有没有想过一个问题，为什么需要new + call这个语句呢，如果不加上【Boss.call(this,name,money);】会怎样？
+
+
+## 5-2、继承
 ![js原型继承](http://ok2nitkry.bkt.clouddn.com/js%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png)
+
+## 参考资料
+[js继承设计思想](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)
+
+[理解JavaScript的原型链和继承](https://blog.oyanglul.us/javascript/understand-prototype.html)
