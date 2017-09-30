@@ -165,3 +165,20 @@ service crond restart
 
 参考：[centos6.5下vsftpd安装](http://jingyan.baidu.com/article/636f38bb4923fbd6b8461016.html)
 
+# 四、vps使用小技巧
+## 4-1、nohup + & 指令做到后台运行程序
+这个需求来自于我下载vagrant box，我在vps上下载好了box，然后通过bypy上传到百度云，但是box很大，我需要后台运行上传的任务。具体的指令如下：
+```
+nohup bypy upload xxx.box &
+```
+
+现在开始讲解一下这里的2个指令，第一个是&，这个指令是让程序在后台运行，但是如果关闭了终端，则任务还是会结束。
+在指令最前面加上nohup，则当我关闭了vps的终端，程序还是可以在后台运行，具体进程查看可以使用top指令，查看后台任务也可以使用jobs。
+
+这里扩展一下查看进程和任务的命令。jobs,top,ps[process status]
+
+**info:***
+[如何在后台运行 Linux 命令并且将进程脱离终端
+](https://linux.cn/article-7918-1.html)
+
+[ps查看器](http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ps.html)
