@@ -1,7 +1,7 @@
 ---
 title: centos6.9安装python3环境
 date: 2017-06-07 13:19:24
-tags: python
+tags: python HLevel1 hasRemove
 categories: python
 ---
 
@@ -49,4 +49,4 @@ export LD_LIBRARY_PATH=/usr/local/lib/
 ```
 
 # 6、参考
-[python3安装--简书](http://www.jianshu.com/p/4cdc00388457)
+[python3安装--简书](http://www.jianshu.com/p/4cdc00388457)qq

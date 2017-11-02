@@ -124,7 +124,7 @@
     <entry>
       <title><![CDATA[centos6.9安装python3环境]]></title>
       <url>%2Fbackend%2Fcentos6-9%E5%AE%89%E8%A3%85python3%E7%8E%AF%E5%A2%83.html</url>
-      <content type="text"><![CDATA[缘由：阿里云多语言版本无python3开发环境，安装python3开发环境 1、安装编译python的组件gcc等12yum install gccyum groupinstall &quot;Development tools&quot; 2、再安装依赖包1yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 3、下载Python3.5的源码包并编译123456wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz #其中3.5.2可修改成自己想要的版本tar xf Python-3.5.2.tgzcd Python-3.5.2./configure --prefix=/usr/local --enable-shared #把python3安装在此目录，这里注意下，后面有详解makemake install 4、创建Python3.5软连接1ln –s /usr/local/bin/python3 /usr/bin/python3 #记住这些目录很重要 5、出现错误error while loading shared libraries: xxxxxxxx: cannot open shared object file: No such file or directory（xxxx为文件名） 解决办法：我是采用修改bash_profile 1export LD_LIBRARY_PATH=/usr/local/lib/ 6、参考python3安装–简书]]></content>
+      <content type="text"><![CDATA[缘由：阿里云多语言版本无python3开发环境，安装python3开发环境 1、安装编译python的组件gcc等12yum install gccyum groupinstall &quot;Development tools&quot; 2、再安装依赖包1yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 3、下载Python3.5的源码包并编译123456wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz #其中3.5.2可修改成自己想要的版本tar xf Python-3.5.2.tgzcd Python-3.5.2./configure --prefix=/usr/local --enable-shared #把python3安装在此目录，这里注意下，后面有详解makemake install 4、创建Python3.5软连接1ln –s /usr/local/bin/python3 /usr/bin/python3 #记住这些目录很重要 5、出现错误error while loading shared libraries: xxxxxxxx: cannot open shared object file: No such file or directory（xxxx为文件名） 解决办法：我是采用修改bash_profile 1export LD_LIBRARY_PATH=/usr/local/lib/ 6、参考python3安装–简书qq]]></content>
     </entry>
 
     
@@ -215,7 +215,7 @@
     <entry>
       <title><![CDATA[vps中转设置]]></title>
       <url>%2FnormalSkill%2Fvps%E4%B8%AD%E8%BD%AC%E8%AE%BE%E7%BD%AE.html</url>
-      <content type="text"><![CDATA[缘由：做一个阿里云中转ss流量，方案采用iptables 一、开启iptables中转功能打开/etc/sysctl.conf，添加下面代码1net.ipv4.ip_forward=1 二、设置iptables1234567iptables -t nat -A PREROUTING -p tcp --dport 8381 -j DNAT --to-destination 138.128.198.147:8381iptables -t nat -A POSTROUTING -p tcp -d 138.128.198.147 --dport 8381 -j SNAT --to-source 39.108.82.4iptables -t nat -A PREROUTING -p udp --dport 8381 -j DNAT --to-destination 138.128.198.147:8381iptables -t nat -A POSTROUTING -p udp -d 138.128.198.147 --dport 8381 -j SNAT --to-source 39.108.82.4 三、设置链接配置本机ss设置中，ip设置为阿里云主机，端口密码还是和之前一样配置 四、注意查看阿里云主机的网卡绑定ip地址1ifconfig 查看 inet 后面的地址]]></content>
+      <content type="text"><![CDATA[缘由：做一个阿里云中转ss流量，方案采用iptables 一、开启iptables中转功能打开/etc/sysctl.conf，添加下面代码1net.ipv4.ip_forward=1 下面的这个步骤被我第一次写文章时省略了，结果坑了自己好久1sysctl -p 二、设置iptables终端输入，其中39.108.82.4为本机的ip地址，阿里云需要填写的是内网地址，参考步骤41234567iptables -t nat -A PREROUTING -p tcp --dport 8381 -j DNAT --to-destination 138.128.198.147:8381iptables -t nat -A POSTROUTING -p tcp -d 138.128.198.147 --dport 8381 -j SNAT --to-source 39.108.82.4iptables -t nat -A PREROUTING -p udp --dport 8381 -j DNAT --to-destination 138.128.198.147:8381iptables -t nat -A POSTROUTING -p udp -d 138.128.198.147 --dport 8381 -j SNAT --to-source 39.108.82.4 下面的这个步骤也被我第一次写文章时省略了，结果坑了自己好久12service iptables save ## 将上一步的配置写入iptabels中service iptables restart 三、设置链接配置本机ss设置中，ip设置为阿里云主机，端口密码还是和之前一样配置 四、注意查看阿里云主机的网卡绑定ip地址1ifconfig 查看 inet 后面的地址]]></content>
     </entry>
 
     
