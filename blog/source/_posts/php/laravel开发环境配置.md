@@ -131,6 +131,7 @@ xdebug.max_nesting_level = 512
 
 #### 3-1-4、刷新网页
 这个时候，我们应该在phpstorm中，可以看到一个弹窗，设置名字，loaclhost，本地地址
+**warning:地址设置，一定要注意是输入最外层地址，就是映射地址code**
 **phpstorm右上侧，有一个listen xdebug按钮，选中它**
 
 #### 3-1-5、参考资料
