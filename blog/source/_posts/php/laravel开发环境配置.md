@@ -110,6 +110,35 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 正常情况下，你只需要在浏览器中，输入`hang.com`就可以了。
 如果有一些文件夹权限的问题，按照错误信息，修改文件夹权限就可以了
 
+## 三、学习框架最好的办法是看源码
+### 3-1、看源码最好的办法，是断点调试
+#### 3-1-1、homestead虚拟机装xdebug
+我使用的homestead【php7.2】虚拟机中，没有安装xdebug，这个可以使用`php -i`，然后导出代码，填写到[xdebug检测](https://xdebug.org/wizard.php)，就可以知道自己有没有安装xdebug了。如果没有安装，顺着官网指导，安装。
+
+#### 3-1-2、配置xdebug
+新建`/etc/php/7.2/fpm/conf.d/20-xdebug.ini`,添加内容如下：
+```
+zend_extension=xdebug.so
+xdebug.remote_enable = 1
+xdebug.remote_connect_back = 1
+xdebug.remote_port = 9000
+xdebug.max_nesting_level = 512
+```
+重启php7.2 `sudo service php7.0-fpm restart`
+
+#### 3-1-3、 Chrome xDebug plugin
+下载谷歌xdebug插件，配置该插件【选中debug模式，在插件配置中，设置phpstorm】
+
+#### 3-1-4、刷新网页
+这个时候，我们应该在phpstorm中，可以看到一个弹窗，设置名字，loaclhost，本地地址
+**phpstorm右上侧，有一个listen xdebug按钮，选中它**
+
+#### 3-1-5、参考资料
+[整体安装思路](https://medium.com/@michalisantoniou6/set-up-xdebug-with-homestead-phpstorm-and-php7-85b5ac8f0c79)
+
+[xdebug安装](https://xdebug.org/wizard.php)
+
+
 
 
 
