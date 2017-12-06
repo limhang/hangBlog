@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lmhang.com/php/laravel开发环境配置.html">
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：laravel环境配置，准备工作都在这里了">
-<meta property="og:updated_time" content="2017-12-06T02:58:09.000Z">
+<meta property="og:updated_time" content="2017-12-06T06:13:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel开发环境配置">
 <meta name="twitter:description" content="缘由：laravel环境配置，准备工作都在这里了">
@@ -429,7 +429,36 @@
 <li>二是。熟悉框架，使用框架。<br>做好上述2步，基本就算会了这门技能，提升主要体现在对框架源码的认知高度，对语言实现运行时的理解。概括为，入门体现在会用该技能解决现实中某种问题；提升体现在知道为什么这样做怎样做到的。</li>
 </ul>
 <p>本文主要总结归纳php-laravel，这门技能【我之前使用过的】 – <code>环境搭建部分</code></p>
-<h2 id="一、vagrant，virtualbox，homestead-box"><a href="#一、vagrant，virtualbox，homestead-box" class="headerlink" title="一、vagrant，virtualbox，homestead.box"></a>一、vagrant，virtualbox，homestead.box</h2><h3 id="1-1、准备工作"><a href="#1-1、准备工作" class="headerlink" title="1-1、准备工作"></a>1-1、准备工作</h3><p>下载vagrant，virtualbox，homestead.box，这三个文件，在我的U盘中，都长期有备份。<br>virtualbox和vagrant的使用，可参考之前写过的vagrant&amp;virtualbox的文章。</p>
+<h2 id="一、vagrant，virtualbox，homestead-box"><a href="#一、vagrant，virtualbox，homestead-box" class="headerlink" title="一、vagrant，virtualbox，homestead.box"></a>一、vagrant，virtualbox，homestead.box</h2><h3 id="1-1、准备工作"><a href="#1-1、准备工作" class="headerlink" title="1-1、准备工作"></a>1-1、准备工作</h3><p>下载vagrant，virtualbox，homestead.box，这三个文件，在我的U盘中，都长期有备份。<br>virtualbox和vagrant的使用，可参考之前写过的<a href="http://blog.coderhelper.cn/%E9%80%9A%E7%94%A8%E6%8A%80%E8%83%BD/varant&amp;virtualBox.html" target="_blank" rel="external">vagrant&amp;virtualbox的文章</a></p>
+<h3 id="1-2、安装laravel官网，配置homestead-box"><a href="#1-2、安装laravel官网，配置homestead-box" class="headerlink" title="1-2、安装laravel官网，配置homestead.box"></a>1-2、安装laravel官网，配置homestead.box</h3><p>我们进入<a href="https://laravel.com/docs/5.5/homestead" target="_blank" rel="external">laravel官网</a>,查看homestead.box的配置。<br>为了以后方便，这里指定接下来使用的box版本号和homestead库分支号。<code>homestead.box-v5.0.1</code>,<code>Homestead库分支-v7.0.1</code></p>
+<ul>
+<li>1.fork下homestead库，这里面有vagrant软件配置项【针对homestead】</li>
+</ul>
+<p>我已经fork了一份，以后可以做完常用配置文件，修改保存，<a href="https://github.com/limhang/homestead" target="_blank" rel="external">地址</a></p>
+<ul>
+<li>2.使用homestead库配置homestead.box</li>
+</ul>
+<p>进入homestead库文件夹，切换好branch dev 【这个分支，是我自己使用的】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout dev</div></pre></td></tr></table></figure></p>
+<p>运行脚本，生成Homestead.yaml,aliases,after.sh，这3个文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Mac / Linux...</div><div class="line">bash init.sh</div><div class="line"></div><div class="line">// Windows...</div><div class="line">init.bat</div></pre></td></tr></table></figure></p>
+<ul>
+<li>3.配置Homestead.yaml文件</li>
+</ul>
+<p>a、设置Homestead.yaml中的Provider配置项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">provider: virtualbox</div></pre></td></tr></table></figure></p>
+<p>b、配置共享文件夹<br>设置Homestead.yaml中的folders配置项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">folders:</div><div class="line">    - map: ~/code</div><div class="line">      to: /home/vagrant/code</div></pre></td></tr></table></figure></p>
+<p>c、配置nginx站点<br>设置Homestead.yaml中的sites配置项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sites:</div><div class="line">    - map: hang.com</div><div class="line">      to: /home/vagrant/code/Laravel/public</div></pre></td></tr></table></figure></p>
+<p>设置本地hosts文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">192.168.10.10  hang.com</div></pre></td></tr></table></figure></p>
+<ul>
+<li>4.加载Vagrant Box<br>在homestead文件夹中，运行<code>vagrant up</code><br>这里一般会出现二个错误，1.提示找不到laravel/homestead的box;2.还是提示找不到laravel/homestead的box</li>
+</ul>
+<p>对于问题一<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在我们使用vagrant box add xx_name file:///xx的时候，我们需要将xx_name 填为laravel/homestead，</div><div class="line">因为在scripts/homestead.rb文件中有名称约束</div></pre></td></tr></table></figure></p>
+<p>对于问题二<br>我们需要修改scripts/homestead.rb文件中的约束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> # Configure The Box</div><div class="line"> config.vm.define settings[&quot;name&quot;] ||= &quot;homestead-7&quot;</div><div class="line"> config.vm.box = settings[&quot;box&quot;] ||= &quot;laravel/homestead&quot;</div><div class="line">#config.vm.box_version = settings[&quot;version&quot;] ||= &quot;&gt;= 4.0.0&quot;</div><div class="line"> config.vm.hostname = settings[&quot;hostname&quot;] ||= &quot;homestead&quot;</div></pre></td></tr></table></figure></p>
+<p>由于我们本地使用的version是0，所以应该将box的版本约束去掉</p>
+<ul>
+<li>5.一些问题<br>a、进行到4步之后，可能遇到一些问题，一般是由于网络因素，所以设置终端走代理，小飞机开全局</li>
+</ul>
+<p>b、我们如果修改homestead中配置项的话，需要执行<code>vagrant reload --provision</code>命令</p>
+<h2 id="二、配置laravel开发环境【虚拟机中】"><a href="#二、配置laravel开发环境【虚拟机中】" class="headerlink" title="二、配置laravel开发环境【虚拟机中】"></a>二、配置laravel开发环境【虚拟机中】</h2><h3 id="2-1、修改虚拟机中的composer镜像"><a href="#2-1、修改虚拟机中的composer镜像" class="headerlink" title="2-1、修改虚拟机中的composer镜像"></a>2-1、修改虚拟机中的composer镜像</h3><p>在虚拟机终端执行下面代码，配置镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</div></pre></td></tr></table></figure></p>
+<h3 id="2-2、开始体验laravel"><a href="#2-2、开始体验laravel" class="headerlink" title="2-2、开始体验laravel"></a>2-2、开始体验laravel</h3><p>正常情况下，你只需要在浏览器中，输入<code>hang.com</code>就可以了。<br>如果有一些文件夹权限的问题，按照错误信息，修改文件夹权限就可以了</p>
 
       
     </div>
@@ -675,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：laravel环境配置，准备工作都在这里了"><span class="nav-number">1.</span> <span class="nav-text">缘由：laravel环境配置，准备工作都在这里了</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、vagrant，virtualbox，homestead-box"><span class="nav-number">1.1.</span> <span class="nav-text">一、vagrant，virtualbox，homestead.box</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、准备工作"><span class="nav-number">1.1.1.</span> <span class="nav-text">1-1、准备工作</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：laravel环境配置，准备工作都在这里了"><span class="nav-number">1.</span> <span class="nav-text">缘由：laravel环境配置，准备工作都在这里了</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、vagrant，virtualbox，homestead-box"><span class="nav-number">1.1.</span> <span class="nav-text">一、vagrant，virtualbox，homestead.box</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、准备工作"><span class="nav-number">1.1.1.</span> <span class="nav-text">1-1、准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、安装laravel官网，配置homestead-box"><span class="nav-number">1.1.2.</span> <span class="nav-text">1-2、安装laravel官网，配置homestead.box</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、配置laravel开发环境【虚拟机中】"><span class="nav-number">1.2.</span> <span class="nav-text">二、配置laravel开发环境【虚拟机中】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、修改虚拟机中的composer镜像"><span class="nav-number">1.2.1.</span> <span class="nav-text">2-1、修改虚拟机中的composer镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2、开始体验laravel"><span class="nav-number">1.2.2.</span> <span class="nav-text">2-2、开始体验laravel</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
