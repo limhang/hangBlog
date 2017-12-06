@@ -6,7 +6,7 @@ categories: php
 ---
 
 # 缘由：laravel环境配置，准备工作都在这里了
-<!--
+<!--more
 版本号：v0.1
 -->
 
