@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="vps使用指南," />
+  <meta name="keywords" content="博客," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="缘由：记录下shadowsocks的基本配置，方便今后查找">
-<meta name="keywords" content="vps使用指南">
+<meta name="description" content="缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。">
+<meta name="keywords" content="博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shadowsocks配置须知">
-<meta property="og:url" content="http://lmhang.com/normalSkill/shadowsocks配置须知.html">
+<meta property="og:title" content="博客搭建">
+<meta property="og:url" content="http://lmhang.com/通用技能/博客搭建.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：记录下shadowsocks的基本配置，方便今后查找">
-<meta property="og:updated_time" content="2017-06-05T08:29:50.000Z">
+<meta property="og:description" content="缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。">
+<meta property="og:updated_time" content="2017-06-05T08:29:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shadowsocks配置须知">
-<meta name="twitter:description" content="缘由：记录下shadowsocks的基本配置，方便今后查找">
+<meta name="twitter:title" content="博客搭建">
+<meta name="twitter:description" content="缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://lmhang.com/normalSkill/shadowsocks配置须知.html"/>
+  <link rel="canonical" href="http://lmhang.com/通用技能/博客搭建.html"/>
 
 
 
 
 
-  <title> shadowsocks配置须知 | 航的小站 </title>
+  <title> 博客搭建 | 航的小站 </title>
 </head>
 
 
@@ -317,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lmhang.com/normalSkill/shadowsocks配置须知.html">
+    <link itemprop="mainEntityOfPage" href="http://lmhang.com/通用技能/博客搭建.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -338,7 +338,7 @@
             
             
               
-                shadowsocks配置须知
+                博客搭建
               
             
           </h1>
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-18T10:08:03+08:00">
-                2017-05-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-07T14:54:35+08:00">
+                2017-04-07
               </time>
             
 
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/normalSkill/shadowsocks配置须知.html#comments" itemprop="discussionUrl">
+                <a href="/通用技能/博客搭建.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="normalSkill/shadowsocks配置须知.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="通用技能/博客搭建.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,11 +422,23 @@
       
 
       
-        <h1 id="缘由：记录下shadowsocks的基本配置，方便今后查找"><a href="#缘由：记录下shadowsocks的基本配置，方便今后查找" class="headerlink" title="缘由：记录下shadowsocks的基本配置，方便今后查找"></a>缘由：记录下shadowsocks的基本配置，方便今后查找</h1><a id="more"></a>
-<h1 id="一、VPS上安装shadowsocks"><a href="#一、VPS上安装shadowsocks" class="headerlink" title="一、VPS上安装shadowsocks"></a>一、VPS上安装shadowsocks</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
-<h1 id="二、配置文件配置"><a href="#二、配置文件配置" class="headerlink" title="二、配置文件配置"></a>二、配置文件配置</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"server"</span>:<span class="string">"138.128.198.147"</span>,</div><div class="line">	<span class="string">"timeout"</span>:<span class="number">600</span>,</div><div class="line">	<span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</div><div class="line">	<span class="string">"port_password"</span>:</div><div class="line">	&#123;</div><div class="line">		<span class="string">"9000"</span>:<span class="string">"hehe"</span>,</div><div class="line">		<span class="string">"9001"</span>:<span class="string">"haha"</span>,</div><div class="line">		<span class="string">"9002"</span>:<span class="string">"xiaozuo"</span>,</div><div class="line">		<span class="string">"9003"</span>:<span class="string">"zhanyuan"</span>,</div><div class="line">		<span class="string">"9004"</span>:<span class="string">"minghang"</span></div><div class="line">	&#125;,</div><div class="line">	<span class="string">"_comment"</span>:</div><div class="line">	&#123;</div><div class="line">		<span class="string">"9000"</span>:<span class="string">"hehe"</span>,</div><div class="line">		<span class="string">"9001"</span>:<span class="string">"haha"</span>,</div><div class="line">		<span class="string">"9002"</span>:<span class="string">"xiaozuo"</span>,</div><div class="line">		<span class="string">"9003"</span>:<span class="string">"zhanyuan"</span>,</div><div class="line">		<span class="string">"9004"</span>:<span class="string">"minghang"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="三、启动服务"><a href="#三、启动服务" class="headerlink" title="三、启动服务"></a>三、启动服务</h1><p>将配置文件保存为/etc/shadowsocks/config.json，然后按配置文件启动shadowsocks：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssserver -c /etc/shadowsocks/config.json -d start</div></pre></td></tr></table></figure></p>
-<p>停止shadowsocks服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssserver -d stop</div></pre></td></tr></table></figure></p>
+        <h1 id="缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。"><a href="#缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。" class="headerlink" title="缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。"></a>缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。</h1><a id="more"></a>
+<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><p>我最早的博客是用的hostinger，一个免费的虚拟主机搭建的。第一个版本是用的WordPress，搭建完成后还是挺开心的，但是根本都没用几天。之后另外一个版本是用php做后端，自己手写前端界面，但是自己做的界面一直都不能让自己满意</p>
+<h2 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h2><p>随着技能树的增多，我想有一个自己的vps，这样方便开发，方便多平台无缝隙切换，这次我是在vps上搭建的博客，起初第一个版本是用的python搭建的后端，之后因为python3在centos6上环境有问题，所以还是作罢，采用php的codeigniter框架从写了博客，前端采用react，做到前后端分离，基本的框架和想法以及自己的技能都够了，但是我发现这还不是我想要的，我写博客，只是方便记录自己而已。没必要弄这么复杂，文字在博客中重要性才是第一的</p>
+<h2 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h2><p>好的。我现在选用hexo与next来搭建了，下面记录下我使用它遇到的一些问题。</p>
+<h3 id="ico图标设置问题"><a href="#ico图标设置问题" class="headerlink" title="ico图标设置问题"></a>ico图标设置问题</h3><p>使用官网的文档，很快就搭建完成了，但是想用自己设计的ico，但是一直弄不成功</p>
+<p>解决办法：</p>
+<ul>
+<li><p>favicon.ico放在主题的source\images下</p>
+</li>
+<li><p>修改主题配置文件：的favicon为images/favicon.ico</p>
+<h3 id="设置项失效"><a href="#设置项失效" class="headerlink" title="设置项失效"></a>设置项失效</h3></li>
+</ul>
+<p>很多的设置项我开始设置的时候都是无效的</p>
+<p>解决办法：</p>
+<p>配置文件中如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">language:zh-Hans</div><div class="line">上述设置就将无效</div><div class="line">language: zh-Hans</div><div class="line">上述设置将成功，区别在于冒号后的空格！！！</div></pre></td></tr></table></figure>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.qingpingshan.com/jianzhan/cms/220885.html" target="_blank" rel="external">hexo下的next搭建</a></p>
 
       
     </div>
@@ -477,7 +489,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vps使用指南/" rel="tag"># vps使用指南</a>
+            <a href="/tags/博客/" rel="tag"># 博客</a>
           
         </div>
       
@@ -490,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/backend/阿里云lumen开发环境配置.html" rel="next" title="阿里云lumen开发环境配置">
-                <i class="fa fa-chevron-left"></i> 阿里云lumen开发环境配置
+              <a href="/web/css基础.html" rel="next" title="css基础">
+                <i class="fa fa-chevron-left"></i> css基础
               </a>
             
           </div>
@@ -499,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/life/对于未知的恐惧.html" rel="prev" title="对于未知的恐惧">
-                对于未知的恐惧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -626,7 +634,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -672,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：记录下shadowsocks的基本配置，方便今后查找"><span class="nav-number">1.</span> <span class="nav-text">缘由：记录下shadowsocks的基本配置，方便今后查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、VPS上安装shadowsocks"><span class="nav-number">2.</span> <span class="nav-text">一、VPS上安装shadowsocks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、配置文件配置"><span class="nav-number">3.</span> <span class="nav-text">二、配置文件配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、启动服务"><span class="nav-number">4.</span> <span class="nav-text">三、启动服务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。"><span class="nav-number">1.</span> <span class="nav-text">缘由：一直都想有一个自己的博客，可以记录下自己的学习和生活，也尝试过好几种搭建博客的方式，今天在此总结记录下吧。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案一"><span class="nav-number">1.1.</span> <span class="nav-text">方案一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案二"><span class="nav-number">1.2.</span> <span class="nav-text">方案二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案三"><span class="nav-number">1.3.</span> <span class="nav-text">方案三</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ico图标设置问题"><span class="nav-number">1.3.1.</span> <span class="nav-text">ico图标设置问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置项失效"><span class="nav-number">1.3.2.</span> <span class="nav-text">设置项失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.3.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -797,9 +805,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lmhang.com/normalSkill/shadowsocks配置须知.html';
-          this.page.identifier = 'normalSkill/shadowsocks配置须知.html';
-          this.page.title = 'shadowsocks配置须知';
+          this.page.url = 'http://lmhang.com/通用技能/博客搭建.html';
+          this.page.identifier = '通用技能/博客搭建.html';
+          this.page.title = '博客搭建';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';

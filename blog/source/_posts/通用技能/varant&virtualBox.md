@@ -1,7 +1,7 @@
 ---
-title: 最强工作环境virtualBox
+title: vagrant&virtualBox
 date: 2017-04-17 10:44:53
-tags: virtualBox
+tags: [virtualBox, vagrant, Hlevel1]
 categories: 通用技能
 ---
 
@@ -11,7 +11,7 @@ categories: 通用技能
 
 # 一、vagrant初级使用指南
 ## 1-1、vagrant与virtualbox简介
-这里有一些概念，我们需要提前弄明白，不然困惑会一直存在。什么是virtualbox，它是一款开源的虚拟机，可在其上运行各种操作系统；什么是virtualbox，它是一款应用软件，通过它用户可以操作各种操作系统。
+这里有一些概念，我们需要提前弄明白，不然困惑会一直存在。什么是virtualbox，它是一款开源的虚拟机，可在其上运行各种操作系统；什么是vagrant，它是一款应用软件，通过它用户可以操作各种操作系统。
 [虚拟机的解释wiki](https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8)
 [virtualbox和vagrant介绍](https://www.taniarascia.com/what-are-vagrant-and-virtualbox-and-how-do-i-use-them/)
 
