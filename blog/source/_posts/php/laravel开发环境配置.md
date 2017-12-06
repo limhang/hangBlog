@@ -1,7 +1,7 @@
 ---
 title: laravel开发环境配置
 date: 2017-12-6 10:44:53
-tags: php laravel homestead
+tags: [php, laravel, homestead]
 categories: php
 ---
 
