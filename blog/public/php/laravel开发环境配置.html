@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="php,laravel,homestead," />
+  <meta name="keywords" content="php,laravel,homestead,phpstorm," />
 
 
 
@@ -88,13 +88,13 @@
 
 
 <meta name="description" content="缘由：laravel环境配置，准备工作都在这里了">
-<meta name="keywords" content="php,laravel,homestead">
+<meta name="keywords" content="php,laravel,homestead,phpstorm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="laravel开发环境配置">
 <meta property="og:url" content="http://lmhang.com/php/laravel开发环境配置.html">
 <meta property="og:site_name" content="航的小站">
 <meta property="og:description" content="缘由：laravel环境配置，准备工作都在这里了">
-<meta property="og:updated_time" content="2017-12-06T09:18:57.000Z">
+<meta property="og:updated_time" content="2017-12-13T11:25:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel开发环境配置">
 <meta name="twitter:description" content="缘由：laravel环境配置，准备工作都在这里了">
@@ -459,13 +459,16 @@
 <p>b、我们如果修改homestead中配置项的话，需要执行<code>vagrant reload --provision</code>命令</p>
 <h2 id="二、配置laravel开发环境【虚拟机中】"><a href="#二、配置laravel开发环境【虚拟机中】" class="headerlink" title="二、配置laravel开发环境【虚拟机中】"></a>二、配置laravel开发环境【虚拟机中】</h2><h3 id="2-1、修改虚拟机中的composer镜像"><a href="#2-1、修改虚拟机中的composer镜像" class="headerlink" title="2-1、修改虚拟机中的composer镜像"></a>2-1、修改虚拟机中的composer镜像</h3><p>在虚拟机终端执行下面代码，配置镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</div></pre></td></tr></table></figure></p>
 <h3 id="2-2、开始体验laravel"><a href="#2-2、开始体验laravel" class="headerlink" title="2-2、开始体验laravel"></a>2-2、开始体验laravel</h3><p>正常情况下，你只需要在浏览器中，输入<code>hang.com</code>就可以了。<br>如果有一些文件夹权限的问题，按照错误信息，修改文件夹权限就可以了</p>
-<h2 id="三、学习框架最好的办法是看源码"><a href="#三、学习框架最好的办法是看源码" class="headerlink" title="三、学习框架最好的办法是看源码"></a>三、学习框架最好的办法是看源码</h2><h3 id="3-1、看源码最好的办法，是断点调试"><a href="#3-1、看源码最好的办法，是断点调试" class="headerlink" title="3-1、看源码最好的办法，是断点调试"></a>3-1、看源码最好的办法，是断点调试</h3><h4 id="3-1-1、homestead虚拟机装xdebug"><a href="#3-1-1、homestead虚拟机装xdebug" class="headerlink" title="3-1-1、homestead虚拟机装xdebug"></a>3-1-1、homestead虚拟机装xdebug</h4><p>我使用的homestead【php7.2】虚拟机中，没有安装xdebug，这个可以使用<code>php -i</code>，然后导出代码，填写到<a href="https://xdebug.org/wizard.php" target="_blank" rel="external">xdebug检测</a>，就可以知道自己有没有安装xdebug了。如果没有安装，顺着官网指导，安装。</p>
+<h2 id="三、学习框架最好的办法是看源码"><a href="#三、学习框架最好的办法是看源码" class="headerlink" title="三、学习框架最好的办法是看源码"></a>三、学习框架最好的办法是看源码</h2><h3 id="3-1、看源码最好的办法，是断点调试-web"><a href="#3-1、看源码最好的办法，是断点调试-web" class="headerlink" title="3-1、看源码最好的办法，是断点调试[web]"></a>3-1、看源码最好的办法，是断点调试[web]</h3><h4 id="3-1-1、homestead虚拟机装xdebug"><a href="#3-1-1、homestead虚拟机装xdebug" class="headerlink" title="3-1-1、homestead虚拟机装xdebug"></a>3-1-1、homestead虚拟机装xdebug</h4><p>我使用的homestead【php7.2】虚拟机中，没有安装xdebug，这个可以使用<code>php -i</code>，然后导出代码，填写到<a href="https://xdebug.org/wizard.php" target="_blank" rel="external">xdebug检测</a>，就可以知道自己有没有安装xdebug了。如果没有安装，顺着官网指导，安装。</p>
 <h4 id="3-1-2、配置xdebug"><a href="#3-1-2、配置xdebug" class="headerlink" title="3-1-2、配置xdebug"></a>3-1-2、配置xdebug</h4><p>新建<code>/etc/php/7.2/fpm/conf.d/20-xdebug.ini</code>,添加内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">zend_extension=xdebug.so</div><div class="line">xdebug.remote_enable = 1</div><div class="line">xdebug.remote_connect_back = 1</div><div class="line">xdebug.remote_port = 9000</div><div class="line">xdebug.max_nesting_level = 512</div></pre></td></tr></table></figure></p>
 <p>重启php7.2 <code>sudo service php7.0-fpm restart</code></p>
 <h4 id="3-1-3、-Chrome-xDebug-plugin"><a href="#3-1-3、-Chrome-xDebug-plugin" class="headerlink" title="3-1-3、 Chrome xDebug plugin"></a>3-1-3、 Chrome xDebug plugin</h4><p>下载谷歌xdebug插件，配置该插件【选中debug模式，在插件配置中，设置phpstorm】</p>
-<h4 id="3-1-4、刷新网页"><a href="#3-1-4、刷新网页" class="headerlink" title="3-1-4、刷新网页"></a>3-1-4、刷新网页</h4><p>这个时候，我们应该在phpstorm中，可以看到一个弹窗，设置名字，loaclhost，本地地址<br><strong>warning:地址设置，一定要注意是输入最外层地址，就是映射地址code</strong><br><strong>phpstorm右上侧，有一个listen xdebug按钮，选中它</strong></p>
+<h4 id="3-1-4、刷新网页"><a href="#3-1-4、刷新网页" class="headerlink" title="3-1-4、刷新网页"></a>3-1-4、刷新网页</h4><p>这个时候，我们应该在phpstorm中，可以看到一个弹窗，设置名字，loaclhost，本地地址</p>
+<p><strong>warning:地址设置，一定要注意是输入最外层地址，就是映射地址code</strong><br><strong>phpstorm右上侧，有一个listen xdebug按钮，选中它</strong></p>
 <h4 id="3-1-5、参考资料"><a href="#3-1-5、参考资料" class="headerlink" title="3-1-5、参考资料"></a>3-1-5、参考资料</h4><p><a href="https://medium.com/@michalisantoniou6/set-up-xdebug-with-homestead-phpstorm-and-php7-85b5ac8f0c79" target="_blank" rel="external">整体安装思路</a></p>
 <p><a href="https://xdebug.org/wizard.php" target="_blank" rel="external">xdebug安装</a></p>
+<h3 id="3-1、看源码最好的办法，是断点调试-api"><a href="#3-1、看源码最好的办法，是断点调试-api" class="headerlink" title="3-1、看源码最好的办法，是断点调试[api]"></a>3-1、看源码最好的办法，是断点调试[api]</h3><p>我们在laravel中写api接口的时候，也有断点调试的需求，比如我们使用postman发送post请求，那么怎么断点调试呢，在上面配置的基础上，只需要将postman中的url加上<code>?XDEBUG_SESSION_START=PHPSTORM</code>，然后在header中加上字段<code>XDEBUG_SESSION=PHPSTORM</code>，例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">url :: hang.com/api/user?XDEBUG_SESSION_START=PHPSTORM</div><div class="line">headers :: XDEBUG_SESSION=PHPSTORM</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -522,6 +525,8 @@
           
             <a href="/tags/homestead/" rel="tag"># homestead</a>
           
+            <a href="/tags/phpstorm/" rel="tag"># phpstorm</a>
+          
         </div>
       
 
@@ -532,6 +537,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/php/wxminiBackendProject.html" rel="next" title="laravel后端api实现教程">
+                <i class="fa fa-chevron-left"></i> laravel后端api实现教程
+              </a>
             
           </div>
 
@@ -643,7 +652,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -665,7 +674,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -711,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：laravel环境配置，准备工作都在这里了"><span class="nav-number">1.</span> <span class="nav-text">缘由：laravel环境配置，准备工作都在这里了</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、vagrant，virtualbox，homestead-box"><span class="nav-number">1.1.</span> <span class="nav-text">一、vagrant，virtualbox，homestead.box</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、准备工作"><span class="nav-number">1.1.1.</span> <span class="nav-text">1-1、准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、安装laravel官网，配置homestead-box"><span class="nav-number">1.1.2.</span> <span class="nav-text">1-2、安装laravel官网，配置homestead.box</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、配置laravel开发环境【虚拟机中】"><span class="nav-number">1.2.</span> <span class="nav-text">二、配置laravel开发环境【虚拟机中】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、修改虚拟机中的composer镜像"><span class="nav-number">1.2.1.</span> <span class="nav-text">2-1、修改虚拟机中的composer镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2、开始体验laravel"><span class="nav-number">1.2.2.</span> <span class="nav-text">2-2、开始体验laravel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、学习框架最好的办法是看源码"><span class="nav-number">1.3.</span> <span class="nav-text">三、学习框架最好的办法是看源码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、看源码最好的办法，是断点调试"><span class="nav-number">1.3.1.</span> <span class="nav-text">3-1、看源码最好的办法，是断点调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1、homestead虚拟机装xdebug"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">3-1-1、homestead虚拟机装xdebug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2、配置xdebug"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">3-1-2、配置xdebug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3、-Chrome-xDebug-plugin"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">3-1-3、 Chrome xDebug plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-4、刷新网页"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">3-1-4、刷新网页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-5、参考资料"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">3-1-5、参考资料</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由：laravel环境配置，准备工作都在这里了"><span class="nav-number">1.</span> <span class="nav-text">缘由：laravel环境配置，准备工作都在这里了</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、vagrant，virtualbox，homestead-box"><span class="nav-number">1.1.</span> <span class="nav-text">一、vagrant，virtualbox，homestead.box</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、准备工作"><span class="nav-number">1.1.1.</span> <span class="nav-text">1-1、准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、安装laravel官网，配置homestead-box"><span class="nav-number">1.1.2.</span> <span class="nav-text">1-2、安装laravel官网，配置homestead.box</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、配置laravel开发环境【虚拟机中】"><span class="nav-number">1.2.</span> <span class="nav-text">二、配置laravel开发环境【虚拟机中】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、修改虚拟机中的composer镜像"><span class="nav-number">1.2.1.</span> <span class="nav-text">2-1、修改虚拟机中的composer镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2、开始体验laravel"><span class="nav-number">1.2.2.</span> <span class="nav-text">2-2、开始体验laravel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、学习框架最好的办法是看源码"><span class="nav-number">1.3.</span> <span class="nav-text">三、学习框架最好的办法是看源码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、看源码最好的办法，是断点调试-web"><span class="nav-number">1.3.1.</span> <span class="nav-text">3-1、看源码最好的办法，是断点调试[web]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1、homestead虚拟机装xdebug"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">3-1-1、homestead虚拟机装xdebug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2、配置xdebug"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">3-1-2、配置xdebug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3、-Chrome-xDebug-plugin"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">3-1-3、 Chrome xDebug plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-4、刷新网页"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">3-1-4、刷新网页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-5、参考资料"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">3-1-5、参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、看源码最好的办法，是断点调试-api"><span class="nav-number">1.3.2.</span> <span class="nav-text">3-1、看源码最好的办法，是断点调试[api]</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

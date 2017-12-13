@@ -1,12 +1,14 @@
 ---
 title: laravel开发环境配置
 date: 2017-12-6 10:44:53
-tags: [php, laravel, homestead]
+tags: [php, laravel, homestead, phpstorm]
 categories: php
 ---
 
 # 缘由：laravel环境配置，准备工作都在这里了
+
 <!--more-->
+
 
 软件工程中，学习一门技能，主要分2部分
 * 一是。搭建环境，学习语言；
@@ -111,7 +113,7 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 如果有一些文件夹权限的问题，按照错误信息，修改文件夹权限就可以了
 
 ## 三、学习框架最好的办法是看源码
-### 3-1、看源码最好的办法，是断点调试
+### 3-1、看源码最好的办法，是断点调试[web]
 #### 3-1-1、homestead虚拟机装xdebug
 我使用的homestead【php7.2】虚拟机中，没有安装xdebug，这个可以使用`php -i`，然后导出代码，填写到[xdebug检测](https://xdebug.org/wizard.php)，就可以知道自己有没有安装xdebug了。如果没有安装，顺着官网指导，安装。
 
@@ -131,6 +133,7 @@ xdebug.max_nesting_level = 512
 
 #### 3-1-4、刷新网页
 这个时候，我们应该在phpstorm中，可以看到一个弹窗，设置名字，loaclhost，本地地址
+
 **warning:地址设置，一定要注意是输入最外层地址，就是映射地址code**
 **phpstorm右上侧，有一个listen xdebug按钮，选中它**
 
@@ -139,7 +142,11 @@ xdebug.max_nesting_level = 512
 
 [xdebug安装](https://xdebug.org/wizard.php)
 
+### 3-1、看源码最好的办法，是断点调试[api]
+我们在laravel中写api接口的时候，也有断点调试的需求，比如我们使用postman发送post请求，那么怎么断点调试呢，在上面配置的基础上，只需要将postman中的url加上`?XDEBUG_SESSION_START=PHPSTORM`，然后在header中加上字段`XDEBUG_SESSION=PHPSTORM`，例子：
 
-
-
+```
+url :: hang.com/api/user?XDEBUG_SESSION_START=PHPSTORM
+headers :: XDEBUG_SESSION=PHPSTORM
+```
 
