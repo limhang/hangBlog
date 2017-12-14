@@ -1,3 +1,10 @@
+---
+title: react开发环境搭建
+date: 2017-12-10 18:49:15
+tags: [前端, react, package webpack]
+categories: 前端
+---
+
 ## 缘由
 这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置
 

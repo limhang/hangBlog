@@ -1,12 +1,13 @@
 ---
 title: 制作centos69box
-date: 2017-12-14 10:44:53
-tags: virtualBox
+date: 2017-12-13 10:44:53
+tags: [virtualbox vagrant]
 categories: 通用技能
 ---
 
 # 缘由：制作centos69box，方便以后日常使用，集成各种开发环境
 
+<!--more-->
 
 # 一、准备工作
 ## 1-1、资源
