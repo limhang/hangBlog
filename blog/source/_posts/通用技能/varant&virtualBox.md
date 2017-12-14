@@ -1,7 +1,7 @@
 ---
 title: vagrant&virtualBox
 date: 2017-04-17 10:44:53
-tags: [virtualBox, vagrant, Hlevel1]
+tags: [virtualBox, vagrant]
 categories: 通用技能
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 制作centos69box
 date: 2017-12-13 10:44:53
-tags: [virtualbox vagrant]
+tags: [virtualbox, vagrant]
 categories: 通用技能
 ---
 

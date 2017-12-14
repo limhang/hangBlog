@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端,react,package webpack," />
+  <meta name="keywords" content="前端,react,package,webpack," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置 一、需要理解的几个名词1-1、npm1-1-1、npm是什么？npm 可以理解成类似于pod的一个包管理工具，方便我们添加删除各种依赖包 1-1-2、package.json是什么？npm包中有一个package.json文件，这个文件是说明项目依赖的第三方库。在">
-<meta name="keywords" content="前端,react,package webpack">
+<meta name="description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置">
+<meta name="keywords" content="前端,react,package,webpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react开发环境搭建">
 <meta property="og:url" content="http://lmhang.com/web/react/react环境搭建.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置 一、需要理解的几个名词1-1、npm1-1-1、npm是什么？npm 可以理解成类似于pod的一个包管理工具，方便我们添加删除各种依赖包 1-1-2、package.json是什么？npm包中有一个package.json文件，这个文件是说明项目依赖的第三方库。在">
-<meta property="og:updated_time" content="2017-12-14T07:31:16.000Z">
+<meta property="og:description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置">
+<meta property="og:updated_time" content="2017-12-14T07:36:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react开发环境搭建">
-<meta name="twitter:description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置 一、需要理解的几个名词1-1、npm1-1-1、npm是什么？npm 可以理解成类似于pod的一个包管理工具，方便我们添加删除各种依赖包 1-1-2、package.json是什么？npm包中有一个package.json文件，这个文件是说明项目依赖的第三方库。在">
+<meta name="twitter:description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置">
 
 
 
@@ -423,6 +423,7 @@
 
       
         <h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置</p>
+<a id="more"></a>
 <h2 id="一、需要理解的几个名词"><a href="#一、需要理解的几个名词" class="headerlink" title="一、需要理解的几个名词"></a>一、需要理解的几个名词</h2><h3 id="1-1、npm"><a href="#1-1、npm" class="headerlink" title="1-1、npm"></a>1-1、npm</h3><h4 id="1-1-1、npm是什么？"><a href="#1-1-1、npm是什么？" class="headerlink" title="1-1-1、npm是什么？"></a>1-1-1、npm是什么？</h4><p>npm 可以理解成类似于pod的一个包管理工具，方便我们添加删除各种依赖包</p>
 <h4 id="1-1-2、package-json是什么？"><a href="#1-1-2、package-json是什么？" class="headerlink" title="1-1-2、package.json是什么？"></a>1-1-2、package.json是什么？</h4><p>npm包中有一个package.json文件，这个文件是说明项目依赖的第三方库。在该文件中，有一个是devDependencies配置项，一个是dependencies配置项，我们知道的，dev是开发环境的意思，我们使用npm和webpack的目的是什么，是需要弄一个bundle文件出来，所以，项目中需要使用的包，我们是用开发环境模式，像css loader ，webpack之类的，是用于打包的，不是用于开发的，所以使用开发模式dev。</p>
 <p>package.json，类似于xcode的<code>podfile</code>。这个文件，说明需要依赖的第三方库，一般将项目中需要使用的放在<code>dependencies</code>这个对象下，将解释编译项目需要用到的第三方放在<code>devDependencies</code>对象下，如<code>babel-core</code>,<code>webpack</code>,<code>webpack-dev-server</code>，这些就是解释编译项目需要用到的。此外，这个文件，还有脚本配置项，<code>scripts</code>对象，主要存放，运行的脚本，<code>npm run scriptName</code>，就可以运行。</p>
@@ -498,7 +499,9 @@
           
             <a href="/tags/react/" rel="tag"># react</a>
           
-            <a href="/tags/package-webpack/" rel="tag"># package webpack</a>
+            <a href="/tags/package/" rel="tag"># package</a>
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -647,7 +650,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
