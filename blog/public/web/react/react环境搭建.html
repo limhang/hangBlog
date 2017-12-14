@@ -1,0 +1,972 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hang, blog" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置 一、需要理解的几个名词1-1、npm1-1-1、npm是什么？npm 可以理解成类似于pod的一个包管理工具，方便我们添加删除各种依赖包 1-1-2、package.json是什么？npm包中有一个package.json文件，这个文件是说明项目依赖的第三方库。在">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="航的小站">
+<meta property="og:url" content="http://lmhang.com/web/react/react环境搭建.html">
+<meta property="og:site_name" content="航的小站">
+<meta property="og:description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置 一、需要理解的几个名词1-1、npm1-1-1、npm是什么？npm 可以理解成类似于pod的一个包管理工具，方便我们添加删除各种依赖包 1-1-2、package.json是什么？npm包中有一个package.json文件，这个文件是说明项目依赖的第三方库。在">
+<meta property="og:updated_time" content="2017-12-08T03:25:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="航的小站">
+<meta name="twitter:description" content="缘由这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置 一、需要理解的几个名词1-1、npm1-1-1、npm是什么？npm 可以理解成类似于pod的一个包管理工具，方便我们添加删除各种依赖包 1-1-2、package.json是什么？npm包中有一个package.json文件，这个文件是说明项目依赖的第三方库。在">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lmhang.com/web/react/react环境搭建.html"/>
+
+
+
+
+
+  <title>  | 航的小站 </title>
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5d03bb1ad9d17d10ede55db86f335a2f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">航的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lmhang.com/web/react/react环境搭建.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李明航">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="航的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T09:21:13+08:00">
+                2017-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/web/react/react环境搭建.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="web/react/react环境搭建.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>这个是web-react的step by step教程，主要介绍搭建react开发环境的各种配置，包含各种sdk配置，第三方包配置</p>
+<h2 id="一、需要理解的几个名词"><a href="#一、需要理解的几个名词" class="headerlink" title="一、需要理解的几个名词"></a>一、需要理解的几个名词</h2><h3 id="1-1、npm"><a href="#1-1、npm" class="headerlink" title="1-1、npm"></a>1-1、npm</h3><h4 id="1-1-1、npm是什么？"><a href="#1-1-1、npm是什么？" class="headerlink" title="1-1-1、npm是什么？"></a>1-1-1、npm是什么？</h4><p>npm 可以理解成类似于pod的一个包管理工具，方便我们添加删除各种依赖包</p>
+<h4 id="1-1-2、package-json是什么？"><a href="#1-1-2、package-json是什么？" class="headerlink" title="1-1-2、package.json是什么？"></a>1-1-2、package.json是什么？</h4><p>npm包中有一个package.json文件，这个文件是说明项目依赖的第三方库。在该文件中，有一个是devDependencies配置项，一个是dependencies配置项，我们知道的，dev是开发环境的意思，我们使用npm和webpack的目的是什么，是需要弄一个bundle文件出来，所以，项目中需要使用的包，我们是用开发环境模式，像css loader ，webpack之类的，是用于打包的，不是用于开发的，所以使用开发模式dev。</p>
+<p>package.json，类似于xcode的<code>podfile</code>。这个文件，说明需要依赖的第三方库，一般将项目中需要使用的放在<code>dependencies</code>这个对象下，将解释编译项目需要用到的第三方放在<code>devDependencies</code>对象下，如<code>babel-core</code>,<code>webpack</code>,<code>webpack-dev-server</code>，这些就是解释编译项目需要用到的。此外，这个文件，还有脚本配置项，<code>scripts</code>对象，主要存放，运行的脚本，<code>npm run scriptName</code>，就可以运行。</p>
+<h3 id="1-2、webpack"><a href="#1-2、webpack" class="headerlink" title="1-2、webpack"></a>1-2、webpack</h3><h4 id="1-2-1、webpack是什么？"><a href="#1-2-1、webpack是什么？" class="headerlink" title="1-2-1、webpack是什么？"></a>1-2-1、webpack是什么？</h4><p>在初学的时候，一直有一个疑惑，npm和webpack到底什么关系，既然有了npm包管理工具了，也就是有了类似pod的工具了，为什么还需要webpack，不能像xcode一样，直接运行跑起来嘛？</p>
+<p>其实，我们虽然有了npm包管理工具，可以很方便的下载第三方使用，但是我们现在写的很多es6语法，是不能被浏览器运行的，例如，谷歌浏览器，也只能做到支持50%的es6语法。而我们常用的import，export语法，其实是es6才支持的，所以我们需要将我们的es6代码转换成es5代码。webpack自带的最基础功能，就是转换es6语法为es5语法。可以理解为，webpack是一个特殊的强大的第三方库。</p>
+<h4 id="1-2-2、webpack-config-js是什么？"><a href="#1-2-2、webpack-config-js是什么？" class="headerlink" title="1-2-2、webpack.config.js是什么？"></a>1-2-2、webpack.config.js是什么？</h4><p>webpack的配置文件，是叫做webpack.config.js。这个里面的配置项，比较多，每个配置项，可以看webpack官方文档，必须看外文的，看中文的，只会更浪费时间。主要的配置，module下的rule，可以添加各种文件(css,jsx,js,scss)的解析，devServer+HotModuleReplacementPlugin热更新。</p>
+<h2 id="二、配置文件，运行环境"><a href="#二、配置文件，运行环境" class="headerlink" title="二、配置文件，运行环境"></a>二、配置文件，运行环境</h2><h3 id="2-1、package-json配置"><a href="#2-1、package-json配置" class="headerlink" title="2-1、package.json配置"></a>2-1、package.json配置</h3><p>在项目目录下，创建package.json，填写以下配置项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">  &quot;name&quot;: &quot;wxminicode&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;&quot;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</div><div class="line">    &quot;build&quot;: &quot;./node_modules/.bin/webpack --config webpack.config.js&quot;,</div><div class="line">    &quot;start&quot;: &quot;./node_modules/.bin/webpack-dev-server&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;keywords&quot;: [],</div><div class="line">  &quot;author&quot;: &quot;&quot;,</div><div class="line">  &quot;license&quot;: &quot;ISC&quot;,</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;babel-core&quot;: &quot;^6.26.0&quot;,</div><div class="line">    &quot;babel-loader&quot;: &quot;^7.1.2&quot;,</div><div class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;,</div><div class="line">    &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;,</div><div class="line">    &quot;css-loader&quot;: &quot;^0.28.7&quot;,</div><div class="line">    &quot;node-sass&quot;: &quot;^4.7.2&quot;,</div><div class="line">    &quot;sass-loader&quot;: &quot;^6.0.6&quot;,</div><div class="line">    &quot;style-loader&quot;: &quot;^0.19.0&quot;,</div><div class="line">    &quot;webpack&quot;: &quot;^3.8.1&quot;,</div><div class="line">    &quot;webpack-dev-server&quot;: &quot;^2.9.4&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;eventemitter3&quot;: &quot;^1.1.1&quot;,</div><div class="line">    &quot;lodash&quot;: &quot;^4.17.4&quot;,</div><div class="line">    &quot;react&quot;: &quot;^16.1.1&quot;,</div><div class="line">    &quot;react-dom&quot;: &quot;^16.1.1&quot;,</div><div class="line">    &quot;react-transition-group&quot;: &quot;^1.2.1&quot;                                      </div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中<code>react-transition-group</code>是我组件化中依赖的库，版本为<code>1.2.1</code><br>然后执行<code>npm install</code></p>
+<p><strong>warning:</strong>由于防火长城的存在，所以一定要配置npm的镜像。</p>
+<h3 id="2-2、webpack-config-js配置"><a href="#2-2、webpack-config-js配置" class="headerlink" title="2-2、webpack.config.js配置"></a>2-2、webpack.config.js配置</h3><p>在项目目录下，创建webpack.config.js，填写以下配置项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">const path = require(&apos;path&apos;);</div><div class="line">const webpack = require(&apos;webpack&apos;);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">  entry: &apos;./src/index.js&apos;,</div><div class="line">  devServer: &#123;</div><div class="line">    contentBase: &apos;./dist&apos;,</div><div class="line">    hot: true</div><div class="line">  &#125;,</div><div class="line">  plugins: [</div><div class="line">   new webpack.NamedModulesPlugin(),</div><div class="line">   new webpack.HotModuleReplacementPlugin()</div><div class="line">  ],</div><div class="line">  output: &#123;</div><div class="line">    filename: &apos;bundle.js&apos;,</div><div class="line">    path: path.resolve(__dirname, &apos;dist&apos;)</div><div class="line">  &#125;,</div><div class="line">  devtool: &quot;eval-source-map&quot;,</div><div class="line">  module: &#123;</div><div class="line">     rules: [</div><div class="line">       &#123;</div><div class="line">         test: /\.css$/,</div><div class="line">         use: [</div><div class="line">           &apos;style-loader&apos;,</div><div class="line">           &apos;css-loader&apos;</div><div class="line">         ]</div><div class="line">       &#125;,</div><div class="line">       &#123;</div><div class="line">          test: /\.scss$/,</div><div class="line">          use: [&#123;</div><div class="line">              loader: &quot;style-loader&quot; // creates style nodes from JS strings</div><div class="line">          &#125;, &#123;</div><div class="line">              loader: &quot;css-loader&quot; // translates CSS into CommonJS</div><div class="line">          &#125;, &#123;</div><div class="line">              loader: &quot;sass-loader&quot; // compiles Sass to CSS</div><div class="line">          &#125;]</div><div class="line">        &#125;,</div><div class="line">       &#123;</div><div class="line">        test: /\.(js|jsx)$/,</div><div class="line">        exclude: /node_modules/, // 这里面的不解析</div><div class="line">        loader: &apos;babel-loader&apos;,</div><div class="line">        query:</div><div class="line">          &#123;</div><div class="line">            presets:[&apos;es2015&apos;, &apos;react&apos;]</div><div class="line">          &#125;</div><div class="line">       &#125;</div><div class="line">     ]</div><div class="line">  &#125;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="2-3、安装上述配置文件，完善工程目录配置"><a href="#2-3、安装上述配置文件，完善工程目录配置" class="headerlink" title="2-3、安装上述配置文件，完善工程目录配置"></a>2-3、安装上述配置文件，完善工程目录配置</h3><p>仔细看上述的<code>webpack.config.js</code>文件，我们可以知道，入口文件是当前目录下的<code>./src/index.js</code>，然后生成的bundle.js位于<code>dist</code>中。</p>
+<p>这里需要介绍下整个webpack工作流程，可自行参考webpack官网。</p>
+<p>webpack首先进入entry配置下的文件，也就是<code>./src/index.js</code>。运行该文件后，可以得知项目所有依赖关系，然后生成一个bundle文件。上述的webpack.config.js中有配置devServer，其中指定dist为开始路径文件，故在dist文件中找index执行。</p>
+<h4 id="2-3-1、入口文件配置"><a href="#2-3-1、入口文件配置" class="headerlink" title="2-3-1、入口文件配置"></a>2-3-1、入口文件配置</h4><p>经过上述webpack运行原理阐述之后，我们需要创建一个<code>./src/index.js</code>入口文件，该文件就是我们es6，react写法的开端。示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import ReactDOM from &apos;react-dom&apos;;</div><div class="line">import React from &apos;react&apos;;</div><div class="line"></div><div class="line">let first = &apos;xiaozuo&apos;;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;div&gt;&#123;first&#125;&lt;/div&gt;,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h4 id="2-3-2、启动文件（index-html）"><a href="#2-3-2、启动文件（index-html）" class="headerlink" title="2-3-2、启动文件（index.html）"></a>2-3-2、启动文件（index.html）</h4><p>这里开始添加devservice启动文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;xxx&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</div><div class="line">	&lt;script src=&quot;./bundle.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h4 id="2-4、配置完成，检验效果"><a href="#2-4、配置完成，检验效果" class="headerlink" title="2-4、配置完成，检验效果"></a>2-4、配置完成，检验效果</h4><p>在项目根目录下，执行<code>npm run build</code>命令，生成bundle文件，然后执行<code>npm run start</code>命令，开始devservice服务，在没开全局网络代理下，浏览器输入<code>localhost:8080</code>，就能看到<code>xiaozuo</code>这个结果了。</p>
+<p>如果一切顺利，您就搭建完成了基本的react开发环境了。如遇不顺，可参考官方文档，逐条排查，切记，混英文社区。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ok2nitkry.bkt.clouddn.com/wechatPay.png.png" alt="李明航 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ok2nitkry.bkt.clouddn.com/aliPay.png.png" alt="李明航 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/php/wxminiBackendProject.html" rel="next" title="laravel后端api实现教程">
+                <i class="fa fa-chevron-left"></i> laravel后端api实现教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/php/laravel开发环境配置.html" rel="prev" title="laravel开发环境配置">
+                laravel开发环境配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="李明航" />
+          <p class="site-author-name" itemprop="name">李明航</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/limhang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘由"><span class="nav-number">1.</span> <span class="nav-text">缘由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、需要理解的几个名词"><span class="nav-number">2.</span> <span class="nav-text">一、需要理解的几个名词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、npm"><span class="nav-number">2.1.</span> <span class="nav-text">1-1、npm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1、npm是什么？"><span class="nav-number">2.1.1.</span> <span class="nav-text">1-1-1、npm是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2、package-json是什么？"><span class="nav-number">2.1.2.</span> <span class="nav-text">1-1-2、package.json是什么？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、webpack"><span class="nav-number">2.2.</span> <span class="nav-text">1-2、webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1、webpack是什么？"><span class="nav-number">2.2.1.</span> <span class="nav-text">1-2-1、webpack是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2、webpack-config-js是什么？"><span class="nav-number">2.2.2.</span> <span class="nav-text">1-2-2、webpack.config.js是什么？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、配置文件，运行环境"><span class="nav-number">3.</span> <span class="nav-text">二、配置文件，运行环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、package-json配置"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、package.json配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2、webpack-config-js配置"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、webpack.config.js配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3、安装上述配置文件，完善工程目录配置"><span class="nav-number">3.3.</span> <span class="nav-text">2-3、安装上述配置文件，完善工程目录配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1、入口文件配置"><span class="nav-number">3.3.1.</span> <span class="nav-text">2-3-1、入口文件配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2、启动文件（index-html）"><span class="nav-number">3.3.2.</span> <span class="nav-text">2-3-2、启动文件（index.html）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4、配置完成，检验效果"><span class="nav-number">3.3.3.</span> <span class="nav-text">2-4、配置完成，检验效果</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李明航</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://lmhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://lmhang.com/web/react/react环境搭建.html';
+          this.page.identifier = 'web/react/react环境搭建.html';
+          this.page.title = '';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lmhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
