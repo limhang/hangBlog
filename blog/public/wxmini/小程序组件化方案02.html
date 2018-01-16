@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="api,php,laravel,教程," />
+  <meta name="keywords" content="小程序,前端,组件化,wux," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="缘由：写这篇文章，主要是想记录常见的api后台接口实现步骤，以后按照该文档，step by step就可以实现我其他项目的api接口了。其作用等同于前端的组件化方案【所以必须尽可能详尽】。">
-<meta name="keywords" content="api,php,laravel,教程">
+<meta name="description" content="缘由本章节以button组件为例，串讲组件定制过程。">
+<meta name="keywords" content="小程序,前端,组件化,wux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="laravel后端api实现教程">
-<meta property="og:url" content="http://lmhang.com/php/wxminiBackendProject.html">
+<meta property="og:title" content="小程序组件化方案02">
+<meta property="og:url" content="http://lmhang.com/wxmini/小程序组件化方案02.html">
 <meta property="og:site_name" content="航的小站">
-<meta property="og:description" content="缘由：写这篇文章，主要是想记录常见的api后台接口实现步骤，以后按照该文档，step by step就可以实现我其他项目的api接口了。其作用等同于前端的组件化方案【所以必须尽可能详尽】。">
-<meta property="og:updated_time" content="2017-12-13T11:29:51.000Z">
+<meta property="og:description" content="缘由本章节以button组件为例，串讲组件定制过程。">
+<meta property="og:updated_time" content="2018-01-16T07:02:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="laravel后端api实现教程">
-<meta name="twitter:description" content="缘由：写这篇文章，主要是想记录常见的api后台接口实现步骤，以后按照该文档，step by step就可以实现我其他项目的api接口了。其作用等同于前端的组件化方案【所以必须尽可能详尽】。">
+<meta name="twitter:title" content="小程序组件化方案02">
+<meta name="twitter:description" content="缘由本章节以button组件为例，串讲组件定制过程。">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://lmhang.com/php/wxminiBackendProject.html"/>
+  <link rel="canonical" href="http://lmhang.com/wxmini/小程序组件化方案02.html"/>
 
 
 
 
 
-  <title> laravel后端api实现教程 | 航的小站 </title>
+  <title> 小程序组件化方案02 | 航的小站 </title>
 </head>
 
 
@@ -317,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lmhang.com/php/wxminiBackendProject.html">
+    <link itemprop="mainEntityOfPage" href="http://lmhang.com/wxmini/小程序组件化方案02.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李明航">
@@ -338,7 +338,7 @@
             
             
               
-                laravel后端api实现教程
+                小程序组件化方案02
               
             
           </h1>
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T10:44:53+08:00">
-                2017-12-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T20:49:15+08:00">
+                2018-01-11
               </time>
             
 
@@ -376,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
+                  <a href="/categories/小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
                   </a>
                 </span>
 
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/php/wxminiBackendProject.html#comments" itemprop="discussionUrl">
+                <a href="/wxmini/小程序组件化方案02.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="php/wxminiBackendProject.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="wxmini/小程序组件化方案02.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,32 +422,17 @@
       
 
       
-        <h2 id="缘由："><a href="#缘由：" class="headerlink" title="缘由："></a>缘由：</h2><p>写这篇文章，主要是想记录常见的api后台接口实现步骤，以后按照该文档，step by step就可以实现我其他项目的api接口了。其作用等同于前端的组件化方案【所以必须尽可能详尽】。</p>
+        <h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>本章节以<code>button</code>组件为例，串讲组件定制过程。</p>
 <a id="more"></a>
-<p>开始前工作</p>
-<ul>
-<li>laravel/homestead.box文件</li>
-<li>virtualbox和vagrant软件</li>
-<li>phpstorm软件和xdebug配置 – 【已写了详细文档】</li>
-</ul>
-<h2 id="一、在虚拟机中搭建laravel应用"><a href="#一、在虚拟机中搭建laravel应用" class="headerlink" title="一、在虚拟机中搭建laravel应用"></a>一、在虚拟机中搭建laravel应用</h2><h3 id="1-1、laravel应用安装"><a href="#1-1、laravel应用安装" class="headerlink" title="1-1、laravel应用安装"></a>1-1、laravel应用安装</h3><p>在虚拟机中，执行<code>composer create-project --prefer-dist laravel/laravel wxminibackend</code>命令，生成一个wxminibackend的文件夹【就是我们的应用】，在浏览器中输入，我们配置好的网址，如果出现laravel官方页面，则配置成功。</p>
-<p><strong>warning:如果配置了xdebug，需要重新启动phpstorm</strong></p>
-<h3 id="1-2、mvc整体框架"><a href="#1-2、mvc整体框架" class="headerlink" title="1-2、mvc整体框架"></a>1-2、mvc整体框架</h3><p>在应用搭建过程中，我们选择主流的方案，mvc，由于我们是写api接口，所以不会涉及到view，所以重点在于controller和model。</p>
-<h3 id="1-3、model搭建"><a href="#1-3、model搭建" class="headerlink" title="1-3、model搭建"></a>1-3、model搭建</h3><h4 id="a、数据库设置"><a href="#a、数据库设置" class="headerlink" title="a、数据库设置"></a>a、数据库设置</h4><p>laravel应用中，数据库设置项位于.env中，我们自定义数据库名称，管理员账号和密码，这里设置数据库名称为<code>wxminicode</code></p>
-<h4 id="b、使用cli生成数据库表的模板"><a href="#b、使用cli生成数据库表的模板" class="headerlink" title="b、使用cli生成数据库表的模板"></a>b、使用cli生成数据库表的模板</h4><p>执行<code>php artisan make:model wxuser -m</code>命令，生成<code>wxuser表</code>，我们可以使用<code>php artisan help make:model</code>命令查看刚刚<code>-m</code>参数是什么意思。其实<code>-m</code>就是migrations的意思，生成一个数据表模板，为实际生成数据库表，做准备。</p>
-<h4 id="c、完善刚刚生成的数据库模板"><a href="#c、完善刚刚生成的数据库模板" class="headerlink" title="c、完善刚刚生成的数据库模板"></a>c、完善刚刚生成的数据库模板</h4><p>在b中，我们生成了<code>wxminibackend/database/migrations/time_wxusers</code>文件，其中已经有3个列的数据项，<code>created_at</code>,<code>updated_at</code>,<code>id</code>,其中<code>increments</code>函数是控制id的，<code>timestamps</code>函数是控制另外两个时间项的。<br>由于，我们项目需要<code>userId</code>，<code>userName</code>，<code>vip</code>这三个数据项，所以添加代码如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Schema::create(<span class="string">'w_x_users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;increments(<span class="string">'id'</span>);</div><div class="line">        $table-&gt;timestamps();</div><div class="line">        $table-&gt;string(<span class="string">'userId'</span>);</div><div class="line">        $table-&gt;string(<span class="string">'userName'</span>);</div><div class="line">        $table-&gt;boolean(<span class="string">'vip'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="d、生成数据表"><a href="#d、生成数据表" class="headerlink" title="d、生成数据表"></a>d、生成数据表</h4><p>由于，我们使用了新的数据库，wxminicode，但是用户homestead可能没有权限新建这个数据库，所以我们需要在虚拟机中，手动创建该数据库。<br>执行<code>php artisan migrate</code>命令，则在数据库中，生成WXUser表。</p>
-<h4 id="e、数据字段安全"><a href="#e、数据字段安全" class="headerlink" title="e、数据字段安全"></a>e、数据字段安全</h4><p>对于数据库安全，可以设置过滤条件，将下面代码添加到wxuser.php中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">protected $fillable = [&apos;userName&apos;, &apos;userId&apos;, &apos;vip&apos;];</div></pre></td></tr></table></figure></p>
-<h4 id="f、重新归档文件位置"><a href="#f、重新归档文件位置" class="headerlink" title="f、重新归档文件位置"></a>f、重新归档文件位置</h4><p>将wxuser.php统一放到app\model下</p>
-<h3 id="1-4、路由搭建"><a href="#1-4、路由搭建" class="headerlink" title="1-4、路由搭建"></a>1-4、路由搭建</h3><p>路由就是用户输入请求的接口，路由的设计，也就是整个后端设计的体现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//上传用户个人信息，将数据处理部分，下发给控制器 -- 【联动UserController中的insertUser方法】</div><div class="line">Route::post(&apos;user&apos;,&apos;UserController@insertUser&apos;);</div></pre></td></tr></table></figure></p>
-<h3 id="1-5、控制器设计"><a href="#1-5、控制器设计" class="headerlink" title="1-5、控制器设计"></a>1-5、控制器设计</h3><p>执行<code>php artisan make:controller UserController</code>，生成UserController，以便处理user路由下发的逻辑。<br>在<code>app/Http/Controllers/UserController.php</code>中添加下面代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Model</span>\<span class="title">wxuser</span>;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insertUser</span><span class="params">(Request $request)</span></span></div><div class="line">    &#123;</div><div class="line">        $info = wxuser::create($request-&gt;all());</div><div class="line">        <span class="keyword">return</span> response()-&gt;json($info,<span class="number">200</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="二、参考"><a href="#二、参考" class="headerlink" title="二、参考"></a>二、参考</h2><p>useful information about laravel framework</p>
-<h3 id="2-1、service-container-amp-service-provider-practice"><a href="#2-1、service-container-amp-service-provider-practice" class="headerlink" title="2-1、service container &amp; service provider [practice]"></a>2-1、service container &amp; service provider [practice]</h3><p><a href="https://code.tutsplus.com/tutorials/how-to-register-use-laravel-service-providers--cms-28966" target="_blank" rel="external">how to register &amp; use laravel service provider</a></p>
-<p>Through this article you could understand what is service container and what is service provider.<br>Read it step by step you can register service provider and use it accurately.</p>
-<h3 id="2-2、routers-Built-a-react-APP-with-a-laravel-restful-backend"><a href="#2-2、routers-Built-a-react-APP-with-a-laravel-restful-backend" class="headerlink" title="2-2、routers [Built a react APP with a laravel restful backend]"></a>2-2、routers [Built a react APP with a laravel restful backend]</h3><p><a href="https://code.tutsplus.com/tutorials/build-a-react-app-with-laravel-restful-backend-part-1-laravel-5-api--cms-29442" target="_blank" rel="external">part 1,laravel 5.5API </a></p>
-<p>Through this article you will create your own restful API .</p>
+<h2 id="一、通过基类，实例组件"><a href="#一、通过基类，实例组件" class="headerlink" title="一、通过基类，实例组件"></a>一、通过基类，实例组件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> component = <span class="keyword">new</span> Component(&#123;</div><div class="line">       <span class="attr">scope</span>: <span class="string">`$wux.button.<span class="subst">$&#123;id&#125;</span>`</span>, </div><div class="line">       <span class="attr">data</span>: options, </div><div class="line">       <span class="attr">methods</span>: &#123; <span class="comment">/*somethings*/</span></div><div class="line">   &#125;)</div></pre></td></tr></table></figure>
+<p>通过基类，实例化组件，大括号下的字典，就是传给基类的<code>options</code>。其中<code>data</code>，就是基类中的<code>options.data</code>，<code>methods</code>就是基类中的<code>options.methods</code>。</p>
+<h2 id="二、初始化data数据"><a href="#二、初始化data数据" class="headerlink" title="二、初始化data数据"></a>二、初始化data数据</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">setDefaults() &#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">           <span class="attr">className</span>: <span class="literal">undefined</span>, </div><div class="line">           <span class="attr">position</span>: <span class="string">`bottomRight`</span>, </div><div class="line">		<span class="attr">backdrop</span>: !<span class="number">1</span>, </div><div class="line">		<span class="attr">buttons</span>: [], </div><div class="line">           buttonClicked() &#123;&#125;, </div><div class="line">		callback() &#123;&#125;, </div><div class="line">	&#125;</div><div class="line">   &#125;,</div><div class="line"></div><div class="line"><span class="keyword">const</span> options = <span class="built_in">Object</span>.assign(&#123;</div><div class="line">       <span class="attr">animateCss</span>: <span class="literal">undefined</span>, </div><div class="line">       <span class="attr">visible</span>: !<span class="number">1</span>, </div><div class="line">   &#125;, <span class="keyword">this</span>.setDefaults(), opts)</div></pre></td></tr></table></figure>
+<p>上述代码中，opts，就是外界可配置的属性。其中可包含<code>funtion</code>类型变量，<code>buttonClicked</code>。</p>
+<h2 id="三、初始化methods方法"><a href="#三、初始化methods方法" class="headerlink" title="三、初始化methods方法"></a>三、初始化methods方法</h2><p>记得我们在基类章节中所说嘛，对于options中存在的<code>function</code>，我们需要在<code>methods</code>中重写一遍。在<code>data</code>中，其实该组件是支持配置点击<code>button</code>的<code>function</code>的，所以我们在<code>methods</code>中，也需要定义该方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">buttonClicked (e) &#123;</div><div class="line">    <span class="keyword">const</span> index = e.currentTarget.dataset.index</div><div class="line">    <span class="keyword">if</span> (options.buttonClicked(index, options.buttons[index]) === <span class="literal">true</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.close()</div><div class="line">    &#125;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>上述代码，就是定义在<code>methods</code>下的<code>function</code>，其中<code>options.buttonClicked(index, options.buttons[index])</code>，其实就是在调用<code>data</code>中或者说外界配置的<code>buttonClicked</code>。</p>
+<h2 id="四、wxml文件编写"><a href="#四、wxml文件编写" class="headerlink" title="四、wxml文件编写"></a>四、wxml文件编写</h2><p>目前主流的<code>wxminicode</code>组件化方案，都是采用<code>template</code>模式。我们在基类章节中，已经分析过组件的属性和方法，已经注入到<code>page</code>中。所以，<code>wxml</code>大可，直接使用。由于存在一个页面，使用同一组件多次的情况，所以在外界初始化组件过程中，需要传入一个<code>id</code>参数，该参数加上组件定义的命名空间，就构成了唯一标识符。</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>主流小程序组件化方案，<code>有赞</code>，<code>微信官方</code>，<code>美味不用等</code>……</p>
 
       
     </div>
@@ -498,13 +483,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/api/" rel="tag"># api</a>
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
           
-            <a href="/tags/php/" rel="tag"># php</a>
+            <a href="/tags/前端/" rel="tag"># 前端</a>
           
-            <a href="/tags/laravel/" rel="tag"># laravel</a>
+            <a href="/tags/组件化/" rel="tag"># 组件化</a>
           
-            <a href="/tags/教程/" rel="tag"># 教程</a>
+            <a href="/tags/wux/" rel="tag"># wux</a>
           
         </div>
       
@@ -517,18 +502,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/web/react/react环境搭建.html" rel="next" title="react开发环境搭建">
-                <i class="fa fa-chevron-left"></i> react开发环境搭建
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/php/laravel开发环境配置.html" rel="prev" title="laravel开发环境配置">
-                laravel开发环境配置 <i class="fa fa-chevron-right"></i>
+              <a href="/wxmini/小程序组件化方案01.html" rel="prev" title="小程序组件化方案01">
+                小程序组件化方案01 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -699,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘由："><span class="nav-number">1.</span> <span class="nav-text">缘由：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、在虚拟机中搭建laravel应用"><span class="nav-number">2.</span> <span class="nav-text">一、在虚拟机中搭建laravel应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、laravel应用安装"><span class="nav-number">2.1.</span> <span class="nav-text">1-1、laravel应用安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、mvc整体框架"><span class="nav-number">2.2.</span> <span class="nav-text">1-2、mvc整体框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3、model搭建"><span class="nav-number">2.3.</span> <span class="nav-text">1-3、model搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a、数据库设置"><span class="nav-number">2.3.1.</span> <span class="nav-text">a、数据库设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b、使用cli生成数据库表的模板"><span class="nav-number">2.3.2.</span> <span class="nav-text">b、使用cli生成数据库表的模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c、完善刚刚生成的数据库模板"><span class="nav-number">2.3.3.</span> <span class="nav-text">c、完善刚刚生成的数据库模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d、生成数据表"><span class="nav-number">2.3.4.</span> <span class="nav-text">d、生成数据表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#e、数据字段安全"><span class="nav-number">2.3.5.</span> <span class="nav-text">e、数据字段安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f、重新归档文件位置"><span class="nav-number">2.3.6.</span> <span class="nav-text">f、重新归档文件位置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4、路由搭建"><span class="nav-number">2.4.</span> <span class="nav-text">1-4、路由搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5、控制器设计"><span class="nav-number">2.5.</span> <span class="nav-text">1-5、控制器设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、参考"><span class="nav-number">3.</span> <span class="nav-text">二、参考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、service-container-amp-service-provider-practice"><span class="nav-number">3.1.</span> <span class="nav-text">2-1、service container & service provider [practice]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2、routers-Built-a-react-APP-with-a-laravel-restful-backend"><span class="nav-number">3.2.</span> <span class="nav-text">2-2、routers [Built a react APP with a laravel restful backend]</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘由"><span class="nav-number">1.</span> <span class="nav-text">缘由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、通过基类，实例组件"><span class="nav-number">2.</span> <span class="nav-text">一、通过基类，实例组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、初始化data数据"><span class="nav-number">3.</span> <span class="nav-text">二、初始化data数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、初始化methods方法"><span class="nav-number">4.</span> <span class="nav-text">三、初始化methods方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、wxml文件编写"><span class="nav-number">5.</span> <span class="nav-text">四、wxml文件编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">6.</span> <span class="nav-text">补充</span></a></li></ol></div>
             
 
           </div>
@@ -824,9 +805,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lmhang.com/php/wxminiBackendProject.html';
-          this.page.identifier = 'php/wxminiBackendProject.html';
-          this.page.title = 'laravel后端api实现教程';
+          this.page.url = 'http://lmhang.com/wxmini/小程序组件化方案02.html';
+          this.page.identifier = 'wxmini/小程序组件化方案02.html';
+          this.page.title = '小程序组件化方案02';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lmhang.disqus.com/embed.js';
